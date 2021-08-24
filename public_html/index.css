@@ -1,0 +1,245 @@
+html {
+    width: 100vw;
+}
+
+html,
+body {
+    text-align: center;
+    color: #ffffff;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+}
+
+::-moz-selection,
+::selection {
+  background: #ffffff;
+}
+
+header {
+    background-color: rgb(206, 206, 206);
+    background-color: rgba(206, 206, 206, 0.42);
+    backdrop-filter: blur(1px);
+    height: 8vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#menu-button {
+    position: absolute;
+}
+
+.ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 8vh;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.ham .line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #000000;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+.ham1 .top {
+  stroke-dasharray: 40 139;
+}
+.ham1 .bottom {
+  stroke-dasharray: 40 180;
+}
+.ham1.active .top {
+  stroke-dashoffset: -98px;
+}
+.ham1.active .bottom {
+  stroke-dashoffset: -138px;
+}
+
+#sidebar {
+    backdrop-filter: blur(1px);
+    background-color: rgb(206, 206, 206);
+    background-color: rgba(206, 206, 206, 0.42);
+    bottom: 0;
+    left:0;
+    max-width: 100%;
+    min-width: 300px;
+    position: absolute;
+    top: 8vh;
+    width: 30%;
+}
+
+footer {
+    bottom: 10%;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
+
+.buttons {
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px 10px 0 0;
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.buttons li {
+    display: inline-block;
+    margin: 0 2vw;
+    padding: 0;
+    pointer-events: all;
+    position: relative;
+    transition: all 0.2s ease 0s;
+}
+
+.buttons li a.page-link {
+    color: #ffffff;
+    backdrop-filter: blur(2px);
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 30px;
+    height: 33px;
+    width: 5vw;
+    max-width: 75px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgb(0, 255, 186);
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.2s ease 0s;
+}
+
+.buttons li.active a.page-link,
+.buttons li a.page-link:hover,
+.buttons li.active a.page-link:hover {
+    color: #fff;
+    background: rgb(0, 255, 186);
+    line-height: 38px;
+    height: 41px;
+    margin: -5px 0 -3px;
+    border: 1px solid rgb(0, 255, 186);
+    transition: all 0.3s ease 0s;
+}
+
+@media only screen and (max-width: 480px){
+    .buttons {
+        font-size: 0;
+        display: block;
+    }
+    .buttons li{ display: inline-block; }
+}
+
+
+
+h1 {
+    font-size: 3vmin;
+}
+
+h2 {
+    font-size: 2.2vmin;
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+#title {
+    color: black;
+    display: inline;
+    float: none;
+    padding: 1.5vh;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transform: translate(-50%, 0%);
+}
+
+#info {
+    margin: 1.5vh;
+    right: 0%;
+    height: 5vh;
+    position: absolute;
+    top: 8vh;
+    width: 5vh;
+}
+
+#info:hover {
+    fill: rgb(0, 255, 186);
+    cursor: pointer;
+}
+
+.info path {
+    fill: inherit;
+    width: auto;
+}
+
+/*Displays button labels on hover*/
+a.page-link:hover + .button-title
+{
+    display: block;
+}
+
+.button-title {
+    bottom: 2%;
+    display: none;
+    left: 0;
+    position: fixed;
+    transition: 1000ms;    
+    width: 100%;
+}
+
+.dropup-content {
+    backdrop-filter: blur(2px);
+    border: 1px solid rgb(0, 255, 186);
+    border-radius: 5px;
+    bottom: 40px;
+    display: none;
+    margin: auto auto;
+    overflow: hidden;
+    position: absolute;
+    width: auto;
+    z-index: 1;
+    }
+
+/* Links inside the dropup */
+.dropup-content a {
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropup links on hover */
+.dropup-content a:hover {
+    background-color: rgb(0, 255, 186);
+}
+
+/* Show the dropup menu on hover */
+.button:hover .dropup-content,
+.page-link:focus ~ .dropup-content{
+    display: block;
+}
+
+/*
+.noClick {
+    pointer-events: none;
+}*/

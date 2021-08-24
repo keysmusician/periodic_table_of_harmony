@@ -1,0 +1,102 @@
+#diagram {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#canvas {
+    background-color: rgb(38, 38, 38);
+    height: 100%;
+    width: 100%;
+    pointer-events:;
+    margin: 0px;
+    padding: 0px;
+}
+
+.contiguous-semitones {
+    opacity: 35%;
+}
+
+.arc-label {
+    font-family: sans-serif;
+    text-anchor: middle;
+    font-size: 18px;
+}
+
+.node-label {
+    font-family: sans-serif;
+    font-size: 25px;
+    text-anchor: middle;
+    fill: rgb(0, 255, 186);
+}
+
+.io-label {
+    font-size: 25px;
+    fill: rgb(0, 255, 186);
+}
+
+.donut-arcs {
+    fill: rgba(208, 208, 208, 0.8);
+    stroke: rgb(255, 255, 255);
+    stroke-width: 2.5;
+}
+
+.note-arcs {
+    fill: rgba(208, 208, 208, 0.8);
+    stroke: rgb(255, 255, 255);
+    stroke-width: 2.5;
+}
+
+.note-name-label{
+    fill: white;
+    text-anchor: middle;
+}
+
+.saturated .donut-arcs{
+    stroke: rgba(255, 255, 255, 0.8);
+    fill: rgba(170, 255, 232, 0.8);
+}
+
+.donut-hole {
+    display: none;
+    fill: rgba(208, 208, 208, 0.79)
+}
+
+.node.hover {
+    font-weight: bold;
+}
+
+.links {
+    stroke: rgb(255, 255, 255);
+    stroke-width: .4;
+    pointer-events: none;
+}
+
+.links .hover {
+    stroke-width: 2;
+    stroke: rgb(0, 225, 255);
+}
+
+.node.selected {
+    fill: rgb(0, 255, 186);
+}
+
+.links .selected {
+    display: block; /* this is kind of a cheap workaround so that selected links show up even if they have the hidden class applied. */
+    stroke-width: 3;
+    stroke: rgb(0, 255, 186);
+}
+
+.id-label {
+    font-size: 20px;
+    display: none;
+}
+
+.root{
+    fill: rgba(100, 255, 255, 0.8);
+}
+
+.hidden {
+    display: none;
+}
