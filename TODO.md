@@ -1,5 +1,15 @@
 # To-do list
 
+Table of Contents
+=================
+
+* [To-do list](#to-do-list)
+   * [Content &amp; Features](#content--features)
+   * [Bugs](#bugs)
+   * [UI / UX](#ui--ux)
+   * [Business](#business)
+   * [Performace / Optimization](#performace--optimization)
+
 ## Content & Features
 * Select two modes and view the difference between them
 * Display last selected node "unwrapped" onto a keyboard layout
