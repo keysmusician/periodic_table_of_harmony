@@ -2,6 +2,24 @@
 
 Twelve-tone harmony visualized
 
+Table of Contents
+=================
+
+* [The Periodic Table of Harmony](#the-periodic-table-of-harmony)
+   * [About The Periodic Table of Harmony](#about-the-periodic-table-of-harmony)
+   * [About the Website](#about-the-website)
+      * [Navigation](#navigation)
+      * [Selection](#selection)
+      * [Sidebar menu](#sidebar-menu)
+      * [Information modal](#information-modal)
+      * [Buttons](#buttons)
+         * [Show/hide nodes](#showhide-nodes)
+         * [Show/hide links](#showhide-links)
+         * [Clear Selection](#clear-selection)
+         * [Select connected](#select-connected)
+         * [Root](#root)
+   * [Technicalities](#technicalities)
+
 ## About The Periodic Table of Harmony
 The Periodic Table of Harmony as a concept is a method of organizing harmony in 2 dimensions where each row contains a set of "scales" (althought the term "scale" has fairly loose definition in music), each of the same size. A scale in this context is a circular collection of intervals. Vertically, each scale is connected to the row above and/or below it via on or more lines. A line indicates a parent/child relationship between connected scales. A child scale consists of all the intervals of a parent scale, but with any two adjacent intervals from the parent merged (their values summed). Naturally, a parent scale is diefined in the opposite manner.
 
