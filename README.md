@@ -19,9 +19,10 @@ Table of Contents
          * [Select connected](#select-connected)
          * [Root](#root)
    * [Technicalities](#technicalities)
+   * [Links](#links)
 
 ## About The Periodic Table of Harmony
-The Periodic Table of Harmony as a concept is a method of organizing harmony in 2 dimensions where each row contains a set of "scales" (althought the term "scale" has fairly loose definition in music), each of the same size. A scale in this context is a circular collection of intervals. Vertically, each scale is connected to the row above and/or below it via on or more lines. A line indicates a parent/child relationship between connected scales. A child scale consists of all the intervals of a parent scale, but with any two adjacent intervals from the parent merged (their values summed). Naturally, a parent scale is diefined in the opposite manner.
+The Periodic Table of Harmony as a concept is a method of organizing harmony in 2 dimensions where each row contains a set of "scales" (althought the term "scale" has fairly loose definition in music), each consisting of the same number of notes. A scale in this context is defined as a circular collection of intervals. Vertically on the table, each scale is connected to the row above and/or below it via on or more lines. A line indicates a parent/child relationship between connected scales where a child scale consists of all the intervals of a parent scale, but with any two adjacent intervals from the parent merged (their values summed). Naturally, a parent scale is the opposite.
 
  Each harmony is visually represented as a ring due to its periodic nature. Each ring represents a family of "modes" or "inversions" (depending upon your perspective) which are related by their common circular interval sequence. Regrettably, nomenclature in this project is inconsistent; I sometimes refer to each family as a scale, a harmony set (how I usually describe the data in the dataset), a ring (visual representation), or a node (graph terminology).
 
@@ -72,3 +73,9 @@ The root menu is used to select the displayed note names in each node. A root no
 
 ## Technicalities
 The graph is an undirected unweighted network diagram of the dataset. The dataset is the complete set of all circular permutaions of compositions of 12, which represents all harmony possible in 12-TET.
+
+## Links
+Here are some links I have used or that may be useful for continuing this project:
+* https://www.data-to-viz.com/graph/network.html
+* https://bl.ocks.org/Andrew-Reid/a73f9af9ccd9ef901a0c33c624096049
+* https://stackoverflow.com/questions/39076826/how-to-rotate-any-shape-continuously-in-d3-js
