@@ -19,17 +19,18 @@ Table of Contents
          * [Select connected](#select-connected)
          * [Root](#root)
    * [Technicalities](#technicalities)
+   * [Other Thoughts](#other-thoughts)
    * [Links](#links)
 
 ## About The Periodic Table of Harmony
-The Periodic Table of Harmony as a concept is a method of organizing harmony in 2 dimensions where each row contains a set of "scales" (althought the term "scale" has fairly loose definition in music), each consisting of the same number of notes. A scale in this context is defined as a circular collection of intervals. Vertically on the table, each scale is connected to the row above and/or below it via on or more lines. A line indicates a parent/child relationship between connected scales where a child scale consists of all the intervals of a parent scale, but with any two adjacent intervals from the parent merged (their values summed). Naturally, a parent scale is the opposite.
+The Periodic Table of Harmony as a concept is a method of organizing harmony in 2 dimensions where each row contains a set of scale types of equal cardinality (number of intervals). A scale type is defined as a cycle (circular sequence) of intervals. Vertically on the table, each scale type is connected to the row above and/or below it via on or more lines indicating a parent/child relationship. A child scale type consists of all the intervals of a parent, but with any two adjacent intervals from the parent merged (their values summed). Conversely, a parent scale type is formed by inserting an interval, splitting two adjacent intervals since the total number of half steps is held constant.
 
- Each harmony is visually represented as a ring due to its periodic nature. Each ring represents a family of "modes" or "inversions" (depending upon your perspective) which are related by their common circular interval sequence. Regrettably, nomenclature in this project is inconsistent; I sometimes refer to each family as a scale, a harmony set (how I usually describe the data in the dataset), a ring (visual representation), or a node (graph terminology).
+Due to their periodic nature, each scale type is visually represented as a ring. Each ring represents a family of "modes" or "inversions" (depending upon your perspective) which are related by their common circular interval sequence. Regrettably, nomenclature in this project is inconsistent; I sometimes refer to each family as a scale, a harmony set (how I usually describe the data in the dataset), a ring (visual representation), or a node (graph terminology).
 
 ## About the Website
 ![image](https://user-images.githubusercontent.com/74752740/130612698-b5a494ec-97c6-4bc2-a466-445bc9205791.png)
 
-The website features an interactive periodic table of harmony. The graph is drawn using the D3 Javascript library. Each graph node is drawn using D3's pie chart tools. The buttons centered above the bottom of the page provide selection and filtering options to help navigate the graph. The transparent nodes are hemitonic scales (scales which contain contiguous half steps).
+The website features an interactive periodic table of harmony. The buttons centered above the bottom of the page provide selection and filtering options to help navigate the graph. The transparent nodes represent hemitonic scale types (scales types which contain contiguous half steps).
 
 ### Navigation
 Click and drag anywhere except on a node to pan around the graph. Scroll to zoom.
@@ -40,7 +41,7 @@ Click on a node to select/deselect it. Hovering over a node highlights its links
 ### Sidebar menu
 ![image](https://user-images.githubusercontent.com/74752740/130615265-f222d749-f30a-488e-b85e-970875aad20a.png)
 
-The sidebar menu can be opened from the icon in the upper left corner. The menu is currently empy and is probably entirely uneccessary.
+The sidebar menu can be opened from the icon in the upper left corner. The menu is currently empty and is probably entirely unnecessary.
 
 ### Information modal
 ![image](https://user-images.githubusercontent.com/74752740/130615379-b157bd49-1fa0-4f2b-8261-291ab248feba.png)
@@ -49,7 +50,7 @@ The information modal appears upon first landing on the website and can be viewe
 
 ### Buttons
 #### Show/hide nodes
-This button is actually the show/hide popup menu. It is used to show/hide a selection, or toggle between showing all nodes and just the ones without contiguous half steps. The latter option can be useful becuase the most musically useful nodes, at least traditionally speaking, are those which harmonize well, which tends to mean that they don't contain contiguous half steps.
+This button is actually the show/hide popup menu. It is used to show/hide a selection, or toggle between showing all nodes and just the ones without contiguous half steps. The latter option can be useful because the most musically useful nodes, at least traditionally speaking, are those which harmonize well, which tends to mean that they don't contain contiguous half steps.
 
 ![image](https://user-images.githubusercontent.com/74752740/130614468-b6d1ad78-d51d-4027-b045-3dcfa11e41fe.png)
 
@@ -57,22 +58,25 @@ This button is actually the show/hide popup menu. It is used to show/hide a sele
 This is another popup menu used to toggle displaying links. Links can either be shut off entirely, or only shown if they're connected to a selected node. This can be useful to more easily see relationships, as it removes a lot of overlapping or irrelevant links.
 
 #### Clear Selection
-The center button is in fact a button which clears a slection. It also dynamically displays the current number of selected nodes.
+The center button is in fact a button which clears a selection. It also dynamically displays the current number of selected nodes.
 
 #### Select connected
-The select conncted popup menu offers a few options for automatically creating selections of related notes. It can select:
+The select connected popup menu offers a few options for automatically creating selections of related notes. It can select:
 * parents
 * children
 * immediate family (both parents and children)
 * family tree (parents of all parents and children of all children)
 
-It is expected that these selections will be made after selecting a single reference node, but that expectation is not enforced; all selected nodes will repsond to this menu.
+It is expected that these selections will be made after selecting a single reference node, but that expectation is not enforced; all selected nodes will respond to this menu.
 
 #### Root
 The root menu is used to select the displayed note names in each node. A root note must be paired with a "starting" interval, which is an arbitrary decision. Once a reference interval is chosen, the rest of the notes can be found. 
 
 ## Technicalities
-The graph is an undirected unweighted network diagram of the dataset. The dataset is the complete set of all circular permutaions of compositions of 12, which represents all harmony possible in 12-TET.
+The dataset is the complete set of all circular permutations of compositions of 12, which represents all harmony possible in 12-TET. The graph is an undirected unweighted network diagram of the dataset. The graph is drawn using the D3 Javascript library. Each graph node is drawn using D3's pie chart tools.
+
+## Other Thoughts
+Since I started this project I have changed the way I distinguish and talk about some musical concepts that I used in this project. I used to refer to the data type abstracting each scale type as a "harmony set" (among other things), but as I refined my thinking on the subject, I arrived at a more nuanced and rigorous definition of things like chords, scales, modes, etc. What I formerly referred to as "harmony sets" I now call "interval cycles." I also don't describe the Periodic Table of Harmony (PToH) as a visualization of all chords, since a chords requires a root, a voicing, and an expression in time. While it can certainly be used as effectively a sort of index of all scales in 12-TET, the PToH is better thought of as representing scale types, not chords or chord qualities. I also had made references to "voices" in some documentation on the project. Voices are also features of chords, not scales, so I've removed those references. 
 
 ## Links
 Here are some links I have used or that may be useful for continuing this project:
