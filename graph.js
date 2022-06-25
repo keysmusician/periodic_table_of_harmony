@@ -1,6 +1,17 @@
 'use strict';
 
+/* eslint-disable camelcase */
+
+/*
+Note: Do not change proper function expressions to arrow function
+expressions if the 'this' keyword is used. 'this' is undefined in arrow
+function expressions. No errors will be thrown, but the graph will not
+display correctly.
+*/
+
 // GLOBAL PARAMETERS
+
+/* global d3, alert */
 
 // Array of interval_cycle objects used to create nodes with donut/pie charts.
 import { dataset } from './data.js';
@@ -28,7 +39,7 @@ const diagram_y_origin = -diagram_height / 2; // As above for the vertical axis.
 // Zoom parameters
 // const default_zoom = 0.5;
 
-const max_zoom_out = 0.3;
+const max_zoom_out = 0.5;
 
 const max_zoom_in = 30;
 
@@ -138,8 +149,8 @@ function get_node_positions (nodes) {
 
   const row_positions = compute_divisions(sorted_row_sizes.length, diagram_height, -diagram_y_origin);
 
-  const columns_per_row = [];// An ordered array of the number nodes in each row; The index corresponds to each row with 0 = the top row. Counts how many times a certain row length, determined by interval_cycle.intervals.length, appears in the dataset (via row_sizes, which did some of the work already).
-  sorted_row_sizes.forEach(function (filtered_row_size) {
+  const columns_per_row = []; // An ordered array of the number nodes in each row; The index corresponds to each row with 0 = the top row. Counts how many times a certain row length, determined by interval_cycle.intervals.length, appears in the dataset (via row_sizes, which did some of the work already).
+  sorted_row_sizes.forEach(filtered_row_size => {
     const node_count_in_row = row_sizes.filter(row_size => row_size === filtered_row_size).length; // Not the most efficient way to determine this value
     columns_per_row.push(node_count_in_row);
   });
@@ -148,7 +159,7 @@ function get_node_positions (nodes) {
 
   const node_positions = [];
 
-  nodes.forEach(function (node) {
+  nodes.forEach(node => {
     const row_group = sorted_row_sizes.findIndex(
       row_size => row_size === node.intervals.length);
 
@@ -190,11 +201,6 @@ function handle_node_mouseover (active) {
     const io_label = node.select('.io-label');
 
     io_label.classed('hidden', !active); // Show io tooltip
-
-    // let trans = node.attr('transform');
-    // let pos_x = trans.slice(11, trans.indexOf(' ') );
-    // let pos_y = trans.slice(trans.indexOf(' '), trans.indexOf(')'))
-    // console.log(pos_x, pos_y)
   };
 }
 
@@ -285,15 +291,12 @@ function draw_graph (input_dataset) {
     });
   });
 
-  // console.log(link_data);
-
   const node_positions = get_node_positions(input_dataset);
 
   const transition = svg.transition()
     .duration(transition_duration);
 
   // Creates a group for the node graphic and initializes each node
-  // const node =
   node_group.selectAll('.node')
     .data(input_dataset, d => d.id)
     .join(
@@ -320,7 +323,6 @@ function draw_graph (input_dataset) {
                 .data(donut_chart_data)
                 .join('g')
                 .attr('class', 'arc')
-                //                        .classed('root', (arc_data, i) => (i === d.root) )
                 .append('path')
                 .attr('d', donut_arc);
             })
@@ -341,8 +343,6 @@ function draw_graph (input_dataset) {
                   this_arc.attr('x', arc_center[0]).attr('y', arc_center[1] + arc_label_font_height / 2).text(d.intervals[i]); // Sets & positions node label text
 
                   this_arc.classed('root-label', (d.root === i)); // Sets a class on the text which is labeling the root wedge
-
-                  /*                                let note_name_arc_center = note_name_pos_arc.centroid(arc_data); */
                 });
             });
 
@@ -366,7 +366,7 @@ function draw_graph (input_dataset) {
                   .join('g')
                   .attr('class', 'arc')
                   .on('click', draw_note_label_arcs)
-                  .classed('root', (arc_data, i) => (i === d.root))
+                  .classed('root', (_arc_data, i) => (i === d.root))
                   .append('path')
                   .attr('d', note_arc);
               }
@@ -399,9 +399,6 @@ function draw_graph (input_dataset) {
                   this_arc.attr('x', arc_center[0])
                     .attr('y', arc_center[1] + arc_label_font_height / 2)
                     .text(note_names[note_name_index]);
-
-                  // Why is this in here twice? It is also defined above as `arc_center`
-                  /*                            let note_name_arc_center = note_name_pos_arc.centroid(arc_data); */
                 });
             });
 
@@ -431,9 +428,7 @@ function draw_graph (input_dataset) {
             .classed('hidden', true)
             .append('text')
             .attr('text-anchor', 'middle')
-            .text(function (d) {
-              return 'Parents: ' + d.parents.length + ' Children: ' + d.children.length;
-            })
+            .text(d => ('Parents: ' + d.parents.length + ' Children: ' + d.children.length))
             .attr('dy', (note_outer_radius + io_label_offset));
         }),
 
@@ -446,7 +441,6 @@ function draw_graph (input_dataset) {
 
   // Looks up a given node ID and returns the node's [x,y] coordinates from node_positions.
   function get_node_position (node_id) {
-    // console.log( node_positions, node_id );
     return node_positions.find(pos_obj => pos_obj.id === node_id).coordinates;
   }
 
@@ -489,8 +483,7 @@ draw_graph(dataset);
 // Toggles displaying nodes with contiguous half steps
 function toggle_contiguous () {
   const button = d3.select(this);
-
-  if (button.attr('active') === 1) {
+  if (button.attr('active') === '1') {
     button.attr('active', 0);
 
     draw_graph(dataset);
@@ -509,20 +502,25 @@ d3.select('#contiguous-btn')
 function toggle_unselected () {
   const button = d3.select(this);
 
-  if (button.attr('active') === 1) { // when toggling off, return to previous graph display
+  if (button.attr('active') === '1') { // when toggling off, return to previous graph display
     button.attr('active', 0);
 
-    if (d3.select('#contiguous-btn').attr('active') === 1) {
+    if (d3.select('#contiguous-btn').attr('active') === '1') {
       draw_graph(harmonious_dataset);
     } else {
       draw_graph(dataset);
     }
-  } else {
+  } else { // when toggling on
     button.attr('active', 1);
 
     if (g_selection.size()) { // only draw if there's something in the global selection
       const selected_dataset = dataset.filter(node => { // new dataset built from user-selected nodes // PERFORMANCE NOTE: Might be more efficient to build from the global selection
-        if (!d3.select('#' + node.id).empty()) { return d3.select('#' + node.id).classed('selected'); } // if the node exists, see if it's selected
+        // if the node exists, see if it's selected
+        if (!d3.select('#' + node.id).empty()) {
+          return d3.select('#' + node.id).classed('selected');
+        } else {
+          return false;
+        }
       });
 
       draw_graph(selected_dataset);
@@ -537,8 +535,6 @@ d3.select('#unselected-btn')
 
 // Highlights link-btn if one of the link buttons has been toggled
 function set_link_btn_state () {
-  console.log(d3.select('#inactive-links-btn').classed('active'));
-
   if (
     d3.select('#all-links-btn').classed('active') ||
     d3.select('#inactive-links-btn').classed('active')
@@ -606,14 +602,13 @@ function select_family (generation_num) {
     alert('No nodes are selected -- Make a selection first');
   } else {
     function selection_chain (generation) {
-      generation.forEach(family_member => (
+      generation.forEach(family_member => {
         d3.select('#' + family_member) // Node
-          .classed('selected', true),
+          .classed('selected', true);
         d3.selectAll('.' + family_member) // Links
           .classed('selected', true)
-          .classed('hidden', false)
-      )
-      );
+          .classed('hidden', false);
+      });
     }
 
     const selection_data = d3.selectAll('.nodes').selectAll('.selected').data(); // data from just the selected nodes (not the links)
@@ -734,14 +729,12 @@ function change_root (root_btn_value) {
             }); // Sets & positions node label text
 
           this_arc.classed('root-label', (d.root === i)); // Sets a class on the text which is labeling the root wedge
-
-          // const note_name_arc_center = note_name_pos_arc.centroid(arc_data);
         });
     });
 }
 
 d3.selectAll('.note-btn')
-  .on('click', function (event) {
+  .on('click', function (_event) {
     const n = Number(this.getAttribute('value'));
     change_root(n); d3.select('#root-btn').text(this.innerHTML);
   });
