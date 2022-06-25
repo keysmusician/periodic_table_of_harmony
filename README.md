@@ -1,11 +1,15 @@
-# The Periodic Table of Harmony
+# Periodic Table of Harmony
 
 Twelve-tone harmony visualized
+
+![image](https://user-images.githubusercontent.com/74752740/130612698-b5a494ec-97c6-4bc2-a466-445bc9205791.png)
+
+Check it out here: https://keysmusician.github.io/Periodic-Table-of-Harmony/
 
 Table of Contents
 =================
 
-* [The Periodic Table of Harmony](#the-periodic-table-of-harmony)
+* [Periodic Table of Harmony](#periodic-table-of-harmony)
    * [About The Periodic Table of Harmony](#about-the-periodic-table-of-harmony)
    * [About the Website](#about-the-website)
       * [Navigation](#navigation)
@@ -30,8 +34,6 @@ Due to their periodic nature, each scale type is visually represented as a ring.
 *Note: Though I've updated some if it, nomenclature in this project may be inconsistent; I sometimes use the term scale, scale type, harmony set (how I usually describe the data in the dataset), ring (visual representation), or a node (graph terminology) interchangeably.*
 
 ## About the Website
-![image](https://user-images.githubusercontent.com/74752740/130612698-b5a494ec-97c6-4bc2-a466-445bc9205791.png)
-
 The website features an interactive periodic table of harmony. The buttons centered above the bottom of the page provide selection and filtering options to help navigate the graph. The transparent nodes represent cohemitonic scale types (those which contain contiguous half steps).
 
 ### Navigation
@@ -81,6 +83,8 @@ The dataset is the complete set of all circular permutations of compositions of 
 Since I started this project I have changed the way I think about some musical concepts that I used in this project. I used to refer to the data type abstracting each scale type as a "harmony set" (among other things), but I have since arrived at a more nuanced and rigorous definition of things like chords, scales, modes, etc. What I formerly referred to as "harmony sets" I now call "interval cycles" or "scale types." I also don't describe the Periodic Table of Harmony (PToH) as a visualization of all *chords,* since chords requires a root, a voicing, and an expression in time. While the PToH can certainly be used as effectively an index of all scales and chords in 12-TET, the PToH is more accurately thought of as representing all possible scale types, not chords or chord qualities. I also had made references to "voices" in some documentation on the project. Voices are also features of chords, not scales or scale types, so I've removed those references. 
 
 ## Links
+The project is hosted on GitHub pages here: https://keysmusician.github.io/Periodic-Table-of-Harmony/
+
 Here are some links I have used or that may be useful for continuing this project:
 * https://www.data-to-viz.com/graph/network.html
 * https://bl.ocks.org/Andrew-Reid/a73f9af9ccd9ef901a0c33c624096049
