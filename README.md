@@ -77,10 +77,10 @@ It is expected that these selections will be made after selecting a single refer
 The root menu is used to select the displayed note names in each node. A root note must be paired with a "starting" interval, which is an arbitrary decision. Once a reference interval is chosen, the rest of the notes can be found. 
 
 ## Technicalities
-The dataset is the complete set of all circular permutations of compositions of 12, which represents all harmony possible in 12-TET. The graph is an undirected unweighted network diagram of the dataset. The graph is drawn using the D3 Javascript library. Each graph node is drawn using D3's pie chart tools. There's a to-do list and other files on the development branch.
+The dataset is the complete set of all circular permutations of compositions of 12, which represents all harmony possible in 12-TET. The graph is an undirected unweighted network diagram of the dataset. The graph is drawn using the [D3 Javascript library](https://github.com/d3/d3). Each graph node is drawn using D3's pie chart tools. There's a to-do list and other files on the development branch.
 
 ### Files
-The data used to build the graph lives in `data.js`. All the magic happens in `graph.js`. The other files are fairly self-explanitory.
+The data used to build the graph lives in `data.js`. All the magic happens in `graph.js`. The other files are fairly self-explanatory.
 
 ## Other Thoughts
 Since I started this project I have changed the way I think about some musical concepts that I used in this project. I used to refer to the data type abstracting each scale type as a "harmony set" (among other things), but I have since arrived at a more nuanced and rigorous definition of things like chords, scales, modes, etc. What I formerly referred to as "harmony sets" I now call "interval cycles" or "scale types." I also don't describe the Periodic Table of Harmony (PToH) as a visualization of all *chords,* since chords requires a root, a voicing, and an expression in time. While the PToH can certainly be used as effectively an index of all scales and chords in 12-TET, the PToH is more accurately thought of as representing all possible scale types, not chords or chord qualities. I also had made references to "voices" in some documentation on the project. Voices are also features of chords, not scales or scale types, so I've removed those references. 
