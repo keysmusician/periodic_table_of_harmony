@@ -9,16 +9,16 @@
     background-color: rgb(38, 38, 38);
     height: 100%;
     width: 100%;
-    pointer-events:;
+    pointer-events: auto;
     margin: 0px;
     padding: 0px;
 }
 
-.contiguous-semitones {
+.cohemitonic {
     opacity: 35%;
 }
 
-.arc-label {
+.interval-labels {
     font-family: sans-serif;
     text-anchor: middle;
     font-size: 18px;
@@ -36,29 +36,29 @@
     fill: rgb(0, 255, 186);
 }
 
-.donut-arcs {
+.interval-arcs {
     fill: rgba(208, 208, 208, 0.8);
     stroke: rgb(255, 255, 255);
     stroke-width: 2.5;
 }
 
-.note-arcs {
+.pitch-class-arcs {
     fill: rgba(208, 208, 208, 0.8);
     stroke: rgb(255, 255, 255);
     stroke-width: 2.5;
 }
 
-.note-name-label{
+.pitch-class-labels{
     fill: white;
     text-anchor: middle;
 }
 
-.saturated .donut-arcs{
+.saturated .interval-arcs{
     stroke: rgba(255, 255, 255, 0.8);
     fill: rgba(170, 255, 232, 0.8);
 }
 
-.donut-hole {
+.node-center {
     display: none;
     fill: rgba(208, 208, 208, 0.79)
 }
@@ -86,11 +86,6 @@
     display: block; /* this is kind of a cheap workaround so that selected links show up even if they have the hidden class applied. */
     stroke-width: 3;
     stroke: rgb(0, 255, 186);
-}
-
-.id-label {
-    font-size: 20px;
-    display: none;
 }
 
 .root{

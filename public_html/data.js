@@ -1,2820 +1,2820 @@
 'use strict';
 // Array of IntervalCycle objects used to create nodes of the PToH.
-// This version contains a flag for contiguous semitones.
+// This version contains a flag for cohemitonic nodes.
 export const dataset = [
   {
-    id: 'HS12-1',
+    id: 'IC12-1',
     name: 'Chromatic Scale',
     intervals: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     parents: [],
-    children: ['HS11-1'],
+    children: ['IC11-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS11-1',
+    id: 'IC11-1',
     name: '',
     intervals: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
-    parents: ['HS12-1'],
-    children: ['HS10-1', 'HS10-2', 'HS10-3', 'HS10-4', 'HS10-5', 'HS10-6'],
+    parents: ['IC12-1'],
+    children: ['IC10-1', 'IC10-2', 'IC10-3', 'IC10-4', 'IC10-5', 'IC10-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS10-1',
+    id: 'IC10-1',
     name: '',
     intervals: [1, 1, 1, 1, 1, 1, 1, 1, 1, 3],
-    parents: ['HS11-1'],
-    children: ['HS9-1', 'HS9-2', 'HS9-3', 'HS9-4', 'HS9-5', 'HS9-6', 'HS9-7', 'HS9-8', 'HS9-9'],
+    parents: ['IC11-1'],
+    children: ['IC9-1', 'IC9-2', 'IC9-3', 'IC9-4', 'IC9-5', 'IC9-6', 'IC9-7', 'IC9-8', 'IC9-9'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS10-2',
+    id: 'IC10-2',
     name: '',
     intervals: [2, 1, 1, 1, 1, 1, 1, 1, 1, 2],
-    parents: ['HS11-1'],
-    children: ['HS9-1', 'HS9-9', 'HS9-10', 'HS9-11', 'HS9-12', 'HS9-13', 'HS9-14', 'HS9-15', 'HS9-2'],
+    parents: ['IC11-1'],
+    children: ['IC9-1', 'IC9-9', 'IC9-10', 'IC9-11', 'IC9-12', 'IC9-13', 'IC9-14', 'IC9-15', 'IC9-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS10-3',
+    id: 'IC10-3',
     name: '',
     intervals: [1, 2, 1, 1, 1, 1, 1, 1, 1, 2],
-    parents: ['HS11-1'],
-    children: ['HS9-2', 'HS9-9', 'HS9-8', 'HS9-15', 'HS9-16', 'HS9-17', 'HS9-18', 'HS9-11', 'HS9-3'],
+    parents: ['IC11-1'],
+    children: ['IC9-2', 'IC9-9', 'IC9-8', 'IC9-15', 'IC9-16', 'IC9-17', 'IC9-18', 'IC9-11', 'IC9-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS10-4',
+    id: 'IC10-4',
     name: '',
     intervals: [1, 1, 2, 1, 1, 1, 1, 1, 1, 2],
-    parents: ['HS11-1'],
-    children: ['HS9-3', 'HS9-10', 'HS9-8', 'HS9-7', 'HS9-14', 'HS9-18', 'HS9-19', 'HS9-17', 'HS9-12', 'HS9-4'],
+    parents: ['IC11-1'],
+    children: ['IC9-3', 'IC9-10', 'IC9-8', 'IC9-7', 'IC9-14', 'IC9-18', 'IC9-19', 'IC9-17', 'IC9-12', 'IC9-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS10-5',
+    id: 'IC10-5',
     name: '',
     intervals: [1, 1, 1, 2, 1, 1, 1, 1, 1, 2],
-    parents: ['HS11-1'],
-    children: ['HS9-4', 'HS9-11', 'HS9-15', 'HS9-7', 'HS9-6', 'HS9-13', 'HS9-17', 'HS9-18', 'HS9-5'],
+    parents: ['IC11-1'],
+    children: ['IC9-4', 'IC9-11', 'IC9-15', 'IC9-7', 'IC9-6', 'IC9-13', 'IC9-17', 'IC9-18', 'IC9-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS10-6',
+    id: 'IC10-6',
     name: '',
     intervals: [1, 1, 1, 1, 2, 1, 1, 1, 1, 2],
-    parents: ['HS11-1'],
-    children: ['HS9-5', 'HS9-12', 'HS9-16', 'HS9-14', 'HS9-6'],
+    parents: ['IC11-1'],
+    children: ['IC9-5', 'IC9-12', 'IC9-16', 'IC9-14', 'IC9-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-1',
+    id: 'IC9-1',
     name: '',
     intervals: [1, 1, 1, 1, 1, 1, 1, 1, 4],
-    parents: ['HS10-1', 'HS10-2'],
-    children: ['HS8-1', 'HS8-2', 'HS8-3', 'HS8-4', 'HS8-5', 'HS8-6', 'HS8-7', 'HS8-8'],
+    parents: ['IC10-1', 'IC10-2'],
+    children: ['IC8-1', 'IC8-2', 'IC8-3', 'IC8-4', 'IC8-5', 'IC8-6', 'IC8-7', 'IC8-8'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-2',
+    id: 'IC9-2',
     name: '',
     intervals: [2, 1, 1, 1, 1, 1, 1, 1, 3],
-    parents: ['HS10-1', 'HS10-2', 'HS10-3'],
-    children: ['HS8-1', 'HS8-9', 'HS8-10', 'HS8-11', 'HS8-12', 'HS8-13', 'HS8-14', 'HS8-15', 'HS8-2'],
+    parents: ['IC10-1', 'IC10-2', 'IC10-3'],
+    children: ['IC8-1', 'IC8-9', 'IC8-10', 'IC8-11', 'IC8-12', 'IC8-13', 'IC8-14', 'IC8-15', 'IC8-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-3',
+    id: 'IC9-3',
     name: '',
     intervals: [1, 2, 1, 1, 1, 1, 1, 1, 3],
-    parents: ['HS10-1', 'HS10-3', 'HS10-4'],
-    children: ['HS8-2', 'HS8-9', 'HS8-16', 'HS8-17', 'HS8-18', 'HS8-19', 'HS8-20', 'HS8-21', 'HS8-3'],
+    parents: ['IC10-1', 'IC10-3', 'IC10-4'],
+    children: ['IC8-2', 'IC8-9', 'IC8-16', 'IC8-17', 'IC8-18', 'IC8-19', 'IC8-20', 'IC8-21', 'IC8-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-4',
+    id: 'IC9-4',
     name: '',
     intervals: [1, 1, 2, 1, 1, 1, 1, 1, 3],
-    parents: ['HS10-1', 'HS10-4', 'HS10-5'],
-    children: ['HS8-3', 'HS8-10', 'HS8-16', 'HS8-22', 'HS8-23', 'HS8-24', 'HS8-25', 'HS8-26', 'HS8-4'],
+    parents: ['IC10-1', 'IC10-4', 'IC10-5'],
+    children: ['IC8-3', 'IC8-10', 'IC8-16', 'IC8-22', 'IC8-23', 'IC8-24', 'IC8-25', 'IC8-26', 'IC8-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-5',
+    id: 'IC9-5',
     name: '',
     intervals: [1, 1, 1, 2, 1, 1, 1, 1, 3],
-    parents: ['HS10-1', 'HS10-5', 'HS10-6'],
-    children: ['HS8-4', 'HS8-11', 'HS8-17', 'HS8-22', 'HS8-27', 'HS8-28', 'HS8-29', 'HS8-30', 'HS8-5'],
+    parents: ['IC10-1', 'IC10-5', 'IC10-6'],
+    children: ['IC8-4', 'IC8-11', 'IC8-17', 'IC8-22', 'IC8-27', 'IC8-28', 'IC8-29', 'IC8-30', 'IC8-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-6',
+    id: 'IC9-6',
     name: '',
     intervals: [1, 1, 1, 1, 2, 1, 1, 1, 3],
-    parents: ['HS10-1', 'HS10-5', 'HS10-6'],
-    children: ['HS8-5', 'HS8-12', 'HS8-18', 'HS8-23', 'HS8-27', 'HS8-22', 'HS8-31', 'HS8-32', 'HS8-6'],
+    parents: ['IC10-1', 'IC10-5', 'IC10-6'],
+    children: ['IC8-5', 'IC8-12', 'IC8-18', 'IC8-23', 'IC8-27', 'IC8-22', 'IC8-31', 'IC8-32', 'IC8-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-7',
+    id: 'IC9-7',
     name: '',
     intervals: [1, 1, 1, 1, 1, 2, 1, 1, 3],
-    parents: ['HS10-1', 'HS10-4', 'HS10-5'],
-    children: ['HS8-6', 'HS8-13', 'HS8-19', 'HS8-24', 'HS8-28', 'HS8-22', 'HS8-16', 'HS8-33', 'HS8-7'],
+    parents: ['IC10-1', 'IC10-4', 'IC10-5'],
+    children: ['IC8-6', 'IC8-13', 'IC8-19', 'IC8-24', 'IC8-28', 'IC8-22', 'IC8-16', 'IC8-33', 'IC8-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-8',
+    id: 'IC9-8',
     name: '',
     intervals: [1, 1, 1, 1, 1, 1, 2, 1, 3],
-    parents: ['HS10-1', 'HS10-3', 'HS10-4'],
-    children: ['HS8-7', 'HS8-14', 'HS8-20', 'HS8-25', 'HS8-29', 'HS8-31', 'HS8-16', 'HS8-9', 'HS8-8'],
+    parents: ['IC10-1', 'IC10-3', 'IC10-4'],
+    children: ['IC8-7', 'IC8-14', 'IC8-20', 'IC8-25', 'IC8-29', 'IC8-31', 'IC8-16', 'IC8-9', 'IC8-8'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-9',
+    id: 'IC9-9',
     name: '',
     intervals: [1, 1, 1, 1, 1, 1, 1, 2, 3],
-    parents: ['HS10-1', 'HS10-2', 'HS10-3'],
-    children: ['HS8-8', 'HS8-15', 'HS8-21', 'HS8-26', 'HS8-30', 'HS8-32', 'HS8-33', 'HS8-9', 'HS8-1'],
+    parents: ['IC10-1', 'IC10-2', 'IC10-3'],
+    children: ['IC8-8', 'IC8-15', 'IC8-21', 'IC8-26', 'IC8-30', 'IC8-32', 'IC8-33', 'IC8-9', 'IC8-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-10',
+    id: 'IC9-10',
     name: '',
     intervals: [2, 1, 1, 1, 1, 1, 1, 2, 2],
-    parents: ['HS10-2', 'HS10-4'],
-    children: ['HS8-8', 'HS8-33', 'HS8-34', 'HS8-35', 'HS8-36', 'HS8-37', 'HS8-10', 'HS8-2'],
+    parents: ['IC10-2', 'IC10-4'],
+    children: ['IC8-8', 'IC8-33', 'IC8-34', 'IC8-35', 'IC8-36', 'IC8-37', 'IC8-10', 'IC8-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-11',
+    id: 'IC9-11',
     name: '',
     intervals: [1, 2, 1, 1, 1, 1, 1, 2, 2],
-    parents: ['HS10-2', 'HS10-3', 'HS10-5'],
-    children: ['HS8-15', 'HS8-33', 'HS8-31', 'HS8-38', 'HS8-39', 'HS8-40', 'HS8-35', 'HS8-11', 'HS8-3'],
+    parents: ['IC10-2', 'IC10-3', 'IC10-5'],
+    children: ['IC8-15', 'IC8-33', 'IC8-31', 'IC8-38', 'IC8-39', 'IC8-40', 'IC8-35', 'IC8-11', 'IC8-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-12',
+    id: 'IC9-12',
     name: '',
     intervals: [1, 1, 2, 1, 1, 1, 1, 2, 2],
-    parents: ['HS10-2', 'HS10-4', 'HS10-6'],
-    children: ['HS8-21', 'HS8-34', 'HS8-31', 'HS8-28', 'HS8-41', 'HS8-42', 'HS8-36', 'HS8-12', 'HS8-4'],
+    parents: ['IC10-2', 'IC10-4', 'IC10-6'],
+    children: ['IC8-21', 'IC8-34', 'IC8-31', 'IC8-28', 'IC8-41', 'IC8-42', 'IC8-36', 'IC8-12', 'IC8-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-13',
+    id: 'IC9-13',
     name: '',
     intervals: [2, 1, 1, 1, 2, 1, 1, 1, 2],
-    parents: ['HS10-2', 'HS10-5'],
-    children: ['HS8-5', 'HS8-26', 'HS8-35', 'HS8-38', 'HS8-28', 'HS8-23', 'HS8-37', 'HS8-13'],
+    parents: ['IC10-2', 'IC10-5'],
+    children: ['IC8-5', 'IC8-26', 'IC8-35', 'IC8-38', 'IC8-28', 'IC8-23', 'IC8-37', 'IC8-13'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-14',
+    id: 'IC9-14',
     name: '',
     intervals: [2, 1, 1, 1, 1, 2, 1, 1, 2],
-    parents: ['HS10-2', 'HS10-4', 'HS10-6'],
-    children: ['HS8-6', 'HS8-30', 'HS8-36', 'HS8-39', 'HS8-41', 'HS8-23', 'HS8-17', 'HS8-34', 'HS8-14'],
+    parents: ['IC10-2', 'IC10-4', 'IC10-6'],
+    children: ['IC8-6', 'IC8-30', 'IC8-36', 'IC8-39', 'IC8-41', 'IC8-23', 'IC8-17', 'IC8-34', 'IC8-14'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-15',
+    id: 'IC9-15',
     name: '',
     intervals: [2, 1, 1, 1, 1, 1, 2, 1, 2],
-    parents: ['HS10-2', 'HS10-3', 'HS10-5'],
-    children: ['HS8-7', 'HS8-32', 'HS8-37', 'HS8-40', 'HS8-42', 'HS8-38', 'HS8-17', 'HS8-10', 'HS8-15'],
+    parents: ['IC10-2', 'IC10-3', 'IC10-5'],
+    children: ['IC8-7', 'IC8-32', 'IC8-37', 'IC8-40', 'IC8-42', 'IC8-38', 'IC8-17', 'IC8-10', 'IC8-15'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-16',
+    id: 'IC9-16',
     name: '',
     intervals: [1, 2, 1, 1, 1, 1, 2, 1, 2],
-    parents: ['HS10-3', 'HS10-6'],
-    children: ['HS8-14', 'HS8-32', 'HS8-29', 'HS8-42', 'HS8-43', 'HS8-39', 'HS8-18', 'HS8-11', 'HS8-21'],
+    parents: ['IC10-3', 'IC10-6'],
+    children: ['IC8-14', 'IC8-32', 'IC8-29', 'IC8-42', 'IC8-43', 'IC8-39', 'IC8-18', 'IC8-11', 'IC8-21'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-17',
+    id: 'IC9-17',
     name: '',
     intervals: [1, 1, 2, 1, 1, 1, 2, 1, 2],
-    parents: ['HS10-3', 'HS10-4', 'HS10-5'],
-    children: ['HS8-20', 'HS8-37', 'HS8-29', 'HS8-24', 'HS8-39', 'HS8-40', 'HS8-19', 'HS8-12', 'HS8-26'],
+    parents: ['IC10-3', 'IC10-4', 'IC10-5'],
+    children: ['IC8-20', 'IC8-37', 'IC8-29', 'IC8-24', 'IC8-39', 'IC8-40', 'IC8-19', 'IC8-12', 'IC8-26'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-18',
+    id: 'IC9-18',
     name: '',
     intervals: [1, 2, 1, 1, 1, 2, 1, 1, 2],
-    parents: ['HS10-3', 'HS10-4', 'HS10-5'],
-    children: ['HS8-13', 'HS8-30', 'HS8-25', 'HS8-40', 'HS8-42', 'HS8-24', 'HS8-18', 'HS8-35', 'HS8-20'],
+    parents: ['IC10-3', 'IC10-4', 'IC10-5'],
+    children: ['IC8-13', 'IC8-30', 'IC8-25', 'IC8-40', 'IC8-42', 'IC8-24', 'IC8-18', 'IC8-35', 'IC8-20'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS9-19',
+    id: 'IC9-19',
     name: '',
     intervals: [1, 1, 2, 1, 1, 2, 1, 1, 2],
-    parents: ['HS10-4'],
-    children: ['HS8-19', 'HS8-36', 'HS8-25'],
+    parents: ['IC10-4'],
+    children: ['IC8-19', 'IC8-36', 'IC8-25'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-1',
+    id: 'IC8-1',
     name: '',
     intervals: [1, 1, 1, 1, 1, 1, 1, 5],
-    parents: ['HS9-1', 'HS9-2', 'HS9-9'],
-    children: ['HS7-1', 'HS7-2', 'HS7-3', 'HS7-4', 'HS7-5', 'HS7-6', 'HS7-7'],
+    parents: ['IC9-1', 'IC9-2', 'IC9-9'],
+    children: ['IC7-1', 'IC7-2', 'IC7-3', 'IC7-4', 'IC7-5', 'IC7-6', 'IC7-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-2',
+    id: 'IC8-2',
     name: '',
     intervals: [2, 1, 1, 1, 1, 1, 1, 4],
-    parents: ['HS9-1', 'HS9-2', 'HS9-3', 'HS9-10'],
-    children: ['HS7-1', 'HS7-8', 'HS7-9', 'HS7-10', 'HS7-11', 'HS7-12', 'HS7-13', 'HS7-2'],
+    parents: ['IC9-1', 'IC9-2', 'IC9-3', 'IC9-10'],
+    children: ['IC7-1', 'IC7-8', 'IC7-9', 'IC7-10', 'IC7-11', 'IC7-12', 'IC7-13', 'IC7-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-3',
+    id: 'IC8-3',
     name: '',
     intervals: [1, 2, 1, 1, 1, 1, 1, 4],
-    parents: ['HS9-1', 'HS9-3', 'HS9-4', 'HS9-11'],
-    children: ['HS7-2', 'HS7-8', 'HS7-14', 'HS7-15', 'HS7-16', 'HS7-17', 'HS7-18', 'HS7-3'],
+    parents: ['IC9-1', 'IC9-3', 'IC9-4', 'IC9-11'],
+    children: ['IC7-2', 'IC7-8', 'IC7-14', 'IC7-15', 'IC7-16', 'IC7-17', 'IC7-18', 'IC7-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-4',
+    id: 'IC8-4',
     name: '',
     intervals: [1, 1, 2, 1, 1, 1, 1, 4],
-    parents: ['HS9-1', 'HS9-4', 'HS9-5', 'HS9-12'],
-    children: ['HS7-3', 'HS7-9', 'HS7-14', 'HS7-19', 'HS7-20', 'HS7-21', 'HS7-22', 'HS7-4'],
+    parents: ['IC9-1', 'IC9-4', 'IC9-5', 'IC9-12'],
+    children: ['IC7-3', 'IC7-9', 'IC7-14', 'IC7-19', 'IC7-20', 'IC7-21', 'IC7-22', 'IC7-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-5',
+    id: 'IC8-5',
     name: '',
     intervals: [1, 1, 1, 2, 1, 1, 1, 4],
-    parents: ['HS9-1', 'HS9-5', 'HS9-6', 'HS9-13'],
-    children: ['HS7-4', 'HS7-10', 'HS7-15', 'HS7-19', 'HS7-23', 'HS7-24', 'HS7-25', 'HS7-5'],
+    parents: ['IC9-1', 'IC9-5', 'IC9-6', 'IC9-13'],
+    children: ['IC7-4', 'IC7-10', 'IC7-15', 'IC7-19', 'IC7-23', 'IC7-24', 'IC7-25', 'IC7-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-6',
+    id: 'IC8-6',
     name: '',
     intervals: [1, 1, 1, 1, 2, 1, 1, 4],
-    parents: ['HS9-1', 'HS9-6', 'HS9-7', 'HS9-14'],
-    children: ['HS7-5', 'HS7-11', 'HS7-16', 'HS7-20', 'HS7-23', 'HS7-26', 'HS7-27', 'HS7-6'],
+    parents: ['IC9-1', 'IC9-6', 'IC9-7', 'IC9-14'],
+    children: ['IC7-5', 'IC7-11', 'IC7-16', 'IC7-20', 'IC7-23', 'IC7-26', 'IC7-27', 'IC7-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-7',
+    id: 'IC8-7',
     name: '',
     intervals: [1, 1, 1, 1, 1, 2, 1, 4],
-    parents: ['HS9-1', 'HS9-7', 'HS9-8', 'HS9-15'],
-    children: ['HS7-6', 'HS7-12', 'HS7-17', 'HS7-21', 'HS7-24', 'HS7-26', 'HS7-28', 'HS7-7'],
+    parents: ['IC9-1', 'IC9-7', 'IC9-8', 'IC9-15'],
+    children: ['IC7-6', 'IC7-12', 'IC7-17', 'IC7-21', 'IC7-24', 'IC7-26', 'IC7-28', 'IC7-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-8',
+    id: 'IC8-8',
     name: '',
     intervals: [1, 1, 1, 1, 1, 1, 2, 4],
-    parents: ['HS9-1', 'HS9-8', 'HS9-9', 'HS9-10'],
-    children: ['HS7-7', 'HS7-13', 'HS7-18', 'HS7-22', 'HS7-25', 'HS7-27', 'HS7-28', 'HS7-1'],
+    parents: ['IC9-1', 'IC9-8', 'IC9-9', 'IC9-10'],
+    children: ['IC7-7', 'IC7-13', 'IC7-18', 'IC7-22', 'IC7-25', 'IC7-27', 'IC7-28', 'IC7-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-9',
+    id: 'IC8-9',
     name: '',
     intervals: [3, 1, 1, 1, 1, 1, 1, 3],
-    parents: ['HS9-2', 'HS9-3', 'HS9-8', 'HS9-9'],
-    children: ['HS7-1', 'HS7-28', 'HS7-29', 'HS7-30', 'HS7-31', 'HS7-32', 'HS7-33', 'HS7-8'],
+    parents: ['IC9-2', 'IC9-3', 'IC9-8', 'IC9-9'],
+    children: ['IC7-1', 'IC7-28', 'IC7-29', 'IC7-30', 'IC7-31', 'IC7-32', 'IC7-33', 'IC7-8'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-10',
+    id: 'IC8-10',
     name: '',
     intervals: [2, 2, 1, 1, 1, 1, 1, 3],
-    parents: ['HS9-2', 'HS9-4', 'HS9-10', 'HS9-15'],
-    children: ['HS7-2', 'HS7-28', 'HS7-34', 'HS7-35', 'HS7-36', 'HS7-37', 'HS7-38', 'HS7-9'],
+    parents: ['IC9-2', 'IC9-4', 'IC9-10', 'IC9-15'],
+    children: ['IC7-2', 'IC7-28', 'IC7-34', 'IC7-35', 'IC7-36', 'IC7-37', 'IC7-38', 'IC7-9'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-11',
+    id: 'IC8-11',
     name: '',
     intervals: [2, 1, 2, 1, 1, 1, 1, 3],
-    parents: ['HS9-2', 'HS9-5', 'HS9-11', 'HS9-16'],
-    children: ['HS7-3', 'HS7-29', 'HS7-34', 'HS7-39', 'HS7-40', 'HS7-41', 'HS7-42', 'HS7-10'],
+    parents: ['IC9-2', 'IC9-5', 'IC9-11', 'IC9-16'],
+    children: ['IC7-3', 'IC7-29', 'IC7-34', 'IC7-39', 'IC7-40', 'IC7-41', 'IC7-42', 'IC7-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-12',
+    id: 'IC8-12',
     name: '',
     intervals: [2, 1, 1, 2, 1, 1, 1, 3],
-    parents: ['HS9-2', 'HS9-6', 'HS9-12', 'HS9-17'],
-    children: ['HS7-4', 'HS7-30', 'HS7-35', 'HS7-39', 'HS7-43', 'HS7-44', 'HS7-45', 'HS7-11'],
+    parents: ['IC9-2', 'IC9-6', 'IC9-12', 'IC9-17'],
+    children: ['IC7-4', 'IC7-30', 'IC7-35', 'IC7-39', 'IC7-43', 'IC7-44', 'IC7-45', 'IC7-11'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-13',
+    id: 'IC8-13',
     name: '',
     intervals: [2, 1, 1, 1, 2, 1, 1, 3],
-    parents: ['HS9-2', 'HS9-7', 'HS9-13', 'HS9-18'],
-    children: ['HS7-5', 'HS7-31', 'HS7-36', 'HS7-40', 'HS7-43', 'HS7-46', 'HS7-47', 'HS7-12'],
+    parents: ['IC9-2', 'IC9-7', 'IC9-13', 'IC9-18'],
+    children: ['IC7-5', 'IC7-31', 'IC7-36', 'IC7-40', 'IC7-43', 'IC7-46', 'IC7-47', 'IC7-12'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-14',
+    id: 'IC8-14',
     name: '',
     intervals: [2, 1, 1, 1, 1, 2, 1, 3],
-    parents: ['HS9-2', 'HS9-8', 'HS9-14', 'HS9-16'],
-    children: ['HS7-6', 'HS7-32', 'HS7-37', 'HS7-41', 'HS7-44', 'HS7-46', 'HS7-29', 'HS7-13'],
+    parents: ['IC9-2', 'IC9-8', 'IC9-14', 'IC9-16'],
+    children: ['IC7-6', 'IC7-32', 'IC7-37', 'IC7-41', 'IC7-44', 'IC7-46', 'IC7-29', 'IC7-13'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-15',
+    id: 'IC8-15',
     name: '',
     intervals: [2, 1, 1, 1, 1, 1, 2, 3],
-    parents: ['HS9-2', 'HS9-9', 'HS9-11', 'HS9-15'],
-    children: ['HS7-7', 'HS7-33', 'HS7-38', 'HS7-42', 'HS7-45', 'HS7-47', 'HS7-29', 'HS7-2'],
+    parents: ['IC9-2', 'IC9-9', 'IC9-11', 'IC9-15'],
+    children: ['IC7-7', 'IC7-33', 'IC7-38', 'IC7-42', 'IC7-45', 'IC7-47', 'IC7-29', 'IC7-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-16',
+    id: 'IC8-16',
     name: '',
     intervals: [1, 3, 1, 1, 1, 1, 1, 3],
-    parents: ['HS9-3', 'HS9-4', 'HS9-7', 'HS9-8'],
-    children: ['HS7-8', 'HS7-28', 'HS7-26', 'HS7-46', 'HS7-48', 'HS7-49', 'HS7-50', 'HS7-14'],
+    parents: ['IC9-3', 'IC9-4', 'IC9-7', 'IC9-8'],
+    children: ['IC7-8', 'IC7-28', 'IC7-26', 'IC7-46', 'IC7-48', 'IC7-49', 'IC7-50', 'IC7-14'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-17',
+    id: 'IC8-17',
     name: '',
     intervals: [1, 2, 2, 1, 1, 1, 1, 3],
-    parents: ['HS9-3', 'HS9-5', 'HS9-14', 'HS9-15'],
-    children: ['HS7-9', 'HS7-29', 'HS7-26', 'HS7-51', 'HS7-52', 'HS7-53', 'HS7-54', 'HS7-15'],
+    parents: ['IC9-3', 'IC9-5', 'IC9-14', 'IC9-15'],
+    children: ['IC7-9', 'IC7-29', 'IC7-26', 'IC7-51', 'IC7-52', 'IC7-53', 'IC7-54', 'IC7-15'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-18',
+    id: 'IC8-18',
     name: '',
     intervals: [1, 2, 1, 2, 1, 1, 1, 3],
-    parents: ['HS9-3', 'HS9-6', 'HS9-16', 'HS9-18'],
-    children: ['HS7-10', 'HS7-30', 'HS7-46', 'HS7-51', 'HS7-55', 'HS7-56', 'HS7-57', 'HS7-16'],
+    parents: ['IC9-3', 'IC9-6', 'IC9-16', 'IC9-18'],
+    children: ['IC7-10', 'IC7-30', 'IC7-46', 'IC7-51', 'IC7-55', 'IC7-56', 'IC7-57', 'IC7-16'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-19',
+    id: 'IC8-19',
     name: '',
     intervals: [1, 2, 1, 1, 2, 1, 1, 3],
-    parents: ['HS9-3', 'HS9-7', 'HS9-17', 'HS9-19'],
-    children: ['HS7-11', 'HS7-31', 'HS7-48', 'HS7-52', 'HS7-55', 'HS7-58', 'HS7-17'],
+    parents: ['IC9-3', 'IC9-7', 'IC9-17', 'IC9-19'],
+    children: ['IC7-11', 'IC7-31', 'IC7-48', 'IC7-52', 'IC7-55', 'IC7-58', 'IC7-17'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-20',
+    id: 'IC8-20',
     name: '',
     intervals: [1, 2, 1, 1, 1, 2, 1, 3],
-    parents: ['HS9-3', 'HS9-8', 'HS9-17', 'HS9-18'],
-    children: ['HS7-12', 'HS7-32', 'HS7-49', 'HS7-53', 'HS7-56', 'HS7-48', 'HS7-30', 'HS7-18'],
+    parents: ['IC9-3', 'IC9-8', 'IC9-17', 'IC9-18'],
+    children: ['IC7-12', 'IC7-32', 'IC7-49', 'IC7-53', 'IC7-56', 'IC7-48', 'IC7-30', 'IC7-18'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-21',
+    id: 'IC8-21',
     name: '',
     intervals: [1, 2, 1, 1, 1, 1, 2, 3],
-    parents: ['HS9-3', 'HS9-9', 'HS9-12', 'HS9-16'],
-    children: ['HS7-13', 'HS7-33', 'HS7-50', 'HS7-54', 'HS7-57', 'HS7-58', 'HS7-30', 'HS7-3'],
+    parents: ['IC9-3', 'IC9-9', 'IC9-12', 'IC9-16'],
+    children: ['IC7-13', 'IC7-33', 'IC7-50', 'IC7-54', 'IC7-57', 'IC7-58', 'IC7-30', 'IC7-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-22',
+    id: 'IC8-22',
     name: '',
     intervals: [1, 1, 3, 1, 1, 1, 1, 3],
-    parents: ['HS9-4', 'HS9-5', 'HS9-6', 'HS9-7'],
-    children: ['HS7-14', 'HS7-34', 'HS7-26', 'HS7-23', 'HS7-43', 'HS7-55', 'HS7-59', 'HS7-19'],
+    parents: ['IC9-4', 'IC9-5', 'IC9-6', 'IC9-7'],
+    children: ['IC7-14', 'IC7-34', 'IC7-26', 'IC7-23', 'IC7-43', 'IC7-55', 'IC7-59', 'IC7-19'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-23',
+    id: 'IC8-23',
     name: '',
     intervals: [1, 1, 2, 2, 1, 1, 1, 3],
-    parents: ['HS9-4', 'HS9-6', 'HS9-13', 'HS9-14'],
-    children: ['HS7-15', 'HS7-35', 'HS7-46', 'HS7-23', 'HS7-59', 'HS7-60', 'HS7-61', 'HS7-20'],
+    parents: ['IC9-4', 'IC9-6', 'IC9-13', 'IC9-14'],
+    children: ['IC7-15', 'IC7-35', 'IC7-46', 'IC7-23', 'IC7-59', 'IC7-60', 'IC7-61', 'IC7-20'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-24',
+    id: 'IC8-24',
     name: '',
     intervals: [1, 1, 2, 1, 2, 1, 1, 3],
-    parents: ['HS9-4', 'HS9-7', 'HS9-17', 'HS9-18'],
-    children: ['HS7-16', 'HS7-36', 'HS7-48', 'HS7-43', 'HS7-59', 'HS7-49', 'HS7-62', 'HS7-21'],
+    parents: ['IC9-4', 'IC9-7', 'IC9-17', 'IC9-18'],
+    children: ['IC7-16', 'IC7-36', 'IC7-48', 'IC7-43', 'IC7-59', 'IC7-49', 'IC7-62', 'IC7-21'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-25',
+    id: 'IC8-25',
     name: '',
     intervals: [1, 1, 2, 1, 1, 2, 1, 3],
-    parents: ['HS9-4', 'HS9-8', 'HS9-18', 'HS9-19'],
-    children: ['HS7-17', 'HS7-37', 'HS7-49', 'HS7-55', 'HS7-60', 'HS7-31', 'HS7-22'],
+    parents: ['IC9-4', 'IC9-8', 'IC9-18', 'IC9-19'],
+    children: ['IC7-17', 'IC7-37', 'IC7-49', 'IC7-55', 'IC7-60', 'IC7-31', 'IC7-22'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-26',
+    id: 'IC8-26',
     name: '',
     intervals: [1, 1, 2, 1, 1, 1, 2, 3],
-    parents: ['HS9-4', 'HS9-9', 'HS9-13', 'HS9-17'],
-    children: ['HS7-18', 'HS7-38', 'HS7-50', 'HS7-59', 'HS7-61', 'HS7-62', 'HS7-31', 'HS7-4'],
+    parents: ['IC9-4', 'IC9-9', 'IC9-13', 'IC9-17'],
+    children: ['IC7-18', 'IC7-38', 'IC7-50', 'IC7-59', 'IC7-61', 'IC7-62', 'IC7-31', 'IC7-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-27',
+    id: 'IC8-27',
     name: '',
     intervals: [1, 1, 1, 3, 1, 1, 1, 3],
-    parents: ['HS9-5', 'HS9-6'],
-    children: ['HS7-19', 'HS7-39', 'HS7-51', 'HS7-23'],
+    parents: ['IC9-5', 'IC9-6'],
+    children: ['IC7-19', 'IC7-39', 'IC7-51', 'IC7-23'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-28',
+    id: 'IC8-28',
     name: '',
     intervals: [1, 1, 1, 2, 2, 1, 1, 3],
-    parents: ['HS9-5', 'HS9-7', 'HS9-12', 'HS9-13'],
-    children: ['HS7-20', 'HS7-40', 'HS7-52', 'HS7-43', 'HS7-19', 'HS7-50', 'HS7-63', 'HS7-24'],
+    parents: ['IC9-5', 'IC9-7', 'IC9-12', 'IC9-13'],
+    children: ['IC7-20', 'IC7-40', 'IC7-52', 'IC7-43', 'IC7-19', 'IC7-50', 'IC7-63', 'IC7-24'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-29',
+    id: 'IC8-29',
     name: '',
     intervals: [1, 1, 1, 2, 1, 2, 1, 3],
-    parents: ['HS9-5', 'HS9-8', 'HS9-16', 'HS9-17'],
-    children: ['HS7-21', 'HS7-41', 'HS7-53', 'HS7-55', 'HS7-39', 'HS7-50', 'HS7-32', 'HS7-25'],
+    parents: ['IC9-5', 'IC9-8', 'IC9-16', 'IC9-17'],
+    children: ['IC7-21', 'IC7-41', 'IC7-53', 'IC7-55', 'IC7-39', 'IC7-50', 'IC7-32', 'IC7-25'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-30',
+    id: 'IC8-30',
     name: '',
     intervals: [1, 1, 1, 2, 1, 1, 2, 3],
-    parents: ['HS9-5', 'HS9-9', 'HS9-14', 'HS9-18'],
-    children: ['HS7-22', 'HS7-42', 'HS7-54', 'HS7-59', 'HS7-51', 'HS7-63', 'HS7-32', 'HS7-5'],
+    parents: ['IC9-5', 'IC9-9', 'IC9-14', 'IC9-18'],
+    children: ['IC7-22', 'IC7-42', 'IC7-54', 'IC7-59', 'IC7-51', 'IC7-63', 'IC7-32', 'IC7-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-31',
+    id: 'IC8-31',
     name: '',
     intervals: [1, 1, 1, 1, 2, 2, 1, 3],
-    parents: ['HS9-6', 'HS9-8', 'HS9-11', 'HS9-12'],
-    children: ['HS7-24', 'HS7-44', 'HS7-56', 'HS7-60', 'HS7-39', 'HS7-14', 'HS7-33', 'HS7-27'],
+    parents: ['IC9-6', 'IC9-8', 'IC9-11', 'IC9-12'],
+    children: ['IC7-24', 'IC7-44', 'IC7-56', 'IC7-60', 'IC7-39', 'IC7-14', 'IC7-33', 'IC7-27'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-32',
+    id: 'IC8-32',
     name: '',
     intervals: [1, 1, 1, 1, 2, 1, 2, 3],
-    parents: ['HS9-6', 'HS9-9', 'HS9-15', 'HS9-16'],
-    children: ['HS7-25', 'HS7-45', 'HS7-57', 'HS7-61', 'HS7-51', 'HS7-34', 'HS7-33', 'HS7-6'],
+    parents: ['IC9-6', 'IC9-9', 'IC9-15', 'IC9-16'],
+    children: ['IC7-25', 'IC7-45', 'IC7-57', 'IC7-61', 'IC7-51', 'IC7-34', 'IC7-33', 'IC7-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-33',
+    id: 'IC8-33',
     name: '',
     intervals: [1, 1, 1, 1, 1, 2, 2, 3],
-    parents: ['HS9-7', 'HS9-9', 'HS9-10', 'HS9-11'],
-    children: ['HS7-27', 'HS7-47', 'HS7-58', 'HS7-62', 'HS7-63', 'HS7-34', 'HS7-8', 'HS7-7'],
+    parents: ['IC9-7', 'IC9-9', 'IC9-10', 'IC9-11'],
+    children: ['IC7-27', 'IC7-47', 'IC7-58', 'IC7-62', 'IC7-63', 'IC7-34', 'IC7-8', 'IC7-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-34',
+    id: 'IC8-34',
     name: '',
     intervals: [2, 2, 1, 1, 1, 1, 2, 2],
-    parents: ['HS9-10', 'HS9-12', 'HS9-14'],
-    children: ['HS7-13', 'HS7-27', 'HS7-63', 'HS7-64', 'HS7-65', 'HS7-35', 'HS7-9'],
+    parents: ['IC9-10', 'IC9-12', 'IC9-14'],
+    children: ['IC7-13', 'IC7-27', 'IC7-63', 'IC7-64', 'IC7-65', 'IC7-35', 'IC7-9'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-35',
+    id: 'IC8-35',
     name: '',
     intervals: [2, 1, 2, 1, 1, 1, 2, 2],
-    parents: ['HS9-10', 'HS9-11', 'HS9-13', 'HS9-18'],
-    children: ['HS7-18', 'HS7-47', 'HS7-63', 'HS7-60', 'HS7-66', 'HS7-65', 'HS7-36', 'HS7-10'],
+    parents: ['IC9-10', 'IC9-11', 'IC9-13', 'IC9-18'],
+    children: ['IC7-18', 'IC7-47', 'IC7-63', 'IC7-60', 'IC7-66', 'IC7-65', 'IC7-36', 'IC7-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-36',
+    id: 'IC8-36',
     name: '',
     intervals: [2, 1, 1, 2, 1, 1, 2, 2],
-    parents: ['HS9-10', 'HS9-12', 'HS9-14', 'HS9-19'],
-    children: ['HS7-22', 'HS7-58', 'HS7-64', 'HS7-60', 'HS7-52', 'HS7-37', 'HS7-11'],
+    parents: ['IC9-10', 'IC9-12', 'IC9-14', 'IC9-19'],
+    children: ['IC7-22', 'IC7-58', 'IC7-64', 'IC7-60', 'IC7-52', 'IC7-37', 'IC7-11'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-37',
+    id: 'IC8-37',
     name: '',
     intervals: [2, 1, 1, 1, 2, 1, 2, 2],
-    parents: ['HS9-10', 'HS9-13', 'HS9-15', 'HS9-17'],
-    children: ['HS7-25', 'HS7-62', 'HS7-65', 'HS7-66', 'HS7-52', 'HS7-35', 'HS7-38', 'HS7-12'],
+    parents: ['IC9-10', 'IC9-13', 'IC9-15', 'IC9-17'],
+    children: ['IC7-25', 'IC7-62', 'IC7-65', 'IC7-66', 'IC7-52', 'IC7-35', 'IC7-38', 'IC7-12'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-38',
+    id: 'IC8-38',
     name: 'Dominant & Dorian Bebop Modes',
     intervals: [2, 1, 2, 2, 1, 1, 1, 2],
-    parents: ['HS9-11', 'HS9-13', 'HS9-15'],
-    children: ['HS7-15', 'HS7-38', 'HS7-47', 'HS7-24', 'HS7-61', 'HS7-66', 'HS7-40'],
+    parents: ['IC9-11', 'IC9-13', 'IC9-15'],
+    children: ['IC7-15', 'IC7-38', 'IC7-47', 'IC7-24', 'IC7-61', 'IC7-66', 'IC7-40'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-39',
+    id: 'IC8-39',
     name: '',
     intervals: [1, 2, 1, 2, 1, 1, 2, 2],
-    parents: ['HS9-11', 'HS9-14', 'HS9-16', 'HS9-17'],
-    children: ['HS7-42', 'HS7-58', 'HS7-44', 'HS7-61', 'HS7-53', 'HS7-65', 'HS7-41', 'HS7-16'],
+    parents: ['IC9-11', 'IC9-14', 'IC9-16', 'IC9-17'],
+    children: ['IC7-42', 'IC7-58', 'IC7-44', 'IC7-61', 'IC7-53', 'IC7-65', 'IC7-41', 'IC7-16'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-40',
+    id: 'IC8-40',
     name: 'Major & Harmonic/Natural Minor Bebop Modes',
     intervals: [1, 2, 1, 1, 2, 1, 2, 2],
-    parents: ['HS9-11', 'HS9-15', 'HS9-17', 'HS9-18'],
-    children: ['HS7-45', 'HS7-62', 'HS7-56', 'HS7-66', 'HS7-53', 'HS7-36', 'HS7-42', 'HS7-17'],
+    parents: ['IC9-11', 'IC9-15', 'IC9-17', 'IC9-18'],
+    children: ['IC7-45', 'IC7-62', 'IC7-56', 'IC7-66', 'IC7-53', 'IC7-36', 'IC7-42', 'IC7-17'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-41',
+    id: 'IC8-41',
     name: '',
     intervals: [2, 1, 1, 2, 2, 1, 1, 2],
-    parents: ['HS9-12', 'HS9-14'],
-    children: ['HS7-20', 'HS7-54', 'HS7-64', 'HS7-44'],
+    parents: ['IC9-12', 'IC9-14'],
+    children: ['IC7-20', 'IC7-54', 'IC7-64', 'IC7-44'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-42',
+    id: 'IC8-42',
     name: 'Melodic Minor Bebop Modes',
     intervals: [2, 1, 1, 2, 1, 2, 1, 2],
-    parents: ['HS9-12', 'HS9-15', 'HS9-16', 'HS9-18'],
-    children: ['HS7-21', 'HS7-57', 'HS7-65', 'HS7-56', 'HS7-40', 'HS7-54', 'HS7-37', 'HS7-45'],
+    parents: ['IC9-12', 'IC9-15', 'IC9-16', 'IC9-18'],
+    children: ['IC7-21', 'IC7-57', 'IC7-65', 'IC7-56', 'IC7-40', 'IC7-54', 'IC7-37', 'IC7-45'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS8-43',
+    id: 'IC8-43',
     name: 'Diminished/Octatonic Modes',
     intervals: [1, 2, 1, 2, 1, 2, 1, 2],
-    parents: ['HS9-16'],
-    children: ['HS7-41', 'HS7-57'],
+    parents: ['IC9-16'],
+    children: ['IC7-41', 'IC7-57'],
     root: 0,
-    contiguousSemitones: false,
+    cohemitonic: false,
     saturated: true
   }, {
-    id: 'HS7-1',
+    id: 'IC7-1',
     name: '',
     intervals: [1, 1, 1, 1, 1, 1, 6],
-    parents: ['HS8-1', 'HS8-2', 'HS8-8', 'HS8-9'],
-    children: ['HS6-1', 'HS6-2', 'HS6-3', 'HS6-4', 'HS6-5', 'HS6-6'],
+    parents: ['IC8-1', 'IC8-2', 'IC8-8', 'IC8-9'],
+    children: ['IC6-1', 'IC6-2', 'IC6-3', 'IC6-4', 'IC6-5', 'IC6-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-2',
+    id: 'IC7-2',
     name: '',
     intervals: [2, 1, 1, 1, 1, 1, 5],
-    parents: ['HS8-1', 'HS8-2', 'HS8-3', 'HS8-10', 'HS8-15'],
-    children: ['HS6-1', 'HS6-7', 'HS6-8', 'HS6-9', 'HS6-10', 'HS6-11', 'HS6-2'],
+    parents: ['IC8-1', 'IC8-2', 'IC8-3', 'IC8-10', 'IC8-15'],
+    children: ['IC6-1', 'IC6-7', 'IC6-8', 'IC6-9', 'IC6-10', 'IC6-11', 'IC6-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-3',
+    id: 'IC7-3',
     name: '',
     intervals: [1, 2, 1, 1, 1, 1, 5],
-    parents: ['HS8-1', 'HS8-3', 'HS8-4', 'HS8-11', 'HS8-21'],
-    children: ['HS6-2', 'HS6-7', 'HS6-12', 'HS6-13', 'HS6-14', 'HS6-15', 'HS6-3'],
+    parents: ['IC8-1', 'IC8-3', 'IC8-4', 'IC8-11', 'IC8-21'],
+    children: ['IC6-2', 'IC6-7', 'IC6-12', 'IC6-13', 'IC6-14', 'IC6-15', 'IC6-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-4',
+    id: 'IC7-4',
     name: '',
     intervals: [1, 1, 2, 1, 1, 1, 5],
-    parents: ['HS8-1', 'HS8-4', 'HS8-5', 'HS8-12', 'HS8-26'],
-    children: ['HS6-3', 'HS6-8', 'HS6-12', 'HS6-16', 'HS6-17', 'HS6-18', 'HS6-4'],
+    parents: ['IC8-1', 'IC8-4', 'IC8-5', 'IC8-12', 'IC8-26'],
+    children: ['IC6-3', 'IC6-8', 'IC6-12', 'IC6-16', 'IC6-17', 'IC6-18', 'IC6-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-5',
+    id: 'IC7-5',
     name: '',
     intervals: [1, 1, 1, 2, 1, 1, 5],
-    parents: ['HS8-1', 'HS8-5', 'HS8-6', 'HS8-13', 'HS8-30'],
-    children: ['HS6-4', 'HS6-9', 'HS6-13', 'HS6-16', 'HS6-19', 'HS6-20', 'HS6-5'],
+    parents: ['IC8-1', 'IC8-5', 'IC8-6', 'IC8-13', 'IC8-30'],
+    children: ['IC6-4', 'IC6-9', 'IC6-13', 'IC6-16', 'IC6-19', 'IC6-20', 'IC6-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-6',
+    id: 'IC7-6',
     name: '',
     intervals: [1, 1, 1, 1, 2, 1, 5],
-    parents: ['HS8-1', 'HS8-6', 'HS8-7', 'HS8-14', 'HS8-32'],
-    children: ['HS6-5', 'HS6-10', 'HS6-14', 'HS6-17', 'HS6-19', 'HS6-21', 'HS6-6'],
+    parents: ['IC8-1', 'IC8-6', 'IC8-7', 'IC8-14', 'IC8-32'],
+    children: ['IC6-5', 'IC6-10', 'IC6-14', 'IC6-17', 'IC6-19', 'IC6-21', 'IC6-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-7',
+    id: 'IC7-7',
     name: '',
     intervals: [1, 1, 1, 1, 1, 2, 5],
-    parents: ['HS8-1', 'HS8-7', 'HS8-8', 'HS8-15', 'HS8-33'],
-    children: ['HS6-6', 'HS6-11', 'HS6-15', 'HS6-18', 'HS6-20', 'HS6-21', 'HS6-1'],
+    parents: ['IC8-1', 'IC8-7', 'IC8-8', 'IC8-15', 'IC8-33'],
+    children: ['IC6-6', 'IC6-11', 'IC6-15', 'IC6-18', 'IC6-20', 'IC6-21', 'IC6-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-8',
+    id: 'IC7-8',
     name: '',
     intervals: [3, 1, 1, 1, 1, 1, 4],
-    parents: ['HS8-2', 'HS8-3', 'HS8-9', 'HS8-16', 'HS8-33'],
-    children: ['HS6-1', 'HS6-22', 'HS6-23', 'HS6-24', 'HS6-25', 'HS6-26', 'HS6-7'],
+    parents: ['IC8-2', 'IC8-3', 'IC8-9', 'IC8-16', 'IC8-33'],
+    children: ['IC6-1', 'IC6-22', 'IC6-23', 'IC6-24', 'IC6-25', 'IC6-26', 'IC6-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-9',
+    id: 'IC7-9',
     name: '',
     intervals: [2, 2, 1, 1, 1, 1, 4],
-    parents: ['HS8-2', 'HS8-4', 'HS8-10', 'HS8-17', 'HS8-34'],
-    children: ['HS6-2', 'HS6-22', 'HS6-27', 'HS6-28', 'HS6-29', 'HS6-30', 'HS6-8'],
+    parents: ['IC8-2', 'IC8-4', 'IC8-10', 'IC8-17', 'IC8-34'],
+    children: ['IC6-2', 'IC6-22', 'IC6-27', 'IC6-28', 'IC6-29', 'IC6-30', 'IC6-8'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-10',
+    id: 'IC7-10',
     name: '',
     intervals: [2, 1, 2, 1, 1, 1, 4],
-    parents: ['HS8-2', 'HS8-5', 'HS8-11', 'HS8-18', 'HS8-35'],
-    children: ['HS6-3', 'HS6-23', 'HS6-27', 'HS6-31', 'HS6-32', 'HS6-33', 'HS6-9'],
+    parents: ['IC8-2', 'IC8-5', 'IC8-11', 'IC8-18', 'IC8-35'],
+    children: ['IC6-3', 'IC6-23', 'IC6-27', 'IC6-31', 'IC6-32', 'IC6-33', 'IC6-9'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-11',
+    id: 'IC7-11',
     name: '',
     intervals: [2, 1, 1, 2, 1, 1, 4],
-    parents: ['HS8-2', 'HS8-6', 'HS8-12', 'HS8-19', 'HS8-36'],
-    children: ['HS6-4', 'HS6-24', 'HS6-28', 'HS6-31', 'HS6-34', 'HS6-35', 'HS6-10'],
+    parents: ['IC8-2', 'IC8-6', 'IC8-12', 'IC8-19', 'IC8-36'],
+    children: ['IC6-4', 'IC6-24', 'IC6-28', 'IC6-31', 'IC6-34', 'IC6-35', 'IC6-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-12',
+    id: 'IC7-12',
     name: '',
     intervals: [2, 1, 1, 1, 2, 1, 4],
-    parents: ['HS8-2', 'HS8-7', 'HS8-13', 'HS8-20', 'HS8-37'],
-    children: ['HS6-5', 'HS6-25', 'HS6-29', 'HS6-32', 'HS6-34', 'HS6-36', 'HS6-11'],
+    parents: ['IC8-2', 'IC8-7', 'IC8-13', 'IC8-20', 'IC8-37'],
+    children: ['IC6-5', 'IC6-25', 'IC6-29', 'IC6-32', 'IC6-34', 'IC6-36', 'IC6-11'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-13',
+    id: 'IC7-13',
     name: '',
     intervals: [2, 1, 1, 1, 1, 2, 4],
-    parents: ['HS8-2', 'HS8-8', 'HS8-14', 'HS8-21', 'HS8-34'],
-    children: ['HS6-6', 'HS6-26', 'HS6-30', 'HS6-33', 'HS6-35', 'HS6-36', 'HS6-2'],
+    parents: ['IC8-2', 'IC8-8', 'IC8-14', 'IC8-21', 'IC8-34'],
+    children: ['IC6-6', 'IC6-26', 'IC6-30', 'IC6-33', 'IC6-35', 'IC6-36', 'IC6-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-14',
+    id: 'IC7-14',
     name: '',
     intervals: [1, 3, 1, 1, 1, 1, 4],
-    parents: ['HS8-3', 'HS8-4', 'HS8-16', 'HS8-22', 'HS8-31'],
-    children: ['HS6-7', 'HS6-22', 'HS6-37', 'HS6-38', 'HS6-39', 'HS6-40', 'HS6-12'],
+    parents: ['IC8-3', 'IC8-4', 'IC8-16', 'IC8-22', 'IC8-31'],
+    children: ['IC6-7', 'IC6-22', 'IC6-37', 'IC6-38', 'IC6-39', 'IC6-40', 'IC6-12'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-15',
+    id: 'IC7-15',
     name: '',
     intervals: [1, 2, 2, 1, 1, 1, 4],
-    parents: ['HS8-3', 'HS8-5', 'HS8-17', 'HS8-23', 'HS8-38'],
-    children: ['HS6-8', 'HS6-23', 'HS6-37', 'HS6-41', 'HS6-42', 'HS6-43', 'HS6-13'],
+    parents: ['IC8-3', 'IC8-5', 'IC8-17', 'IC8-23', 'IC8-38'],
+    children: ['IC6-8', 'IC6-23', 'IC6-37', 'IC6-41', 'IC6-42', 'IC6-43', 'IC6-13'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-16',
+    id: 'IC7-16',
     name: '',
     intervals: [1, 2, 1, 2, 1, 1, 4],
-    parents: ['HS8-3', 'HS8-6', 'HS8-18', 'HS8-24', 'HS8-39'],
-    children: ['HS6-9', 'HS6-24', 'HS6-38', 'HS6-41', 'HS6-44', 'HS6-45', 'HS6-14'],
+    parents: ['IC8-3', 'IC8-6', 'IC8-18', 'IC8-24', 'IC8-39'],
+    children: ['IC6-9', 'IC6-24', 'IC6-38', 'IC6-41', 'IC6-44', 'IC6-45', 'IC6-14'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-17',
+    id: 'IC7-17',
     name: '',
     intervals: [1, 2, 1, 1, 2, 1, 4],
-    parents: ['HS8-3', 'HS8-7', 'HS8-19', 'HS8-25', 'HS8-40'],
-    children: ['HS6-10', 'HS6-25', 'HS6-39', 'HS6-42', 'HS6-44', 'HS6-46', 'HS6-15'],
+    parents: ['IC8-3', 'IC8-7', 'IC8-19', 'IC8-25', 'IC8-40'],
+    children: ['IC6-10', 'IC6-25', 'IC6-39', 'IC6-42', 'IC6-44', 'IC6-46', 'IC6-15'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-18',
+    id: 'IC7-18',
     name: '',
     intervals: [1, 2, 1, 1, 1, 2, 4],
-    parents: ['HS8-3', 'HS8-8', 'HS8-20', 'HS8-26', 'HS8-35'],
-    children: ['HS6-11', 'HS6-26', 'HS6-40', 'HS6-43', 'HS6-45', 'HS6-46', 'HS6-3'],
+    parents: ['IC8-3', 'IC8-8', 'IC8-20', 'IC8-26', 'IC8-35'],
+    children: ['IC6-11', 'IC6-26', 'IC6-40', 'IC6-43', 'IC6-45', 'IC6-46', 'IC6-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-19',
+    id: 'IC7-19',
     name: '',
     intervals: [1, 1, 3, 1, 1, 1, 4],
-    parents: ['HS8-4', 'HS8-5', 'HS8-22', 'HS8-27', 'HS8-28'],
-    children: ['HS6-12', 'HS6-27', 'HS6-37', 'HS6-47', 'HS6-48', 'HS6-49', 'HS6-16'],
+    parents: ['IC8-4', 'IC8-5', 'IC8-22', 'IC8-27', 'IC8-28'],
+    children: ['IC6-12', 'IC6-27', 'IC6-37', 'IC6-47', 'IC6-48', 'IC6-49', 'IC6-16'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-20',
+    id: 'IC7-20',
     name: '',
     intervals: [1, 1, 2, 2, 1, 1, 4],
-    parents: ['HS8-4', 'HS8-6', 'HS8-23', 'HS8-28', 'HS8-41'],
-    children: ['HS6-13', 'HS6-28', 'HS6-38', 'HS6-47', 'HS6-50', 'HS6-51', 'HS6-17'],
+    parents: ['IC8-4', 'IC8-6', 'IC8-23', 'IC8-28', 'IC8-41'],
+    children: ['IC6-13', 'IC6-28', 'IC6-38', 'IC6-47', 'IC6-50', 'IC6-51', 'IC6-17'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-21',
+    id: 'IC7-21',
     name: '',
     intervals: [1, 1, 2, 1, 2, 1, 4],
-    parents: ['HS8-4', 'HS8-7', 'HS8-24', 'HS8-29', 'HS8-42'],
-    children: ['HS6-14', 'HS6-29', 'HS6-39', 'HS6-48', 'HS6-50', 'HS6-52', 'HS6-18'],
+    parents: ['IC8-4', 'IC8-7', 'IC8-24', 'IC8-29', 'IC8-42'],
+    children: ['IC6-14', 'IC6-29', 'IC6-39', 'IC6-48', 'IC6-50', 'IC6-52', 'IC6-18'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-22',
+    id: 'IC7-22',
     name: '',
     intervals: [1, 1, 2, 1, 1, 2, 4],
-    parents: ['HS8-4', 'HS8-8', 'HS8-25', 'HS8-30', 'HS8-36'],
-    children: ['HS6-15', 'HS6-30', 'HS6-40', 'HS6-49', 'HS6-51', 'HS6-52', 'HS6-4'],
+    parents: ['IC8-4', 'IC8-8', 'IC8-25', 'IC8-30', 'IC8-36'],
+    children: ['IC6-15', 'IC6-30', 'IC6-40', 'IC6-49', 'IC6-51', 'IC6-52', 'IC6-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-23',
+    id: 'IC7-23',
     name: '',
     intervals: [1, 1, 1, 3, 1, 1, 4],
-    parents: ['HS8-5', 'HS8-6', 'HS8-22', 'HS8-23', 'HS8-27'],
-    children: ['HS6-16', 'HS6-31', 'HS6-41', 'HS6-47', 'HS6-37', 'HS6-53', 'HS6-19'],
+    parents: ['IC8-5', 'IC8-6', 'IC8-22', 'IC8-23', 'IC8-27'],
+    children: ['IC6-16', 'IC6-31', 'IC6-41', 'IC6-47', 'IC6-37', 'IC6-53', 'IC6-19'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-24',
+    id: 'IC7-24',
     name: '',
     intervals: [1, 1, 1, 2, 2, 1, 4],
-    parents: ['HS8-5', 'HS8-7', 'HS8-28', 'HS8-31', 'HS8-38'],
-    children: ['HS6-17', 'HS6-32', 'HS6-42', 'HS6-48', 'HS6-37', 'HS6-54', 'HS6-20'],
+    parents: ['IC8-5', 'IC8-7', 'IC8-28', 'IC8-31', 'IC8-38'],
+    children: ['IC6-17', 'IC6-32', 'IC6-42', 'IC6-48', 'IC6-37', 'IC6-54', 'IC6-20'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-25',
+    id: 'IC7-25',
     name: '',
     intervals: [1, 1, 1, 2, 1, 2, 4],
-    parents: ['HS8-5', 'HS8-8', 'HS8-29', 'HS8-32', 'HS8-37'],
-    children: ['HS6-18', 'HS6-33', 'HS6-43', 'HS6-49', 'HS6-53', 'HS6-54', 'HS6-5'],
+    parents: ['IC8-5', 'IC8-8', 'IC8-29', 'IC8-32', 'IC8-37'],
+    children: ['IC6-18', 'IC6-33', 'IC6-43', 'IC6-49', 'IC6-53', 'IC6-54', 'IC6-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-26',
+    id: 'IC7-26',
     name: '',
     intervals: [1, 1, 1, 1, 3, 1, 4],
-    parents: ['HS8-6', 'HS8-7', 'HS8-16', 'HS8-17', 'HS8-22'],
-    children: ['HS6-19', 'HS6-34', 'HS6-44', 'HS6-50', 'HS6-37', 'HS6-22', 'HS6-21'],
+    parents: ['IC8-6', 'IC8-7', 'IC8-16', 'IC8-17', 'IC8-22'],
+    children: ['IC6-19', 'IC6-34', 'IC6-44', 'IC6-50', 'IC6-37', 'IC6-22', 'IC6-21'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-27',
+    id: 'IC7-27',
     name: '',
     intervals: [1, 1, 1, 1, 2, 2, 4],
-    parents: ['HS8-6', 'HS8-8', 'HS8-31', 'HS8-33', 'HS8-34'],
-    children: ['HS6-20', 'HS6-35', 'HS6-45', 'HS6-51', 'HS6-53', 'HS6-22', 'HS6-6'],
+    parents: ['IC8-6', 'IC8-8', 'IC8-31', 'IC8-33', 'IC8-34'],
+    children: ['IC6-20', 'IC6-35', 'IC6-45', 'IC6-51', 'IC6-53', 'IC6-22', 'IC6-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-28',
+    id: 'IC7-28',
     name: '',
     intervals: [1, 1, 1, 1, 1, 3, 4],
-    parents: ['HS8-7', 'HS8-8', 'HS8-9', 'HS8-10', 'HS8-16'],
-    children: ['HS6-21', 'HS6-36', 'HS6-46', 'HS6-52', 'HS6-54', 'HS6-22', 'HS6-1'],
+    parents: ['IC8-7', 'IC8-8', 'IC8-9', 'IC8-10', 'IC8-16'],
+    children: ['IC6-21', 'IC6-36', 'IC6-46', 'IC6-52', 'IC6-54', 'IC6-22', 'IC6-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-29',
+    id: 'IC7-29',
     name: '',
     intervals: [2, 1, 1, 1, 1, 3, 3],
-    parents: ['HS8-9', 'HS8-11', 'HS8-14', 'HS8-15', 'HS8-17'],
-    children: ['HS6-21', 'HS6-55', 'HS6-56', 'HS6-57', 'HS6-58', 'HS6-23', 'HS6-2'],
+    parents: ['IC8-9', 'IC8-11', 'IC8-14', 'IC8-15', 'IC8-17'],
+    children: ['IC6-21', 'IC6-55', 'IC6-56', 'IC6-57', 'IC6-58', 'IC6-23', 'IC6-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-30',
+    id: 'IC7-30',
     name: '',
     intervals: [3, 1, 2, 1, 1, 1, 3],
-    parents: ['HS8-9', 'HS8-12', 'HS8-18', 'HS8-20', 'HS8-21'],
-    children: ['HS6-3', 'HS6-36', 'HS6-55', 'HS6-59', 'HS6-60', 'HS6-61', 'HS6-24'],
+    parents: ['IC8-9', 'IC8-12', 'IC8-18', 'IC8-20', 'IC8-21'],
+    children: ['IC6-3', 'IC6-36', 'IC6-55', 'IC6-59', 'IC6-60', 'IC6-61', 'IC6-24'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-31',
+    id: 'IC7-31',
     name: '',
     intervals: [3, 1, 1, 2, 1, 1, 3],
-    parents: ['HS8-9', 'HS8-13', 'HS8-19', 'HS8-25', 'HS8-26'],
-    children: ['HS6-4', 'HS6-46', 'HS6-56', 'HS6-59', 'HS6-62', 'HS6-63', 'HS6-25'],
+    parents: ['IC8-9', 'IC8-13', 'IC8-19', 'IC8-25', 'IC8-26'],
+    children: ['IC6-4', 'IC6-46', 'IC6-56', 'IC6-59', 'IC6-62', 'IC6-63', 'IC6-25'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-32',
+    id: 'IC7-32',
     name: '',
     intervals: [3, 1, 1, 1, 2, 1, 3],
-    parents: ['HS8-9', 'HS8-14', 'HS8-20', 'HS8-29', 'HS8-30'],
-    children: ['HS6-5', 'HS6-52', 'HS6-57', 'HS6-60', 'HS6-62', 'HS6-55', 'HS6-26'],
+    parents: ['IC8-9', 'IC8-14', 'IC8-20', 'IC8-29', 'IC8-30'],
+    children: ['IC6-5', 'IC6-52', 'IC6-57', 'IC6-60', 'IC6-62', 'IC6-55', 'IC6-26'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-33',
+    id: 'IC7-33',
     name: '',
     intervals: [3, 1, 1, 1, 1, 2, 3],
-    parents: ['HS8-9', 'HS8-15', 'HS8-21', 'HS8-31', 'HS8-32'],
-    children: ['HS6-6', 'HS6-54', 'HS6-58', 'HS6-61', 'HS6-63', 'HS6-55', 'HS6-7'],
+    parents: ['IC8-9', 'IC8-15', 'IC8-21', 'IC8-31', 'IC8-32'],
+    children: ['IC6-6', 'IC6-54', 'IC6-58', 'IC6-61', 'IC6-63', 'IC6-55', 'IC6-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-34',
+    id: 'IC7-34',
     name: '',
     intervals: [2, 3, 1, 1, 1, 1, 3],
-    parents: ['HS8-10', 'HS8-11', 'HS8-22', 'HS8-32', 'HS8-33'],
-    children: ['HS6-7', 'HS6-21', 'HS6-53', 'HS6-64', 'HS6-65', 'HS6-66', 'HS6-27'],
+    parents: ['IC8-10', 'IC8-11', 'IC8-22', 'IC8-32', 'IC8-33'],
+    children: ['IC6-7', 'IC6-21', 'IC6-53', 'IC6-64', 'IC6-65', 'IC6-66', 'IC6-27'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-35',
+    id: 'IC7-35',
     name: '',
     intervals: [2, 2, 2, 1, 1, 1, 3],
-    parents: ['HS8-10', 'HS8-12', 'HS8-23', 'HS8-34', 'HS8-37'],
-    children: ['HS6-8', 'HS6-36', 'HS6-53', 'HS6-67', 'HS6-68', 'HS6-69', 'HS6-28'],
+    parents: ['IC8-10', 'IC8-12', 'IC8-23', 'IC8-34', 'IC8-37'],
+    children: ['IC6-8', 'IC6-36', 'IC6-53', 'IC6-67', 'IC6-68', 'IC6-69', 'IC6-28'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-36',
+    id: 'IC7-36',
     name: '',
     intervals: [2, 2, 1, 2, 1, 1, 3],
-    parents: ['HS8-10', 'HS8-13', 'HS8-24', 'HS8-35', 'HS8-40'],
-    children: ['HS6-9', 'HS6-46', 'HS6-64', 'HS6-67', 'HS6-70', 'HS6-71', 'HS6-29'],
+    parents: ['IC8-10', 'IC8-13', 'IC8-24', 'IC8-35', 'IC8-40'],
+    children: ['IC6-9', 'IC6-46', 'IC6-64', 'IC6-67', 'IC6-70', 'IC6-71', 'IC6-29'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-37',
+    id: 'IC7-37',
     name: '',
     intervals: [2, 2, 1, 1, 2, 1, 3],
-    parents: ['HS8-10', 'HS8-14', 'HS8-25', 'HS8-36', 'HS8-42'],
-    children: ['HS6-10', 'HS6-52', 'HS6-65', 'HS6-68', 'HS6-70', 'HS6-56', 'HS6-30'],
+    parents: ['IC8-10', 'IC8-14', 'IC8-25', 'IC8-36', 'IC8-42'],
+    children: ['IC6-10', 'IC6-52', 'IC6-65', 'IC6-68', 'IC6-70', 'IC6-56', 'IC6-30'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-38',
+    id: 'IC7-38',
     name: '',
     intervals: [2, 2, 1, 1, 1, 2, 3],
-    parents: ['HS8-10', 'HS8-15', 'HS8-26', 'HS8-37', 'HS8-38'],
-    children: ['HS6-11', 'HS6-54', 'HS6-66', 'HS6-69', 'HS6-71', 'HS6-56', 'HS6-8'],
+    parents: ['IC8-10', 'IC8-15', 'IC8-26', 'IC8-37', 'IC8-38'],
+    children: ['IC6-11', 'IC6-54', 'IC6-66', 'IC6-69', 'IC6-71', 'IC6-56', 'IC6-8'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-39',
+    id: 'IC7-39',
     name: '',
     intervals: [2, 1, 3, 1, 1, 1, 3],
-    parents: ['HS8-11', 'HS8-12', 'HS8-27', 'HS8-29', 'HS8-31'],
-    children: ['HS6-12', 'HS6-55', 'HS6-53', 'HS6-48', 'HS6-72', 'HS6-73', 'HS6-31'],
+    parents: ['IC8-11', 'IC8-12', 'IC8-27', 'IC8-29', 'IC8-31'],
+    children: ['IC6-12', 'IC6-55', 'IC6-53', 'IC6-48', 'IC6-72', 'IC6-73', 'IC6-31'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-40',
+    id: 'IC7-40',
     name: '',
     intervals: [2, 1, 2, 2, 1, 1, 3],
-    parents: ['HS8-11', 'HS8-13', 'HS8-28', 'HS8-38', 'HS8-42'],
-    children: ['HS6-13', 'HS6-56', 'HS6-64', 'HS6-48', 'HS6-74', 'HS6-75', 'HS6-32'],
+    parents: ['IC8-11', 'IC8-13', 'IC8-28', 'IC8-38', 'IC8-42'],
+    children: ['IC6-13', 'IC6-56', 'IC6-64', 'IC6-48', 'IC6-74', 'IC6-75', 'IC6-32'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-41',
+    id: 'IC7-41',
     name: '',
     intervals: [2, 1, 2, 1, 2, 1, 3],
-    parents: ['HS8-11', 'HS8-14', 'HS8-29', 'HS8-39', 'HS8-43'],
-    children: ['HS6-14', 'HS6-57', 'HS6-65', 'HS6-72', 'HS6-74', 'HS6-33'],
+    parents: ['IC8-11', 'IC8-14', 'IC8-29', 'IC8-39', 'IC8-43'],
+    children: ['IC6-14', 'IC6-57', 'IC6-65', 'IC6-72', 'IC6-74', 'IC6-33'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS7-42',
+    id: 'IC7-42',
     name: '',
     intervals: [2, 1, 2, 1, 1, 2, 3],
-    parents: ['HS8-11', 'HS8-15', 'HS8-30', 'HS8-39', 'HS8-40'],
-    children: ['HS6-15', 'HS6-58', 'HS6-66', 'HS6-73', 'HS6-75', 'HS6-57', 'HS6-9'],
+    parents: ['IC8-11', 'IC8-15', 'IC8-30', 'IC8-39', 'IC8-40'],
+    children: ['IC6-15', 'IC6-58', 'IC6-66', 'IC6-73', 'IC6-75', 'IC6-57', 'IC6-9'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-43',
+    id: 'IC7-43',
     name: '',
     intervals: [2, 1, 1, 3, 1, 1, 3],
-    parents: ['HS8-12', 'HS8-13', 'HS8-22', 'HS8-24', 'HS8-28'],
-    children: ['HS6-16', 'HS6-59', 'HS6-67', 'HS6-48', 'HS6-38', 'HS6-64', 'HS6-34'],
+    parents: ['IC8-12', 'IC8-13', 'IC8-22', 'IC8-24', 'IC8-28'],
+    children: ['IC6-16', 'IC6-59', 'IC6-67', 'IC6-48', 'IC6-38', 'IC6-64', 'IC6-34'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-44',
+    id: 'IC7-44',
     name: '',
     intervals: [2, 1, 1, 2, 2, 1, 3],
-    parents: ['HS8-12', 'HS8-14', 'HS8-31', 'HS8-39', 'HS8-41'],
-    children: ['HS6-17', 'HS6-60', 'HS6-68', 'HS6-72', 'HS6-38', 'HS6-58', 'HS6-35'],
+    parents: ['IC8-12', 'IC8-14', 'IC8-31', 'IC8-39', 'IC8-41'],
+    children: ['IC6-17', 'IC6-60', 'IC6-68', 'IC6-72', 'IC6-38', 'IC6-58', 'IC6-35'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-45',
+    id: 'IC7-45',
     name: '',
     intervals: [2, 1, 1, 2, 1, 2, 3],
-    parents: ['HS8-12', 'HS8-15', 'HS8-32', 'HS8-40', 'HS8-42'],
-    children: ['HS6-18', 'HS6-61', 'HS6-69', 'HS6-73', 'HS6-64', 'HS6-58', 'HS6-10'],
+    parents: ['IC8-12', 'IC8-15', 'IC8-32', 'IC8-40', 'IC8-42'],
+    children: ['IC6-18', 'IC6-61', 'IC6-69', 'IC6-73', 'IC6-64', 'IC6-58', 'IC6-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-46',
+    id: 'IC7-46',
     name: '',
     intervals: [2, 1, 1, 1, 3, 1, 3],
-    parents: ['HS8-13', 'HS8-14', 'HS8-16', 'HS8-18', 'HS8-23'],
-    children: ['HS6-19', 'HS6-62', 'HS6-70', 'HS6-74', 'HS6-38', 'HS6-23', 'HS6-36'],
+    parents: ['IC8-13', 'IC8-14', 'IC8-16', 'IC8-18', 'IC8-23'],
+    children: ['IC6-19', 'IC6-62', 'IC6-70', 'IC6-74', 'IC6-38', 'IC6-23', 'IC6-36'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-47',
+    id: 'IC7-47',
     name: '',
     intervals: [2, 1, 1, 1, 2, 2, 3],
-    parents: ['HS8-13', 'HS8-15', 'HS8-33', 'HS8-35', 'HS8-38'],
-    children: ['HS6-20', 'HS6-63', 'HS6-71', 'HS6-75', 'HS6-64', 'HS6-23', 'HS6-11'],
+    parents: ['IC8-13', 'IC8-15', 'IC8-33', 'IC8-35', 'IC8-38'],
+    children: ['IC6-20', 'IC6-63', 'IC6-71', 'IC6-75', 'IC6-64', 'IC6-23', 'IC6-11'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-48',
+    id: 'IC7-48',
     name: '',
     intervals: [1, 2, 1, 1, 3, 1, 3],
-    parents: ['HS8-16', 'HS8-19', 'HS8-20', 'HS8-24'],
-    children: ['HS6-34', 'HS6-62', 'HS6-76', 'HS6-77', 'HS6-39', 'HS6-24', 'HS6-46'],
+    parents: ['IC8-16', 'IC8-19', 'IC8-20', 'IC8-24'],
+    children: ['IC6-34', 'IC6-62', 'IC6-76', 'IC6-77', 'IC6-39', 'IC6-24', 'IC6-46'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-49',
+    id: 'IC7-49',
     name: '',
     intervals: [1, 3, 1, 1, 2, 1, 3],
-    parents: ['HS8-16', 'HS8-20', 'HS8-24', 'HS8-25'],
-    children: ['HS6-25', 'HS6-52', 'HS6-44', 'HS6-70', 'HS6-76', 'HS6-59', 'HS6-40'],
+    parents: ['IC8-16', 'IC8-20', 'IC8-24', 'IC8-25'],
+    children: ['IC6-25', 'IC6-52', 'IC6-44', 'IC6-70', 'IC6-76', 'IC6-59', 'IC6-40'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-50',
+    id: 'IC7-50',
     name: '',
     intervals: [1, 3, 1, 1, 1, 2, 3],
-    parents: ['HS8-16', 'HS8-21', 'HS8-26', 'HS8-28', 'HS8-29'],
-    children: ['HS6-26', 'HS6-54', 'HS6-50', 'HS6-74', 'HS6-77', 'HS6-59', 'HS6-12'],
+    parents: ['IC8-16', 'IC8-21', 'IC8-26', 'IC8-28', 'IC8-29'],
+    children: ['IC6-26', 'IC6-54', 'IC6-50', 'IC6-74', 'IC6-77', 'IC6-59', 'IC6-12'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-51',
+    id: 'IC7-51',
     name: '',
     intervals: [1, 2, 3, 1, 1, 1, 3],
-    parents: ['HS8-17', 'HS8-18', 'HS8-27', 'HS8-30', 'HS8-32'],
-    children: ['HS6-27', 'HS6-55', 'HS6-19', 'HS6-49', 'HS6-73', 'HS6-78', 'HS6-41'],
+    parents: ['IC8-17', 'IC8-18', 'IC8-27', 'IC8-30', 'IC8-32'],
+    children: ['IC6-27', 'IC6-55', 'IC6-19', 'IC6-49', 'IC6-73', 'IC6-78', 'IC6-41'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-52',
+    id: 'IC7-52',
     name: '',
     intervals: [1, 2, 2, 2, 1, 1, 3],
-    parents: ['HS8-17', 'HS8-19', 'HS8-28', 'HS8-36', 'HS8-37'],
-    children: ['HS6-28', 'HS6-56', 'HS6-34', 'HS6-49', 'HS6-77', 'HS6-79', 'HS6-42'],
+    parents: ['IC8-17', 'IC8-19', 'IC8-28', 'IC8-36', 'IC8-37'],
+    children: ['IC6-28', 'IC6-56', 'IC6-34', 'IC6-49', 'IC6-77', 'IC6-79', 'IC6-42'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-53',
+    id: 'IC7-53',
     name: 'Harmonic Major Modes',
     intervals: [1, 2, 2, 1, 2, 1, 3],
-    parents: ['HS8-17', 'HS8-20', 'HS8-29', 'HS8-39', 'HS8-40'],
-    children: ['HS6-29', 'HS6-57', 'HS6-44', 'HS6-73', 'HS6-77', 'HS6-60', 'HS6-43'],
+    parents: ['IC8-17', 'IC8-20', 'IC8-29', 'IC8-39', 'IC8-40'],
+    children: ['IC6-29', 'IC6-57', 'IC6-44', 'IC6-73', 'IC6-77', 'IC6-60', 'IC6-43'],
     root: 0,
-    contiguousSemitones: false,
+    cohemitonic: false,
     saturated: true
   }, {
-    id: 'HS7-54',
+    id: 'IC7-54',
     name: '',
     intervals: [1, 2, 2, 1, 1, 2, 3],
-    parents: ['HS8-17', 'HS8-21', 'HS8-30', 'HS8-41', 'HS8-42'],
-    children: ['HS6-30', 'HS6-58', 'HS6-50', 'HS6-78', 'HS6-79', 'HS6-60', 'HS6-13'],
+    parents: ['IC8-17', 'IC8-21', 'IC8-30', 'IC8-41', 'IC8-42'],
+    children: ['IC6-30', 'IC6-58', 'IC6-50', 'IC6-78', 'IC6-79', 'IC6-60', 'IC6-13'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-55',
+    id: 'IC7-55',
     name: '',
     intervals: [1, 2, 1, 3, 1, 1, 3],
-    parents: ['HS8-18', 'HS8-19', 'HS8-22', 'HS8-25', 'HS8-29'],
-    children: ['HS6-31', 'HS6-59', 'HS6-62', 'HS6-49', 'HS6-39', 'HS6-65', 'HS6-44'],
+    parents: ['IC8-18', 'IC8-19', 'IC8-22', 'IC8-25', 'IC8-29'],
+    children: ['IC6-31', 'IC6-59', 'IC6-62', 'IC6-49', 'IC6-39', 'IC6-65', 'IC6-44'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-56',
+    id: 'IC7-56',
     name: 'Harmonic Minor Modes',
     intervals: [1, 2, 1, 2, 2, 1, 3],
-    parents: ['HS8-18', 'HS8-20', 'HS8-31', 'HS8-40', 'HS8-42'],
-    children: ['HS6-32', 'HS6-60', 'HS6-70', 'HS6-73', 'HS6-39', 'HS6-61', 'HS6-45'],
+    parents: ['IC8-18', 'IC8-20', 'IC8-31', 'IC8-40', 'IC8-42'],
+    children: ['IC6-32', 'IC6-60', 'IC6-70', 'IC6-73', 'IC6-39', 'IC6-61', 'IC6-45'],
     root: 0,
-    contiguousSemitones: false,
+    cohemitonic: false,
     saturated: true
   }, {
-    id: 'HS7-57',
+    id: 'IC7-57',
     name: '',
     intervals: [1, 2, 1, 2, 1, 2, 3],
-    parents: ['HS8-18', 'HS8-21', 'HS8-32', 'HS8-42', 'HS8-43'],
-    children: ['HS6-33', 'HS6-61', 'HS6-74', 'HS6-78', 'HS6-65', 'HS6-14'],
+    parents: ['IC8-18', 'IC8-21', 'IC8-32', 'IC8-42', 'IC8-43'],
+    children: ['IC6-33', 'IC6-61', 'IC6-74', 'IC6-78', 'IC6-65', 'IC6-14'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS7-58',
+    id: 'IC7-58',
     name: '',
     intervals: [1, 2, 1, 1, 2, 2, 3],
-    parents: ['HS8-19', 'HS8-21', 'HS8-33', 'HS8-36', 'HS8-39'],
-    children: ['HS6-35', 'HS6-63', 'HS6-77', 'HS6-79', 'HS6-65', 'HS6-24', 'HS6-15'],
+    parents: ['IC8-19', 'IC8-21', 'IC8-33', 'IC8-36', 'IC8-39'],
+    children: ['IC6-35', 'IC6-63', 'IC6-77', 'IC6-79', 'IC6-65', 'IC6-24', 'IC6-15'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-59',
+    id: 'IC7-59',
     name: '',
     intervals: [1, 1, 2, 3, 1, 1, 3],
-    parents: ['HS8-22', 'HS8-23', 'HS8-24', 'HS8-26', 'HS8-30'],
-    children: ['HS6-41', 'HS6-67', 'HS6-62', 'HS6-16', 'HS6-40', 'HS6-66', 'HS6-50'],
+    parents: ['IC8-22', 'IC8-23', 'IC8-24', 'IC8-26', 'IC8-30'],
+    children: ['IC6-41', 'IC6-67', 'IC6-62', 'IC6-16', 'IC6-40', 'IC6-66', 'IC6-50'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-60',
+    id: 'IC7-60',
     name: '',
     intervals: [1, 1, 2, 2, 2, 1, 3],
-    parents: ['HS8-23', 'HS8-25', 'HS8-31', 'HS8-35', 'HS8-36'],
-    children: ['HS6-42', 'HS6-68', 'HS6-70', 'HS6-31', 'HS6-40', 'HS6-63', 'HS6-51'],
+    parents: ['IC8-23', 'IC8-25', 'IC8-31', 'IC8-35', 'IC8-36'],
+    children: ['IC6-42', 'IC6-68', 'IC6-70', 'IC6-31', 'IC6-40', 'IC6-63', 'IC6-51'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-61',
+    id: 'IC7-61',
     name: '',
     intervals: [1, 1, 2, 2, 1, 2, 3],
-    parents: ['HS8-23', 'HS8-26', 'HS8-32', 'HS8-38', 'HS8-39'],
-    children: ['HS6-43', 'HS6-69', 'HS6-74', 'HS6-41', 'HS6-66', 'HS6-63', 'HS6-17'],
+    parents: ['IC8-23', 'IC8-26', 'IC8-32', 'IC8-38', 'IC8-39'],
+    children: ['IC6-43', 'IC6-69', 'IC6-74', 'IC6-41', 'IC6-66', 'IC6-63', 'IC6-17'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-62',
+    id: 'IC7-62',
     name: '',
     intervals: [1, 1, 2, 1, 2, 2, 3],
-    parents: ['HS8-24', 'HS8-26', 'HS8-33', 'HS8-37', 'HS8-40'],
-    children: ['HS6-45', 'HS6-71', 'HS6-77', 'HS6-67', 'HS6-66', 'HS6-25', 'HS6-18'],
+    parents: ['IC8-24', 'IC8-26', 'IC8-33', 'IC8-37', 'IC8-40'],
+    children: ['IC6-45', 'IC6-71', 'IC6-77', 'IC6-67', 'IC6-66', 'IC6-25', 'IC6-18'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-63',
+    id: 'IC7-63',
     name: '',
     intervals: [1, 1, 1, 2, 2, 2, 3],
-    parents: ['HS8-28', 'HS8-30', 'HS8-33', 'HS8-34', 'HS8-35'],
-    children: ['HS6-51', 'HS6-75', 'HS6-79', 'HS6-67', 'HS6-27', 'HS6-26', 'HS6-20'],
+    parents: ['IC8-28', 'IC8-30', 'IC8-33', 'IC8-34', 'IC8-35'],
+    children: ['IC6-51', 'IC6-75', 'IC6-79', 'IC6-67', 'IC6-27', 'IC6-26', 'IC6-20'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-64',
+    id: 'IC7-64',
     name: '',
     intervals: [2, 2, 1, 1, 2, 2, 2],
-    parents: ['HS8-34', 'HS8-36', 'HS8-41'],
-    children: ['HS6-35', 'HS6-51', 'HS6-79', 'HS6-80', 'HS6-68', 'HS6-28', 'HS6-30'],
+    parents: ['IC8-34', 'IC8-36', 'IC8-41'],
+    children: ['IC6-35', 'IC6-51', 'IC6-79', 'IC6-80', 'IC6-68', 'IC6-28', 'IC6-30'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS7-65',
+    id: 'IC7-65',
     name: 'Melodic Minor Modes',
     intervals: [2, 1, 2, 1, 2, 2, 2],
-    parents: ['HS8-34', 'HS8-35', 'HS8-37', 'HS8-39', 'HS8-42'],
-    children: ['HS6-45', 'HS6-75', 'HS6-79', 'HS6-68', 'HS6-69', 'HS6-29', 'HS6-33'],
+    parents: ['IC8-34', 'IC8-35', 'IC8-37', 'IC8-39', 'IC8-42'],
+    children: ['IC6-45', 'IC6-75', 'IC6-79', 'IC6-68', 'IC6-69', 'IC6-29', 'IC6-33'],
     root: 0,
-    contiguousSemitones: false,
+    cohemitonic: false,
     saturated: true
   }, {
-    id: 'HS7-66',
+    id: 'IC7-66',
     name: 'Major Modes',
     intervals: [2, 1, 2, 2, 1, 2, 2],
-    parents: ['HS8-35', 'HS8-37', 'HS8-38', 'HS8-40'],
-    children: ['HS6-43', 'HS6-71', 'HS6-75', 'HS6-42', 'HS6-69', 'HS6-32'],
+    parents: ['IC8-35', 'IC8-37', 'IC8-38', 'IC8-40'],
+    children: ['IC6-43', 'IC6-71', 'IC6-75', 'IC6-42', 'IC6-69', 'IC6-32'],
     root: 0,
-    contiguousSemitones: false,
+    cohemitonic: false,
     saturated: true
   }, {
-    id: 'HS6-1',
+    id: 'IC6-1',
     name: '',
     intervals: [1, 1, 1, 1, 1, 7],
-    parents: ['HS7-1', 'HS7-2', 'HS7-7', 'HS7-8', 'HS7-28'],
-    children: ['HS5-1', 'HS5-2', 'HS5-3', 'HS5-4', 'HS5-5'],
+    parents: ['IC7-1', 'IC7-2', 'IC7-7', 'IC7-8', 'IC7-28'],
+    children: ['IC5-1', 'IC5-2', 'IC5-3', 'IC5-4', 'IC5-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-2',
+    id: 'IC6-2',
     name: '',
     intervals: [2, 1, 1, 1, 1, 6],
-    parents: ['HS7-1', 'HS7-2', 'HS7-3', 'HS7-9', 'HS7-13', 'HS7-29'],
-    children: ['HS5-1', 'HS5-6', 'HS5-7', 'HS5-8', 'HS5-9', 'HS5-2'],
+    parents: ['IC7-1', 'IC7-2', 'IC7-3', 'IC7-9', 'IC7-13', 'IC7-29'],
+    children: ['IC5-1', 'IC5-6', 'IC5-7', 'IC5-8', 'IC5-9', 'IC5-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-3',
+    id: 'IC6-3',
     name: '',
     intervals: [1, 2, 1, 1, 1, 6],
-    parents: ['HS7-1', 'HS7-3', 'HS7-4', 'HS7-10', 'HS7-18', 'HS7-30'],
-    children: ['HS5-2', 'HS5-6', 'HS5-10', 'HS5-11', 'HS5-12', 'HS5-3'],
+    parents: ['IC7-1', 'IC7-3', 'IC7-4', 'IC7-10', 'IC7-18', 'IC7-30'],
+    children: ['IC5-2', 'IC5-6', 'IC5-10', 'IC5-11', 'IC5-12', 'IC5-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-4',
+    id: 'IC6-4',
     name: '',
     intervals: [1, 1, 2, 1, 1, 6],
-    parents: ['HS7-1', 'HS7-4', 'HS7-5', 'HS7-11', 'HS7-22', 'HS7-31'],
-    children: ['HS5-3', 'HS5-7', 'HS5-10', 'HS5-13', 'HS5-14', 'HS5-4'],
+    parents: ['IC7-1', 'IC7-4', 'IC7-5', 'IC7-11', 'IC7-22', 'IC7-31'],
+    children: ['IC5-3', 'IC5-7', 'IC5-10', 'IC5-13', 'IC5-14', 'IC5-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-5',
+    id: 'IC6-5',
     name: '',
     intervals: [1, 1, 1, 2, 1, 6],
-    parents: ['HS7-1', 'HS7-5', 'HS7-6', 'HS7-12', 'HS7-25', 'HS7-32'],
-    children: ['HS5-4', 'HS5-8', 'HS5-11', 'HS5-13', 'HS5-15', 'HS5-5'],
+    parents: ['IC7-1', 'IC7-5', 'IC7-6', 'IC7-12', 'IC7-25', 'IC7-32'],
+    children: ['IC5-4', 'IC5-8', 'IC5-11', 'IC5-13', 'IC5-15', 'IC5-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-6',
+    id: 'IC6-6',
     name: '',
     intervals: [1, 1, 1, 1, 2, 6],
-    parents: ['HS7-1', 'HS7-6', 'HS7-7', 'HS7-13', 'HS7-27', 'HS7-33'],
-    children: ['HS5-5', 'HS5-9', 'HS5-12', 'HS5-14', 'HS5-15', 'HS5-1'],
+    parents: ['IC7-1', 'IC7-6', 'IC7-7', 'IC7-13', 'IC7-27', 'IC7-33'],
+    children: ['IC5-5', 'IC5-9', 'IC5-12', 'IC5-14', 'IC5-15', 'IC5-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-7',
+    id: 'IC6-7',
     name: '',
     intervals: [3, 1, 1, 1, 1, 5],
-    parents: ['HS7-2', 'HS7-3', 'HS7-8', 'HS7-14', 'HS7-33', 'HS7-34'],
-    children: ['HS5-1', 'HS5-16', 'HS5-17', 'HS5-18', 'HS5-19', 'HS5-6'],
+    parents: ['IC7-2', 'IC7-3', 'IC7-8', 'IC7-14', 'IC7-33', 'IC7-34'],
+    children: ['IC5-1', 'IC5-16', 'IC5-17', 'IC5-18', 'IC5-19', 'IC5-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-8',
+    id: 'IC6-8',
     name: '',
     intervals: [2, 2, 1, 1, 1, 5],
-    parents: ['HS7-2', 'HS7-4', 'HS7-9', 'HS7-15', 'HS7-35', 'HS7-38'],
-    children: ['HS5-2', 'HS5-16', 'HS5-20', 'HS5-21', 'HS5-22', 'HS5-7'],
+    parents: ['IC7-2', 'IC7-4', 'IC7-9', 'IC7-15', 'IC7-35', 'IC7-38'],
+    children: ['IC5-2', 'IC5-16', 'IC5-20', 'IC5-21', 'IC5-22', 'IC5-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-9',
+    id: 'IC6-9',
     name: '',
     intervals: [2, 1, 2, 1, 1, 5],
-    parents: ['HS7-2', 'HS7-5', 'HS7-10', 'HS7-16', 'HS7-36', 'HS7-42'],
-    children: ['HS5-3', 'HS5-17', 'HS5-20', 'HS5-23', 'HS5-24', 'HS5-8'],
+    parents: ['IC7-2', 'IC7-5', 'IC7-10', 'IC7-16', 'IC7-36', 'IC7-42'],
+    children: ['IC5-3', 'IC5-17', 'IC5-20', 'IC5-23', 'IC5-24', 'IC5-8'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-10',
+    id: 'IC6-10',
     name: '',
     intervals: [2, 1, 1, 2, 1, 5],
-    parents: ['HS7-2', 'HS7-6', 'HS7-11', 'HS7-17', 'HS7-37', 'HS7-45'],
-    children: ['HS5-4', 'HS5-18', 'HS5-21', 'HS5-23', 'HS5-25', 'HS5-9'],
+    parents: ['IC7-2', 'IC7-6', 'IC7-11', 'IC7-17', 'IC7-37', 'IC7-45'],
+    children: ['IC5-4', 'IC5-18', 'IC5-21', 'IC5-23', 'IC5-25', 'IC5-9'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-11',
+    id: 'IC6-11',
     name: '',
     intervals: [2, 1, 1, 1, 2, 5],
-    parents: ['HS7-2', 'HS7-7', 'HS7-12', 'HS7-18', 'HS7-38', 'HS7-47'],
-    children: ['HS5-5', 'HS5-19', 'HS5-22', 'HS5-24', 'HS5-25', 'HS5-2'],
+    parents: ['IC7-2', 'IC7-7', 'IC7-12', 'IC7-18', 'IC7-38', 'IC7-47'],
+    children: ['IC5-5', 'IC5-19', 'IC5-22', 'IC5-24', 'IC5-25', 'IC5-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-12',
+    id: 'IC6-12',
     name: '',
     intervals: [1, 3, 1, 1, 1, 5],
-    parents: ['HS7-3', 'HS7-4', 'HS7-14', 'HS7-19', 'HS7-39', 'HS7-50'],
-    children: ['HS5-6', 'HS5-16', 'HS5-26', 'HS5-27', 'HS5-28', 'HS5-10'],
+    parents: ['IC7-3', 'IC7-4', 'IC7-14', 'IC7-19', 'IC7-39', 'IC7-50'],
+    children: ['IC5-6', 'IC5-16', 'IC5-26', 'IC5-27', 'IC5-28', 'IC5-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-13',
+    id: 'IC6-13',
     name: '',
     intervals: [1, 2, 2, 1, 1, 5],
-    parents: ['HS7-3', 'HS7-5', 'HS7-15', 'HS7-20', 'HS7-40', 'HS7-54'],
-    children: ['HS5-7', 'HS5-17', 'HS5-26', 'HS5-29', 'HS5-30', 'HS5-11'],
+    parents: ['IC7-3', 'IC7-5', 'IC7-15', 'IC7-20', 'IC7-40', 'IC7-54'],
+    children: ['IC5-7', 'IC5-17', 'IC5-26', 'IC5-29', 'IC5-30', 'IC5-11'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-14',
+    id: 'IC6-14',
     name: '',
     intervals: [1, 2, 1, 2, 1, 5],
-    parents: ['HS7-3', 'HS7-6', 'HS7-16', 'HS7-21', 'HS7-41', 'HS7-57'],
-    children: ['HS5-8', 'HS5-18', 'HS5-27', 'HS5-29', 'HS5-31', 'HS5-12'],
+    parents: ['IC7-3', 'IC7-6', 'IC7-16', 'IC7-21', 'IC7-41', 'IC7-57'],
+    children: ['IC5-8', 'IC5-18', 'IC5-27', 'IC5-29', 'IC5-31', 'IC5-12'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-15',
+    id: 'IC6-15',
     name: '',
     intervals: [1, 2, 1, 1, 2, 5],
-    parents: ['HS7-3', 'HS7-7', 'HS7-17', 'HS7-22', 'HS7-42', 'HS7-58'],
-    children: ['HS5-9', 'HS5-19', 'HS5-28', 'HS5-30', 'HS5-31', 'HS5-3'],
+    parents: ['IC7-3', 'IC7-7', 'IC7-17', 'IC7-22', 'IC7-42', 'IC7-58'],
+    children: ['IC5-9', 'IC5-19', 'IC5-28', 'IC5-30', 'IC5-31', 'IC5-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-16',
+    id: 'IC6-16',
     name: '',
     intervals: [1, 1, 3, 1, 1, 5],
-    parents: ['HS7-4', 'HS7-5', 'HS7-19', 'HS7-23', 'HS7-43', 'HS7-59'],
-    children: ['HS5-10', 'HS5-20', 'HS5-26', 'HS5-32', 'HS5-33', 'HS5-13'],
+    parents: ['IC7-4', 'IC7-5', 'IC7-19', 'IC7-23', 'IC7-43', 'IC7-59'],
+    children: ['IC5-10', 'IC5-20', 'IC5-26', 'IC5-32', 'IC5-33', 'IC5-13'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-17',
+    id: 'IC6-17',
     name: '',
     intervals: [1, 1, 2, 2, 1, 5],
-    parents: ['HS7-4', 'HS7-6', 'HS7-20', 'HS7-24', 'HS7-44', 'HS7-61'],
-    children: ['HS5-11', 'HS5-21', 'HS5-27', 'HS5-32', 'HS5-34', 'HS5-14'],
+    parents: ['IC7-4', 'IC7-6', 'IC7-20', 'IC7-24', 'IC7-44', 'IC7-61'],
+    children: ['IC5-11', 'IC5-21', 'IC5-27', 'IC5-32', 'IC5-34', 'IC5-14'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-18',
+    id: 'IC6-18',
     name: '',
     intervals: [1, 1, 2, 1, 2, 5],
-    parents: ['HS7-4', 'HS7-7', 'HS7-21', 'HS7-25', 'HS7-45', 'HS7-62'],
-    children: ['HS5-12', 'HS5-22', 'HS5-28', 'HS5-33', 'HS5-34', 'HS5-4'],
+    parents: ['IC7-4', 'IC7-7', 'IC7-21', 'IC7-25', 'IC7-45', 'IC7-62'],
+    children: ['IC5-12', 'IC5-22', 'IC5-28', 'IC5-33', 'IC5-34', 'IC5-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-19',
+    id: 'IC6-19',
     name: '',
     intervals: [1, 1, 1, 3, 1, 5],
-    parents: ['HS7-5', 'HS7-6', 'HS7-23', 'HS7-26', 'HS7-46', 'HS7-51'],
-    children: ['HS5-13', 'HS5-23', 'HS5-29', 'HS5-32', 'HS5-35', 'HS5-15'],
+    parents: ['IC7-5', 'IC7-6', 'IC7-23', 'IC7-26', 'IC7-46', 'IC7-51'],
+    children: ['IC5-13', 'IC5-23', 'IC5-29', 'IC5-32', 'IC5-35', 'IC5-15'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-20',
+    id: 'IC6-20',
     name: '',
     intervals: [1, 1, 1, 2, 2, 5],
-    parents: ['HS7-5', 'HS7-7', 'HS7-24', 'HS7-27', 'HS7-47', 'HS7-63'],
-    children: ['HS5-14', 'HS5-24', 'HS5-30', 'HS5-33', 'HS5-35', 'HS5-5'],
+    parents: ['IC7-5', 'IC7-7', 'IC7-24', 'IC7-27', 'IC7-47', 'IC7-63'],
+    children: ['IC5-14', 'IC5-24', 'IC5-30', 'IC5-33', 'IC5-35', 'IC5-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-21',
+    id: 'IC6-21',
     name: '',
     intervals: [1, 1, 1, 1, 3, 5],
-    parents: ['HS7-6', 'HS7-7', 'HS7-26', 'HS7-28', 'HS7-29', 'HS7-34'],
-    children: ['HS5-15', 'HS5-25', 'HS5-31', 'HS5-34', 'HS5-35', 'HS5-1'],
+    parents: ['IC7-6', 'IC7-7', 'IC7-26', 'IC7-28', 'IC7-29', 'IC7-34'],
+    children: ['IC5-15', 'IC5-25', 'IC5-31', 'IC5-34', 'IC5-35', 'IC5-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-22',
+    id: 'IC6-22',
     name: '',
     intervals: [4, 1, 1, 1, 1, 4],
-    parents: ['HS7-8', 'HS7-9', 'HS7-14', 'HS7-26', 'HS7-27', 'HS7-28'],
-    children: ['HS5-1', 'HS5-35', 'HS5-36', 'HS5-37', 'HS5-38', 'HS5-16'],
+    parents: ['IC7-8', 'IC7-9', 'IC7-14', 'IC7-26', 'IC7-27', 'IC7-28'],
+    children: ['IC5-1', 'IC5-35', 'IC5-36', 'IC5-37', 'IC5-38', 'IC5-16'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-23',
+    id: 'IC6-23',
     name: '',
     intervals: [3, 2, 1, 1, 1, 4],
-    parents: ['HS7-8', 'HS7-10', 'HS7-15', 'HS7-29', 'HS7-46', 'HS7-47'],
-    children: ['HS5-2', 'HS5-35', 'HS5-39', 'HS5-40', 'HS5-41', 'HS5-17'],
+    parents: ['IC7-8', 'IC7-10', 'IC7-15', 'IC7-29', 'IC7-46', 'IC7-47'],
+    children: ['IC5-2', 'IC5-35', 'IC5-39', 'IC5-40', 'IC5-41', 'IC5-17'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-24',
+    id: 'IC6-24',
     name: '',
     intervals: [3, 1, 2, 1, 1, 4],
-    parents: ['HS7-8', 'HS7-11', 'HS7-16', 'HS7-30', 'HS7-48', 'HS7-58'],
-    children: ['HS5-3', 'HS5-36', 'HS5-39', 'HS5-42', 'HS5-43', 'HS5-18'],
+    parents: ['IC7-8', 'IC7-11', 'IC7-16', 'IC7-30', 'IC7-48', 'IC7-58'],
+    children: ['IC5-3', 'IC5-36', 'IC5-39', 'IC5-42', 'IC5-43', 'IC5-18'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-25',
+    id: 'IC6-25',
     name: '',
     intervals: [3, 1, 1, 2, 1, 4],
-    parents: ['HS7-8', 'HS7-12', 'HS7-17', 'HS7-31', 'HS7-49', 'HS7-62'],
-    children: ['HS5-4', 'HS5-37', 'HS5-40', 'HS5-42', 'HS5-44', 'HS5-19'],
+    parents: ['IC7-8', 'IC7-12', 'IC7-17', 'IC7-31', 'IC7-49', 'IC7-62'],
+    children: ['IC5-4', 'IC5-37', 'IC5-40', 'IC5-42', 'IC5-44', 'IC5-19'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-26',
+    id: 'IC6-26',
     name: '',
     intervals: [3, 1, 1, 1, 2, 4],
-    parents: ['HS7-8', 'HS7-13', 'HS7-18', 'HS7-32', 'HS7-50', 'HS7-63'],
-    children: ['HS5-5', 'HS5-38', 'HS5-41', 'HS5-43', 'HS5-44', 'HS5-6'],
+    parents: ['IC7-8', 'IC7-13', 'IC7-18', 'IC7-32', 'IC7-50', 'IC7-63'],
+    children: ['IC5-5', 'IC5-38', 'IC5-41', 'IC5-43', 'IC5-44', 'IC5-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-27',
+    id: 'IC6-27',
     name: '',
     intervals: [2, 3, 1, 1, 1, 4],
-    parents: ['HS7-9', 'HS7-10', 'HS7-19', 'HS7-34', 'HS7-51', 'HS7-63'],
-    children: ['HS5-6', 'HS5-35', 'HS5-45', 'HS5-46', 'HS5-47', 'HS5-20'],
+    parents: ['IC7-9', 'IC7-10', 'IC7-19', 'IC7-34', 'IC7-51', 'IC7-63'],
+    children: ['IC5-6', 'IC5-35', 'IC5-45', 'IC5-46', 'IC5-47', 'IC5-20'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-28',
+    id: 'IC6-28',
     name: '',
     intervals: [2, 2, 2, 1, 1, 4],
-    parents: ['HS7-9', 'HS7-11', 'HS7-20', 'HS7-35', 'HS7-52', 'HS7-64'],
-    children: ['HS5-7', 'HS5-36', 'HS5-45', 'HS5-48', 'HS5-49', 'HS5-21'],
+    parents: ['IC7-9', 'IC7-11', 'IC7-20', 'IC7-35', 'IC7-52', 'IC7-64'],
+    children: ['IC5-7', 'IC5-36', 'IC5-45', 'IC5-48', 'IC5-49', 'IC5-21'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-29',
+    id: 'IC6-29',
     name: 'Altered Hexatonic Modes',
     intervals: [2, 2, 1, 2, 1, 4],
-    parents: ['HS7-9', 'HS7-12', 'HS7-21', 'HS7-36', 'HS7-53', 'HS7-65'],
-    children: ['HS5-8', 'HS5-37', 'HS5-46', 'HS5-48', 'HS5-50', 'HS5-22'],
+    parents: ['IC7-9', 'IC7-12', 'IC7-21', 'IC7-36', 'IC7-53', 'IC7-65'],
+    children: ['IC5-8', 'IC5-37', 'IC5-46', 'IC5-48', 'IC5-50', 'IC5-22'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-30',
+    id: 'IC6-30',
     name: '',
     intervals: [2, 2, 1, 1, 2, 4],
-    parents: ['HS7-9', 'HS7-13', 'HS7-22', 'HS7-37', 'HS7-54', 'HS7-64'],
-    children: ['HS5-9', 'HS5-38', 'HS5-47', 'HS5-49', 'HS5-50', 'HS5-7'],
+    parents: ['IC7-9', 'IC7-13', 'IC7-22', 'IC7-37', 'IC7-54', 'IC7-64'],
+    children: ['IC5-9', 'IC5-38', 'IC5-47', 'IC5-49', 'IC5-50', 'IC5-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-31',
+    id: 'IC6-31',
     name: '',
     intervals: [2, 1, 3, 1, 1, 4],
-    parents: ['HS7-10', 'HS7-11', 'HS7-23', 'HS7-39', 'HS7-55', 'HS7-60'],
-    children: ['HS5-10', 'HS5-39', 'HS5-45', 'HS5-51', 'HS5-52', 'HS5-23'],
+    parents: ['IC7-10', 'IC7-11', 'IC7-23', 'IC7-39', 'IC7-55', 'IC7-60'],
+    children: ['IC5-10', 'IC5-39', 'IC5-45', 'IC5-51', 'IC5-52', 'IC5-23'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-32',
+    id: 'IC6-32',
     name: '',
     intervals: [2, 1, 2, 2, 1, 4],
-    parents: ['HS7-10', 'HS7-12', 'HS7-24', 'HS7-40', 'HS7-56', 'HS7-66'],
-    children: ['HS5-11', 'HS5-40', 'HS5-46', 'HS5-51', 'HS5-53', 'HS5-24'],
+    parents: ['IC7-10', 'IC7-12', 'IC7-24', 'IC7-40', 'IC7-56', 'IC7-66'],
+    children: ['IC5-11', 'IC5-40', 'IC5-46', 'IC5-51', 'IC5-53', 'IC5-24'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-33',
+    id: 'IC6-33',
     name: '',
     intervals: [2, 1, 2, 1, 2, 4],
-    parents: ['HS7-10', 'HS7-13', 'HS7-25', 'HS7-41', 'HS7-57', 'HS7-65'],
-    children: ['HS5-12', 'HS5-41', 'HS5-47', 'HS5-52', 'HS5-53', 'HS5-8'],
+    parents: ['IC7-10', 'IC7-13', 'IC7-25', 'IC7-41', 'IC7-57', 'IC7-65'],
+    children: ['IC5-12', 'IC5-41', 'IC5-47', 'IC5-52', 'IC5-53', 'IC5-8'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-34',
+    id: 'IC6-34',
     name: '',
     intervals: [2, 1, 1, 3, 1, 4],
-    parents: ['HS7-11', 'HS7-12', 'HS7-26', 'HS7-43', 'HS7-48', 'HS7-52'],
-    children: ['HS5-13', 'HS5-42', 'HS5-48', 'HS5-51', 'HS5-36', 'HS5-25'],
+    parents: ['IC7-11', 'IC7-12', 'IC7-26', 'IC7-43', 'IC7-48', 'IC7-52'],
+    children: ['IC5-13', 'IC5-42', 'IC5-48', 'IC5-51', 'IC5-36', 'IC5-25'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-35',
+    id: 'IC6-35',
     name: '',
     intervals: [2, 1, 1, 2, 2, 4],
-    parents: ['HS7-11', 'HS7-13', 'HS7-27', 'HS7-44', 'HS7-58', 'HS7-64'],
-    children: ['HS5-14', 'HS5-43', 'HS5-49', 'HS5-52', 'HS5-36', 'HS5-9'],
+    parents: ['IC7-11', 'IC7-13', 'IC7-27', 'IC7-44', 'IC7-58', 'IC7-64'],
+    children: ['IC5-14', 'IC5-43', 'IC5-49', 'IC5-52', 'IC5-36', 'IC5-9'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-36',
+    id: 'IC6-36',
     name: '',
     intervals: [2, 1, 1, 1, 3, 4],
-    parents: ['HS7-12', 'HS7-13', 'HS7-28', 'HS7-30', 'HS7-35', 'HS7-46'],
-    children: ['HS5-15', 'HS5-44', 'HS5-50', 'HS5-53', 'HS5-36', 'HS5-2'],
+    parents: ['IC7-12', 'IC7-13', 'IC7-28', 'IC7-30', 'IC7-35', 'IC7-46'],
+    children: ['IC5-15', 'IC5-44', 'IC5-50', 'IC5-53', 'IC5-36', 'IC5-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-37',
+    id: 'IC6-37',
     name: '',
     intervals: [1, 4, 1, 1, 1, 4],
-    parents: ['HS7-14', 'HS7-15', 'HS7-19', 'HS7-23', 'HS7-24', 'HS7-26'],
-    children: ['HS5-16', 'HS5-35', 'HS5-32', 'HS5-51', 'HS5-54', 'HS5-26'],
+    parents: ['IC7-14', 'IC7-15', 'IC7-19', 'IC7-23', 'IC7-24', 'IC7-26'],
+    children: ['IC5-16', 'IC5-35', 'IC5-32', 'IC5-51', 'IC5-54', 'IC5-26'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-38',
+    id: 'IC6-38',
     name: '',
     intervals: [1, 3, 2, 1, 1, 4],
-    parents: ['HS7-14', 'HS7-16', 'HS7-20', 'HS7-43', 'HS7-44', 'HS7-46'],
-    children: ['HS5-17', 'HS5-36', 'HS5-32', 'HS5-55', 'HS5-56', 'HS5-27'],
+    parents: ['IC7-14', 'IC7-16', 'IC7-20', 'IC7-43', 'IC7-44', 'IC7-46'],
+    children: ['IC5-17', 'IC5-36', 'IC5-32', 'IC5-55', 'IC5-56', 'IC5-27'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-39',
+    id: 'IC6-39',
     name: '',
     intervals: [1, 3, 1, 2, 1, 4],
-    parents: ['HS7-14', 'HS7-17', 'HS7-21', 'HS7-48', 'HS7-55', 'HS7-56'],
-    children: ['HS5-18', 'HS5-37', 'HS5-51', 'HS5-55', 'HS5-57', 'HS5-28'],
+    parents: ['IC7-14', 'IC7-17', 'IC7-21', 'IC7-48', 'IC7-55', 'IC7-56'],
+    children: ['IC5-18', 'IC5-37', 'IC5-51', 'IC5-55', 'IC5-57', 'IC5-28'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-40',
+    id: 'IC6-40',
     name: '',
     intervals: [1, 3, 1, 1, 2, 4],
-    parents: ['HS7-14', 'HS7-18', 'HS7-22', 'HS7-49', 'HS7-59', 'HS7-60'],
-    children: ['HS5-19', 'HS5-38', 'HS5-54', 'HS5-56', 'HS5-57', 'HS5-10'],
+    parents: ['IC7-14', 'IC7-18', 'IC7-22', 'IC7-49', 'IC7-59', 'IC7-60'],
+    children: ['IC5-19', 'IC5-38', 'IC5-54', 'IC5-56', 'IC5-57', 'IC5-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-41',
+    id: 'IC6-41',
     name: '',
     intervals: [1, 2, 3, 1, 1, 4],
-    parents: ['HS7-15', 'HS7-16', 'HS7-23', 'HS7-51', 'HS7-59', 'HS7-61'],
-    children: ['HS5-20', 'HS5-39', 'HS5-32', 'HS5-54', 'HS5-58', 'HS5-29'],
+    parents: ['IC7-15', 'IC7-16', 'IC7-23', 'IC7-51', 'IC7-59', 'IC7-61'],
+    children: ['IC5-20', 'IC5-39', 'IC5-32', 'IC5-54', 'IC5-58', 'IC5-29'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-42',
+    id: 'IC6-42',
     name: '',
     intervals: [1, 2, 2, 2, 1, 4],
-    parents: ['HS7-15', 'HS7-17', 'HS7-24', 'HS7-52', 'HS7-60', 'HS7-66'],
-    children: ['HS5-21', 'HS5-40', 'HS5-51', 'HS5-54', 'HS5-59', 'HS5-30'],
+    parents: ['IC7-15', 'IC7-17', 'IC7-24', 'IC7-52', 'IC7-60', 'IC7-66'],
+    children: ['IC5-21', 'IC5-40', 'IC5-51', 'IC5-54', 'IC5-59', 'IC5-30'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-43',
+    id: 'IC6-43',
     name: '',
     intervals: [1, 2, 2, 1, 2, 4],
-    parents: ['HS7-15', 'HS7-18', 'HS7-25', 'HS7-53', 'HS7-61', 'HS7-66'],
-    children: ['HS5-22', 'HS5-41', 'HS5-54', 'HS5-58', 'HS5-59', 'HS5-11'],
+    parents: ['IC7-15', 'IC7-18', 'IC7-25', 'IC7-53', 'IC7-61', 'IC7-66'],
+    children: ['IC5-22', 'IC5-41', 'IC5-54', 'IC5-58', 'IC5-59', 'IC5-11'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-44',
+    id: 'IC6-44',
     name: '',
     intervals: [1, 2, 1, 3, 1, 4],
-    parents: ['HS7-16', 'HS7-17', 'HS7-26', 'HS7-49', 'HS7-53', 'HS7-55'],
-    children: ['HS5-23', 'HS5-42', 'HS5-55', 'HS5-54', 'HS5-37', 'HS5-31'],
+    parents: ['IC7-16', 'IC7-17', 'IC7-26', 'IC7-49', 'IC7-53', 'IC7-55'],
+    children: ['IC5-23', 'IC5-42', 'IC5-55', 'IC5-54', 'IC5-37', 'IC5-31'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-45',
+    id: 'IC6-45',
     name: '',
     intervals: [1, 2, 1, 2, 2, 4],
-    parents: ['HS7-16', 'HS7-18', 'HS7-27', 'HS7-56', 'HS7-62', 'HS7-65'],
-    children: ['HS5-24', 'HS5-43', 'HS5-56', 'HS5-58', 'HS5-37', 'HS5-12'],
+    parents: ['IC7-16', 'IC7-18', 'IC7-27', 'IC7-56', 'IC7-62', 'IC7-65'],
+    children: ['IC5-24', 'IC5-43', 'IC5-56', 'IC5-58', 'IC5-37', 'IC5-12'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-46',
+    id: 'IC6-46',
     name: '',
     intervals: [1, 2, 1, 1, 3, 4],
-    parents: ['HS7-17', 'HS7-18', 'HS7-28', 'HS7-31', 'HS7-36', 'HS7-48'],
-    children: ['HS5-25', 'HS5-44', 'HS5-57', 'HS5-59', 'HS5-37', 'HS5-3'],
+    parents: ['IC7-17', 'IC7-18', 'IC7-28', 'IC7-31', 'IC7-36', 'IC7-48'],
+    children: ['IC5-25', 'IC5-44', 'IC5-57', 'IC5-59', 'IC5-37', 'IC5-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-47',
+    id: 'IC6-47',
     name: '',
     intervals: [1, 1, 4, 1, 1, 4],
-    parents: ['HS7-19', 'HS7-20', 'HS7-23'],
-    children: ['HS5-26', 'HS5-45', 'HS5-32'],
+    parents: ['IC7-19', 'IC7-20', 'IC7-23'],
+    children: ['IC5-26', 'IC5-45', 'IC5-32'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-48',
+    id: 'IC6-48',
     name: '',
     intervals: [1, 1, 3, 2, 1, 4],
-    parents: ['HS7-19', 'HS7-21', 'HS7-24', 'HS7-39', 'HS7-40', 'HS7-43'],
-    children: ['HS5-27', 'HS5-46', 'HS5-51', 'HS5-26', 'HS5-60', 'HS5-33'],
+    parents: ['IC7-19', 'IC7-21', 'IC7-24', 'IC7-39', 'IC7-40', 'IC7-43'],
+    children: ['IC5-27', 'IC5-46', 'IC5-51', 'IC5-26', 'IC5-60', 'IC5-33'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-49',
+    id: 'IC6-49',
     name: '',
     intervals: [1, 1, 3, 1, 2, 4],
-    parents: ['HS7-19', 'HS7-22', 'HS7-25', 'HS7-51', 'HS7-52', 'HS7-55'],
-    children: ['HS5-28', 'HS5-47', 'HS5-54', 'HS5-45', 'HS5-60', 'HS5-13'],
+    parents: ['IC7-19', 'IC7-22', 'IC7-25', 'IC7-51', 'IC7-52', 'IC7-55'],
+    children: ['IC5-28', 'IC5-47', 'IC5-54', 'IC5-45', 'IC5-60', 'IC5-13'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-50',
+    id: 'IC6-50',
     name: '',
     intervals: [1, 1, 2, 3, 1, 4],
-    parents: ['HS7-20', 'HS7-21', 'HS7-26', 'HS7-50', 'HS7-54', 'HS7-59'],
-    children: ['HS5-29', 'HS5-48', 'HS5-55', 'HS5-26', 'HS5-38', 'HS5-34'],
+    parents: ['IC7-20', 'IC7-21', 'IC7-26', 'IC7-50', 'IC7-54', 'IC7-59'],
+    children: ['IC5-29', 'IC5-48', 'IC5-55', 'IC5-26', 'IC5-38', 'IC5-34'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-51',
+    id: 'IC6-51',
     name: '',
     intervals: [1, 1, 2, 2, 2, 4],
-    parents: ['HS7-20', 'HS7-22', 'HS7-27', 'HS7-60', 'HS7-63', 'HS7-64'],
-    children: ['HS5-30', 'HS5-49', 'HS5-56', 'HS5-45', 'HS5-38', 'HS5-14'],
+    parents: ['IC7-20', 'IC7-22', 'IC7-27', 'IC7-60', 'IC7-63', 'IC7-64'],
+    children: ['IC5-30', 'IC5-49', 'IC5-56', 'IC5-45', 'IC5-38', 'IC5-14'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-52',
+    id: 'IC6-52',
     name: '',
     intervals: [1, 1, 2, 1, 3, 4],
-    parents: ['HS7-21', 'HS7-22', 'HS7-28', 'HS7-32', 'HS7-37', 'HS7-49'],
-    children: ['HS5-31', 'HS5-50', 'HS5-57', 'HS5-60', 'HS5-38', 'HS5-4'],
+    parents: ['IC7-21', 'IC7-22', 'IC7-28', 'IC7-32', 'IC7-37', 'IC7-49'],
+    children: ['IC5-31', 'IC5-50', 'IC5-57', 'IC5-60', 'IC5-38', 'IC5-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-53',
+    id: 'IC6-53',
     name: '',
     intervals: [1, 1, 1, 3, 2, 4],
-    parents: ['HS7-23', 'HS7-25', 'HS7-27', 'HS7-34', 'HS7-35', 'HS7-39'],
-    children: ['HS5-33', 'HS5-52', 'HS5-58', 'HS5-45', 'HS5-16', 'HS5-15'],
+    parents: ['IC7-23', 'IC7-25', 'IC7-27', 'IC7-34', 'IC7-35', 'IC7-39'],
+    children: ['IC5-33', 'IC5-52', 'IC5-58', 'IC5-45', 'IC5-16', 'IC5-15'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-54',
+    id: 'IC6-54',
     name: '',
     intervals: [1, 1, 1, 2, 3, 4],
-    parents: ['HS7-24', 'HS7-25', 'HS7-28', 'HS7-33', 'HS7-38', 'HS7-50'],
-    children: ['HS5-34', 'HS5-53', 'HS5-59', 'HS5-60', 'HS5-16', 'HS5-5'],
+    parents: ['IC7-24', 'IC7-25', 'IC7-28', 'IC7-33', 'IC7-38', 'IC7-50'],
+    children: ['IC5-34', 'IC5-53', 'IC5-59', 'IC5-60', 'IC5-16', 'IC5-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-55',
+    id: 'IC6-55',
     name: '',
     intervals: [3, 1, 1, 1, 3, 3],
-    parents: ['HS7-29', 'HS7-30', 'HS7-32', 'HS7-33', 'HS7-39', 'HS7-51'],
-    children: ['HS5-15', 'HS5-60', 'HS5-61', 'HS5-62', 'HS5-39', 'HS5-6'],
+    parents: ['IC7-29', 'IC7-30', 'IC7-32', 'IC7-33', 'IC7-39', 'IC7-51'],
+    children: ['IC5-15', 'IC5-60', 'IC5-61', 'IC5-62', 'IC5-39', 'IC5-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-56',
+    id: 'IC6-56',
     name: '',
     intervals: [2, 2, 1, 1, 3, 3],
-    parents: ['HS7-29', 'HS7-31', 'HS7-37', 'HS7-38', 'HS7-40', 'HS7-52'],
-    children: ['HS5-25', 'HS5-60', 'HS5-63', 'HS5-64', 'HS5-40', 'HS5-7'],
+    parents: ['IC7-29', 'IC7-31', 'IC7-37', 'IC7-38', 'IC7-40', 'IC7-52'],
+    children: ['IC5-25', 'IC5-60', 'IC5-63', 'IC5-64', 'IC5-40', 'IC5-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-57',
+    id: 'IC6-57',
     name: '',
     intervals: [2, 1, 2, 1, 3, 3],
-    parents: ['HS7-29', 'HS7-32', 'HS7-41', 'HS7-42', 'HS7-53'],
-    children: ['HS5-31', 'HS5-61', 'HS5-63', 'HS5-41', 'HS5-8'],
+    parents: ['IC7-29', 'IC7-32', 'IC7-41', 'IC7-42', 'IC7-53'],
+    children: ['IC5-31', 'IC5-61', 'IC5-63', 'IC5-41', 'IC5-8'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-58',
+    id: 'IC6-58',
     name: '',
     intervals: [2, 1, 1, 2, 3, 3],
-    parents: ['HS7-29', 'HS7-33', 'HS7-42', 'HS7-44', 'HS7-45', 'HS7-54'],
-    children: ['HS5-34', 'HS5-62', 'HS5-64', 'HS5-61', 'HS5-17', 'HS5-9'],
+    parents: ['IC7-29', 'IC7-33', 'IC7-42', 'IC7-44', 'IC7-45', 'IC7-54'],
+    children: ['IC5-34', 'IC5-62', 'IC5-64', 'IC5-61', 'IC5-17', 'IC5-9'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-59',
+    id: 'IC6-59',
     name: '',
     intervals: [1, 3, 1, 1, 3, 3],
-    parents: ['HS7-30', 'HS7-31', 'HS7-43', 'HS7-49', 'HS7-50', 'HS7-55'],
-    children: ['HS5-44', 'HS5-60', 'HS5-55', 'HS5-65', 'HS5-42', 'HS5-10'],
+    parents: ['IC7-30', 'IC7-31', 'IC7-43', 'IC7-49', 'IC7-50', 'IC7-55'],
+    children: ['IC5-44', 'IC5-60', 'IC5-55', 'IC5-65', 'IC5-42', 'IC5-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-60',
+    id: 'IC6-60',
     name: '',
     intervals: [1, 2, 2, 1, 3, 3],
-    parents: ['HS7-30', 'HS7-32', 'HS7-44', 'HS7-53', 'HS7-54', 'HS7-56'],
-    children: ['HS5-50', 'HS5-61', 'HS5-55', 'HS5-62', 'HS5-43', 'HS5-11'],
+    parents: ['IC7-30', 'IC7-32', 'IC7-44', 'IC7-53', 'IC7-54', 'IC7-56'],
+    children: ['IC5-50', 'IC5-61', 'IC5-55', 'IC5-62', 'IC5-43', 'IC5-11'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-61',
+    id: 'IC6-61',
     name: '',
     intervals: [3, 1, 2, 1, 2, 3],
-    parents: ['HS7-30', 'HS7-33', 'HS7-45', 'HS7-56', 'HS7-57'],
-    children: ['HS5-12', 'HS5-53', 'HS5-62', 'HS5-65', 'HS5-18'],
+    parents: ['IC7-30', 'IC7-33', 'IC7-45', 'IC7-56', 'IC7-57'],
+    children: ['IC5-12', 'IC5-53', 'IC5-62', 'IC5-65', 'IC5-18'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-62',
+    id: 'IC6-62',
     name: '',
     intervals: [3, 1, 1, 3, 1, 3],
-    parents: ['HS7-31', 'HS7-32', 'HS7-46', 'HS7-48', 'HS7-55', 'HS7-59'],
-    children: ['HS5-13', 'HS5-57', 'HS5-63', 'HS5-55', 'HS5-39', 'HS5-44'],
+    parents: ['IC7-31', 'IC7-32', 'IC7-46', 'IC7-48', 'IC7-55', 'IC7-59'],
+    children: ['IC5-13', 'IC5-57', 'IC5-63', 'IC5-55', 'IC5-39', 'IC5-44'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-63',
+    id: 'IC6-63',
     name: '',
     intervals: [3, 1, 1, 2, 2, 3],
-    parents: ['HS7-31', 'HS7-33', 'HS7-47', 'HS7-58', 'HS7-60', 'HS7-61'],
-    children: ['HS5-14', 'HS5-59', 'HS5-64', 'HS5-65', 'HS5-39', 'HS5-19'],
+    parents: ['IC7-31', 'IC7-33', 'IC7-47', 'IC7-58', 'IC7-60', 'IC7-61'],
+    children: ['IC5-14', 'IC5-59', 'IC5-64', 'IC5-65', 'IC5-39', 'IC5-19'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-64',
+    id: 'IC6-64',
     name: 'Blues Modes',
     intervals: [2, 3, 2, 1, 1, 3],
-    parents: ['HS7-34', 'HS7-36', 'HS7-40', 'HS7-43', 'HS7-45', 'HS7-47'],
-    children: ['HS5-17', 'HS5-25', 'HS5-33', 'HS5-65', 'HS5-66', 'HS5-46'],
+    parents: ['IC7-34', 'IC7-36', 'IC7-40', 'IC7-43', 'IC7-45', 'IC7-47'],
+    children: ['IC5-17', 'IC5-25', 'IC5-33', 'IC5-65', 'IC5-66', 'IC5-46'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-65',
+    id: 'IC6-65',
     name: '',
     intervals: [2, 3, 1, 2, 1, 3],
-    parents: ['HS7-34', 'HS7-37', 'HS7-41', 'HS7-55', 'HS7-57', 'HS7-58'],
-    children: ['HS5-18', 'HS5-31', 'HS5-52', 'HS5-65', 'HS5-63', 'HS5-47'],
+    parents: ['IC7-34', 'IC7-37', 'IC7-41', 'IC7-55', 'IC7-57', 'IC7-58'],
+    children: ['IC5-18', 'IC5-31', 'IC5-52', 'IC5-65', 'IC5-63', 'IC5-47'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-66',
+    id: 'IC6-66',
     name: '',
     intervals: [2, 3, 1, 1, 2, 3],
-    parents: ['HS7-34', 'HS7-38', 'HS7-42', 'HS7-59', 'HS7-61', 'HS7-62'],
-    children: ['HS5-19', 'HS5-34', 'HS5-58', 'HS5-66', 'HS5-63', 'HS5-20'],
+    parents: ['IC7-34', 'IC7-38', 'IC7-42', 'IC7-59', 'IC7-61', 'IC7-62'],
+    children: ['IC5-19', 'IC5-34', 'IC5-58', 'IC5-66', 'IC5-63', 'IC5-20'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-67',
+    id: 'IC6-67',
     name: '',
     intervals: [2, 2, 3, 1, 1, 3],
-    parents: ['HS7-35', 'HS7-36', 'HS7-43', 'HS7-59', 'HS7-62', 'HS7-63'],
-    children: ['HS5-20', 'HS5-44', 'HS5-33', 'HS5-56', 'HS5-66', 'HS5-48'],
+    parents: ['IC7-35', 'IC7-36', 'IC7-43', 'IC7-59', 'IC7-62', 'IC7-63'],
+    children: ['IC5-20', 'IC5-44', 'IC5-33', 'IC5-56', 'IC5-66', 'IC5-48'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS6-68',
+    id: 'IC6-68',
     name: '',
     intervals: [2, 2, 2, 2, 1, 3],
-    parents: ['HS7-35', 'HS7-37', 'HS7-44', 'HS7-60', 'HS7-64', 'HS7-65'],
-    children: ['HS5-21', 'HS5-50', 'HS5-52', 'HS5-56', 'HS5-64', 'HS5-49'],
+    parents: ['IC7-35', 'IC7-37', 'IC7-44', 'IC7-60', 'IC7-64', 'IC7-65'],
+    children: ['IC5-21', 'IC5-50', 'IC5-52', 'IC5-56', 'IC5-64', 'IC5-49'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-69',
+    id: 'IC6-69',
     name: '',
     intervals: [2, 2, 2, 1, 2, 3],
-    parents: ['HS7-35', 'HS7-38', 'HS7-45', 'HS7-61', 'HS7-65', 'HS7-66'],
-    children: ['HS5-22', 'HS5-53', 'HS5-58', 'HS5-66', 'HS5-64', 'HS5-21'],
+    parents: ['IC7-35', 'IC7-38', 'IC7-45', 'IC7-61', 'IC7-65', 'IC7-66'],
+    children: ['IC5-22', 'IC5-53', 'IC5-58', 'IC5-66', 'IC5-64', 'IC5-21'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-70',
+    id: 'IC6-70',
     name: '',
     intervals: [2, 2, 1, 3, 1, 3],
-    parents: ['HS7-36', 'HS7-37', 'HS7-46', 'HS7-49', 'HS7-56', 'HS7-60'],
-    children: ['HS5-23', 'HS5-57', 'HS5-65', 'HS5-56', 'HS5-40', 'HS5-50'],
+    parents: ['IC7-36', 'IC7-37', 'IC7-46', 'IC7-49', 'IC7-56', 'IC7-60'],
+    children: ['IC5-23', 'IC5-57', 'IC5-65', 'IC5-56', 'IC5-40', 'IC5-50'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-71',
+    id: 'IC6-71',
     name: '',
     intervals: [2, 2, 1, 2, 2, 3],
-    parents: ['HS7-36', 'HS7-38', 'HS7-47', 'HS7-62', 'HS7-66'],
-    children: ['HS5-24', 'HS5-59', 'HS5-66', 'HS5-40', 'HS5-22'],
+    parents: ['IC7-36', 'IC7-38', 'IC7-47', 'IC7-62', 'IC7-66'],
+    children: ['IC5-24', 'IC5-59', 'IC5-66', 'IC5-40', 'IC5-22'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-72',
+    id: 'IC6-72',
     name: '',
     intervals: [2, 1, 3, 2, 1, 3],
-    parents: ['HS7-39', 'HS7-41', 'HS7-44'],
-    children: ['HS5-27', 'HS5-61', 'HS5-52'],
+    parents: ['IC7-39', 'IC7-41', 'IC7-44'],
+    children: ['IC5-27', 'IC5-61', 'IC5-52'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-73',
+    id: 'IC6-73',
     name: '',
     intervals: [2, 1, 3, 1, 2, 3],
-    parents: ['HS7-39', 'HS7-42', 'HS7-45', 'HS7-51', 'HS7-53', 'HS7-56'],
-    children: ['HS5-28', 'HS5-62', 'HS5-58', 'HS5-46', 'HS5-61', 'HS5-23'],
+    parents: ['IC7-39', 'IC7-42', 'IC7-45', 'IC7-51', 'IC7-53', 'IC7-56'],
+    children: ['IC5-28', 'IC5-62', 'IC5-58', 'IC5-46', 'IC5-61', 'IC5-23'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-74',
+    id: 'IC6-74',
     name: '',
     intervals: [2, 1, 2, 3, 1, 3],
-    parents: ['HS7-40', 'HS7-41', 'HS7-46', 'HS7-50', 'HS7-57', 'HS7-61'],
-    children: ['HS5-29', 'HS5-63', 'HS5-65', 'HS5-27', 'HS5-41', 'HS5-53'],
+    parents: ['IC7-40', 'IC7-41', 'IC7-46', 'IC7-50', 'IC7-57', 'IC7-61'],
+    children: ['IC5-29', 'IC5-63', 'IC5-65', 'IC5-27', 'IC5-41', 'IC5-53'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-75',
+    id: 'IC6-75',
     name: '',
     intervals: [2, 1, 2, 2, 2, 3],
-    parents: ['HS7-40', 'HS7-42', 'HS7-47', 'HS7-63', 'HS7-65', 'HS7-66'],
-    children: ['HS5-30', 'HS5-64', 'HS5-66', 'HS5-46', 'HS5-41', 'HS5-24'],
+    parents: ['IC7-40', 'IC7-42', 'IC7-47', 'IC7-63', 'IC7-65', 'IC7-66'],
+    children: ['IC5-30', 'IC5-64', 'IC5-66', 'IC5-46', 'IC5-41', 'IC5-24'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-76',
+    id: 'IC6-76',
     name: 'Augmented Modes',
     intervals: [1, 3, 1, 3, 1, 3],
-    parents: ['HS7-48', 'HS7-49'],
-    children: ['HS5-42', 'HS5-57'],
+    parents: ['IC7-48', 'IC7-49'],
+    children: ['IC5-42', 'IC5-57'],
     root: 0,
-    contiguousSemitones: false,
+    cohemitonic: false,
     saturated: true
   }, {
-    id: 'HS6-77',
+    id: 'IC6-77',
     name: '',
     intervals: [1, 2, 2, 3, 1, 3],
-    parents: ['HS7-48', 'HS7-50', 'HS7-52', 'HS7-53', 'HS7-58', 'HS7-62'],
-    children: ['HS5-48', 'HS5-63', 'HS5-42', 'HS5-28', 'HS5-43', 'HS5-59'],
+    parents: ['IC7-48', 'IC7-50', 'IC7-52', 'IC7-53', 'IC7-58', 'IC7-62'],
+    children: ['IC5-48', 'IC5-63', 'IC5-42', 'IC5-28', 'IC5-43', 'IC5-59'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-78',
+    id: 'IC6-78',
     name: '',
     intervals: [1, 2, 3, 1, 2, 3],
-    parents: ['HS7-51', 'HS7-54', 'HS7-57'],
-    children: ['HS5-47', 'HS5-62', 'HS5-29'],
+    parents: ['IC7-51', 'IC7-54', 'IC7-57'],
+    children: ['IC5-47', 'IC5-62', 'IC5-29'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-79',
+    id: 'IC6-79',
     name: '',
     intervals: [1, 2, 2, 2, 2, 3],
-    parents: ['HS7-52', 'HS7-54', 'HS7-58', 'HS7-63', 'HS7-64', 'HS7-65'],
-    children: ['HS5-49', 'HS5-64', 'HS5-48', 'HS5-47', 'HS5-43', 'HS5-30'],
+    parents: ['IC7-52', 'IC7-54', 'IC7-58', 'IC7-63', 'IC7-64', 'IC7-65'],
+    children: ['IC5-49', 'IC5-64', 'IC5-48', 'IC5-47', 'IC5-43', 'IC5-30'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS6-80',
+    id: 'IC6-80',
     name: 'Whole Tone Scale',
     intervals: [2, 2, 2, 2, 2, 2],
-    parents: ['HS7-64'],
-    children: ['HS5-49'],
+    parents: ['IC7-64'],
+    children: ['IC5-49'],
     root: 0,
-    contiguousSemitones: false,
+    cohemitonic: false,
     saturated: true
   }, {
-    id: 'HS5-1',
+    id: 'IC5-1',
     name: '',
     intervals: [1, 1, 1, 1, 8],
-    parents: ['HS6-1', 'HS6-2', 'HS6-6', 'HS6-7', 'HS6-21', 'HS6-22'],
-    children: ['HS4-1', 'HS4-2', 'HS4-3', 'HS4-4'],
+    parents: ['IC6-1', 'IC6-2', 'IC6-6', 'IC6-7', 'IC6-21', 'IC6-22'],
+    children: ['IC4-1', 'IC4-2', 'IC4-3', 'IC4-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-2',
+    id: 'IC5-2',
     name: '',
     intervals: [2, 1, 1, 1, 7],
-    parents: ['HS6-1', 'HS6-2', 'HS6-3', 'HS6-8', 'HS6-11', 'HS6-23', 'HS6-36'],
-    children: ['HS4-1', 'HS4-5', 'HS4-6', 'HS4-7', 'HS4-2'],
+    parents: ['IC6-1', 'IC6-2', 'IC6-3', 'IC6-8', 'IC6-11', 'IC6-23', 'IC6-36'],
+    children: ['IC4-1', 'IC4-5', 'IC4-6', 'IC4-7', 'IC4-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-3',
+    id: 'IC5-3',
     name: '',
     intervals: [1, 2, 1, 1, 7],
-    parents: ['HS6-1', 'HS6-3', 'HS6-4', 'HS6-9', 'HS6-15', 'HS6-24', 'HS6-46'],
-    children: ['HS4-2', 'HS4-5', 'HS4-8', 'HS4-9', 'HS4-3'],
+    parents: ['IC6-1', 'IC6-3', 'IC6-4', 'IC6-9', 'IC6-15', 'IC6-24', 'IC6-46'],
+    children: ['IC4-2', 'IC4-5', 'IC4-8', 'IC4-9', 'IC4-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-4',
+    id: 'IC5-4',
     name: '',
     intervals: [1, 1, 2, 1, 7],
-    parents: ['HS6-1', 'HS6-4', 'HS6-5', 'HS6-10', 'HS6-18', 'HS6-25', 'HS6-52'],
-    children: ['HS4-3', 'HS4-6', 'HS4-8', 'HS4-10', 'HS4-4'],
+    parents: ['IC6-1', 'IC6-4', 'IC6-5', 'IC6-10', 'IC6-18', 'IC6-25', 'IC6-52'],
+    children: ['IC4-3', 'IC4-6', 'IC4-8', 'IC4-10', 'IC4-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-5',
+    id: 'IC5-5',
     name: '',
     intervals: [1, 1, 1, 2, 7],
-    parents: ['HS6-1', 'HS6-5', 'HS6-6', 'HS6-11', 'HS6-20', 'HS6-26', 'HS6-54'],
-    children: ['HS4-4', 'HS4-7', 'HS4-9', 'HS4-10', 'HS4-1'],
+    parents: ['IC6-1', 'IC6-5', 'IC6-6', 'IC6-11', 'IC6-20', 'IC6-26', 'IC6-54'],
+    children: ['IC4-4', 'IC4-7', 'IC4-9', 'IC4-10', 'IC4-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-6',
+    id: 'IC5-6',
     name: '',
     intervals: [3, 1, 1, 1, 6],
-    parents: ['HS6-2', 'HS6-3', 'HS6-7', 'HS6-12', 'HS6-26', 'HS6-27', 'HS6-55'],
-    children: ['HS4-1', 'HS4-11', 'HS4-12', 'HS4-13', 'HS4-5'],
+    parents: ['IC6-2', 'IC6-3', 'IC6-7', 'IC6-12', 'IC6-26', 'IC6-27', 'IC6-55'],
+    children: ['IC4-1', 'IC4-11', 'IC4-12', 'IC4-13', 'IC4-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-7',
+    id: 'IC5-7',
     name: '',
     intervals: [2, 2, 1, 1, 6],
-    parents: ['HS6-2', 'HS6-4', 'HS6-8', 'HS6-13', 'HS6-28', 'HS6-30', 'HS6-56'],
-    children: ['HS4-2', 'HS4-11', 'HS4-14', 'HS4-15', 'HS4-6'],
+    parents: ['IC6-2', 'IC6-4', 'IC6-8', 'IC6-13', 'IC6-28', 'IC6-30', 'IC6-56'],
+    children: ['IC4-2', 'IC4-11', 'IC4-14', 'IC4-15', 'IC4-6'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-8',
+    id: 'IC5-8',
     name: '',
     intervals: [2, 1, 2, 1, 6],
-    parents: ['HS6-2', 'HS6-5', 'HS6-9', 'HS6-14', 'HS6-29', 'HS6-33', 'HS6-57'],
-    children: ['HS4-3', 'HS4-12', 'HS4-14', 'HS4-16', 'HS4-7'],
+    parents: ['IC6-2', 'IC6-5', 'IC6-9', 'IC6-14', 'IC6-29', 'IC6-33', 'IC6-57'],
+    children: ['IC4-3', 'IC4-12', 'IC4-14', 'IC4-16', 'IC4-7'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-9',
+    id: 'IC5-9',
     name: '',
     intervals: [2, 1, 1, 2, 6],
-    parents: ['HS6-2', 'HS6-6', 'HS6-10', 'HS6-15', 'HS6-30', 'HS6-35', 'HS6-58'],
-    children: ['HS4-4', 'HS4-13', 'HS4-15', 'HS4-16', 'HS4-2'],
+    parents: ['IC6-2', 'IC6-6', 'IC6-10', 'IC6-15', 'IC6-30', 'IC6-35', 'IC6-58'],
+    children: ['IC4-4', 'IC4-13', 'IC4-15', 'IC4-16', 'IC4-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-10',
+    id: 'IC5-10',
     name: '',
     intervals: [1, 3, 1, 1, 6],
-    parents: ['HS6-3', 'HS6-4', 'HS6-12', 'HS6-16', 'HS6-31', 'HS6-40', 'HS6-59'],
-    children: ['HS4-5', 'HS4-11', 'HS4-17', 'HS4-18', 'HS4-8'],
+    parents: ['IC6-3', 'IC6-4', 'IC6-12', 'IC6-16', 'IC6-31', 'IC6-40', 'IC6-59'],
+    children: ['IC4-5', 'IC4-11', 'IC4-17', 'IC4-18', 'IC4-8'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-11',
+    id: 'IC5-11',
     name: '',
     intervals: [1, 2, 2, 1, 6],
-    parents: ['HS6-3', 'HS6-5', 'HS6-13', 'HS6-17', 'HS6-32', 'HS6-43', 'HS6-60'],
-    children: ['HS4-6', 'HS4-12', 'HS4-17', 'HS4-19', 'HS4-9'],
+    parents: ['IC6-3', 'IC6-5', 'IC6-13', 'IC6-17', 'IC6-32', 'IC6-43', 'IC6-60'],
+    children: ['IC4-6', 'IC4-12', 'IC4-17', 'IC4-19', 'IC4-9'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-12',
+    id: 'IC5-12',
     name: '',
     intervals: [1, 2, 1, 2, 6],
-    parents: ['HS6-3', 'HS6-6', 'HS6-14', 'HS6-18', 'HS6-33', 'HS6-45', 'HS6-61'],
-    children: ['HS4-7', 'HS4-13', 'HS4-18', 'HS4-19', 'HS4-3'],
+    parents: ['IC6-3', 'IC6-6', 'IC6-14', 'IC6-18', 'IC6-33', 'IC6-45', 'IC6-61'],
+    children: ['IC4-7', 'IC4-13', 'IC4-18', 'IC4-19', 'IC4-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-13',
+    id: 'IC5-13',
     name: '',
     intervals: [1, 1, 3, 1, 6],
-    parents: ['HS6-4', 'HS6-5', 'HS6-16', 'HS6-19', 'HS6-34', 'HS6-49', 'HS6-62'],
-    children: ['HS4-8', 'HS4-14', 'HS4-17', 'HS4-20', 'HS4-10'],
+    parents: ['IC6-4', 'IC6-5', 'IC6-16', 'IC6-19', 'IC6-34', 'IC6-49', 'IC6-62'],
+    children: ['IC4-8', 'IC4-14', 'IC4-17', 'IC4-20', 'IC4-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-14',
+    id: 'IC5-14',
     name: '',
     intervals: [1, 1, 2, 2, 6],
-    parents: ['HS6-4', 'HS6-6', 'HS6-17', 'HS6-20', 'HS6-35', 'HS6-51', 'HS6-63'],
-    children: ['HS4-9', 'HS4-15', 'HS4-18', 'HS4-20', 'HS4-4'],
+    parents: ['IC6-4', 'IC6-6', 'IC6-17', 'IC6-20', 'IC6-35', 'IC6-51', 'IC6-63'],
+    children: ['IC4-9', 'IC4-15', 'IC4-18', 'IC4-20', 'IC4-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-15',
+    id: 'IC5-15',
     name: '',
     intervals: [1, 1, 1, 3, 6],
-    parents: ['HS6-5', 'HS6-6', 'HS6-19', 'HS6-21', 'HS6-36', 'HS6-53', 'HS6-55'],
-    children: ['HS4-10', 'HS4-16', 'HS4-19', 'HS4-20', 'HS4-1'],
+    parents: ['IC6-5', 'IC6-6', 'IC6-19', 'IC6-21', 'IC6-36', 'IC6-53', 'IC6-55'],
+    children: ['IC4-10', 'IC4-16', 'IC4-19', 'IC4-20', 'IC4-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-16',
+    id: 'IC5-16',
     name: '',
     intervals: [4, 1, 1, 1, 5],
-    parents: ['HS6-7', 'HS6-8', 'HS6-12', 'HS6-22', 'HS6-37', 'HS6-53', 'HS6-54'],
-    children: ['HS4-1', 'HS4-21', 'HS4-22', 'HS4-23', 'HS4-11'],
+    parents: ['IC6-7', 'IC6-8', 'IC6-12', 'IC6-22', 'IC6-37', 'IC6-53', 'IC6-54'],
+    children: ['IC4-1', 'IC4-21', 'IC4-22', 'IC4-23', 'IC4-11'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-17',
+    id: 'IC5-17',
     name: '',
     intervals: [3, 2, 1, 1, 5],
-    parents: ['HS6-7', 'HS6-9', 'HS6-13', 'HS6-23', 'HS6-38', 'HS6-58', 'HS6-64'],
-    children: ['HS4-2', 'HS4-21', 'HS4-24', 'HS4-25', 'HS4-12'],
+    parents: ['IC6-7', 'IC6-9', 'IC6-13', 'IC6-23', 'IC6-38', 'IC6-58', 'IC6-64'],
+    children: ['IC4-2', 'IC4-21', 'IC4-24', 'IC4-25', 'IC4-12'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-18',
+    id: 'IC5-18',
     name: '',
     intervals: [3, 1, 2, 1, 5],
-    parents: ['HS6-7', 'HS6-10', 'HS6-14', 'HS6-24', 'HS6-39', 'HS6-61', 'HS6-65'],
-    children: ['HS4-3', 'HS4-22', 'HS4-24', 'HS4-26', 'HS4-13'],
+    parents: ['IC6-7', 'IC6-10', 'IC6-14', 'IC6-24', 'IC6-39', 'IC6-61', 'IC6-65'],
+    children: ['IC4-3', 'IC4-22', 'IC4-24', 'IC4-26', 'IC4-13'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-19',
+    id: 'IC5-19',
     name: '',
     intervals: [3, 1, 1, 2, 5],
-    parents: ['HS6-7', 'HS6-11', 'HS6-15', 'HS6-25', 'HS6-40', 'HS6-63', 'HS6-66'],
-    children: ['HS4-4', 'HS4-23', 'HS4-25', 'HS4-26', 'HS4-5'],
+    parents: ['IC6-7', 'IC6-11', 'IC6-15', 'IC6-25', 'IC6-40', 'IC6-63', 'IC6-66'],
+    children: ['IC4-4', 'IC4-23', 'IC4-25', 'IC4-26', 'IC4-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-20',
+    id: 'IC5-20',
     name: '',
     intervals: [2, 3, 1, 1, 5],
-    parents: ['HS6-8', 'HS6-9', 'HS6-16', 'HS6-27', 'HS6-41', 'HS6-66', 'HS6-67'],
-    children: ['HS4-5', 'HS4-21', 'HS4-27', 'HS4-28', 'HS4-14'],
+    parents: ['IC6-8', 'IC6-9', 'IC6-16', 'IC6-27', 'IC6-41', 'IC6-66', 'IC6-67'],
+    children: ['IC4-5', 'IC4-21', 'IC4-27', 'IC4-28', 'IC4-14'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-21',
+    id: 'IC5-21',
     name: '',
     intervals: [2, 2, 2, 1, 5],
-    parents: ['HS6-8', 'HS6-10', 'HS6-17', 'HS6-28', 'HS6-42', 'HS6-68', 'HS6-69'],
-    children: ['HS4-6', 'HS4-22', 'HS4-27', 'HS4-29', 'HS4-15'],
+    parents: ['IC6-8', 'IC6-10', 'IC6-17', 'IC6-28', 'IC6-42', 'IC6-68', 'IC6-69'],
+    children: ['IC4-6', 'IC4-22', 'IC4-27', 'IC4-29', 'IC4-15'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-22',
+    id: 'IC5-22',
     name: '',
     intervals: [2, 2, 1, 2, 5],
-    parents: ['HS6-8', 'HS6-11', 'HS6-18', 'HS6-29', 'HS6-43', 'HS6-69', 'HS6-71'],
-    children: ['HS4-7', 'HS4-23', 'HS4-28', 'HS4-29', 'HS4-6'],
+    parents: ['IC6-8', 'IC6-11', 'IC6-18', 'IC6-29', 'IC6-43', 'IC6-69', 'IC6-71'],
+    children: ['IC4-7', 'IC4-23', 'IC4-28', 'IC4-29', 'IC4-6'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-23',
+    id: 'IC5-23',
     name: '',
     intervals: [2, 1, 3, 1, 5],
-    parents: ['HS6-9', 'HS6-10', 'HS6-19', 'HS6-31', 'HS6-44', 'HS6-70', 'HS6-73'],
-    children: ['HS4-8', 'HS4-24', 'HS4-27', 'HS4-30', 'HS4-16'],
+    parents: ['IC6-9', 'IC6-10', 'IC6-19', 'IC6-31', 'IC6-44', 'IC6-70', 'IC6-73'],
+    children: ['IC4-8', 'IC4-24', 'IC4-27', 'IC4-30', 'IC4-16'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-24',
+    id: 'IC5-24',
     name: '',
     intervals: [2, 1, 2, 2, 5],
-    parents: ['HS6-9', 'HS6-11', 'HS6-20', 'HS6-32', 'HS6-45', 'HS6-71', 'HS6-75'],
-    children: ['HS4-9', 'HS4-25', 'HS4-28', 'HS4-30', 'HS4-7'],
+    parents: ['IC6-9', 'IC6-11', 'IC6-20', 'IC6-32', 'IC6-45', 'IC6-71', 'IC6-75'],
+    children: ['IC4-9', 'IC4-25', 'IC4-28', 'IC4-30', 'IC4-7'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-25',
+    id: 'IC5-25',
     name: '',
     intervals: [2, 1, 1, 3, 5],
-    parents: ['HS6-10', 'HS6-11', 'HS6-21', 'HS6-34', 'HS6-46', 'HS6-56', 'HS6-64'],
-    children: ['HS4-10', 'HS4-26', 'HS4-29', 'HS4-30', 'HS4-2'],
+    parents: ['IC6-10', 'IC6-11', 'IC6-21', 'IC6-34', 'IC6-46', 'IC6-56', 'IC6-64'],
+    children: ['IC4-10', 'IC4-26', 'IC4-29', 'IC4-30', 'IC4-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-26',
+    id: 'IC5-26',
     name: '',
     intervals: [1, 4, 1, 1, 5],
-    parents: ['HS6-12', 'HS6-13', 'HS6-16', 'HS6-37', 'HS6-47', 'HS6-48', 'HS6-50'],
-    children: ['HS4-11', 'HS4-21', 'HS4-31', 'HS4-32', 'HS4-17'],
+    parents: ['IC6-12', 'IC6-13', 'IC6-16', 'IC6-37', 'IC6-47', 'IC6-48', 'IC6-50'],
+    children: ['IC4-11', 'IC4-21', 'IC4-31', 'IC4-32', 'IC4-17'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-27',
+    id: 'IC5-27',
     name: '',
     intervals: [1, 3, 2, 1, 5],
-    parents: ['HS6-12', 'HS6-14', 'HS6-17', 'HS6-38', 'HS6-48', 'HS6-72', 'HS6-74'],
-    children: ['HS4-12', 'HS4-22', 'HS4-31', 'HS4-33', 'HS4-18'],
+    parents: ['IC6-12', 'IC6-14', 'IC6-17', 'IC6-38', 'IC6-48', 'IC6-72', 'IC6-74'],
+    children: ['IC4-12', 'IC4-22', 'IC4-31', 'IC4-33', 'IC4-18'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-28',
+    id: 'IC5-28',
     name: '',
     intervals: [1, 3, 1, 2, 5],
-    parents: ['HS6-12', 'HS6-15', 'HS6-18', 'HS6-39', 'HS6-49', 'HS6-73', 'HS6-77'],
-    children: ['HS4-13', 'HS4-23', 'HS4-32', 'HS4-33', 'HS4-8'],
+    parents: ['IC6-12', 'IC6-15', 'IC6-18', 'IC6-39', 'IC6-49', 'IC6-73', 'IC6-77'],
+    children: ['IC4-13', 'IC4-23', 'IC4-32', 'IC4-33', 'IC4-8'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-29',
+    id: 'IC5-29',
     name: '',
     intervals: [1, 2, 3, 1, 5],
-    parents: ['HS6-13', 'HS6-14', 'HS6-19', 'HS6-41', 'HS6-50', 'HS6-74', 'HS6-78'],
-    children: ['HS4-14', 'HS4-24', 'HS4-31', 'HS4-34', 'HS4-19'],
+    parents: ['IC6-13', 'IC6-14', 'IC6-19', 'IC6-41', 'IC6-50', 'IC6-74', 'IC6-78'],
+    children: ['IC4-14', 'IC4-24', 'IC4-31', 'IC4-34', 'IC4-19'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-30',
+    id: 'IC5-30',
     name: '',
     intervals: [1, 2, 2, 2, 5],
-    parents: ['HS6-13', 'HS6-15', 'HS6-20', 'HS6-42', 'HS6-51', 'HS6-75', 'HS6-79'],
-    children: ['HS4-15', 'HS4-25', 'HS4-32', 'HS4-34', 'HS4-9'],
+    parents: ['IC6-13', 'IC6-15', 'IC6-20', 'IC6-42', 'IC6-51', 'IC6-75', 'IC6-79'],
+    children: ['IC4-15', 'IC4-25', 'IC4-32', 'IC4-34', 'IC4-9'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-31',
+    id: 'IC5-31',
     name: '',
     intervals: [1, 2, 1, 3, 5],
-    parents: ['HS6-14', 'HS6-15', 'HS6-21', 'HS6-44', 'HS6-52', 'HS6-57', 'HS6-65'],
-    children: ['HS4-16', 'HS4-26', 'HS4-33', 'HS4-34', 'HS4-3'],
+    parents: ['IC6-14', 'IC6-15', 'IC6-21', 'IC6-44', 'IC6-52', 'IC6-57', 'IC6-65'],
+    children: ['IC4-16', 'IC4-26', 'IC4-33', 'IC4-34', 'IC4-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-32',
+    id: 'IC5-32',
     name: '',
     intervals: [1, 1, 4, 1, 5],
-    parents: ['HS6-16', 'HS6-17', 'HS6-19', 'HS6-37', 'HS6-38', 'HS6-41', 'HS6-47'],
-    children: ['HS4-17', 'HS4-27', 'HS4-31', 'HS4-21', 'HS4-20'],
+    parents: ['IC6-16', 'IC6-17', 'IC6-19', 'IC6-37', 'IC6-38', 'IC6-41', 'IC6-47'],
+    children: ['IC4-17', 'IC4-27', 'IC4-31', 'IC4-21', 'IC4-20'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-33',
+    id: 'IC5-33',
     name: '',
     intervals: [1, 1, 3, 2, 5],
-    parents: ['HS6-16', 'HS6-18', 'HS6-20', 'HS6-48', 'HS6-53', 'HS6-64', 'HS6-67'],
-    children: ['HS4-18', 'HS4-28', 'HS4-32', 'HS4-21', 'HS4-10'],
+    parents: ['IC6-16', 'IC6-18', 'IC6-20', 'IC6-48', 'IC6-53', 'IC6-64', 'IC6-67'],
+    children: ['IC4-18', 'IC4-28', 'IC4-32', 'IC4-21', 'IC4-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-34',
+    id: 'IC5-34',
     name: '',
     intervals: [1, 1, 2, 3, 5],
-    parents: ['HS6-17', 'HS6-18', 'HS6-21', 'HS6-50', 'HS6-54', 'HS6-58', 'HS6-66'],
-    children: ['HS4-19', 'HS4-29', 'HS4-33', 'HS4-21', 'HS4-4'],
+    parents: ['IC6-17', 'IC6-18', 'IC6-21', 'IC6-50', 'IC6-54', 'IC6-58', 'IC6-66'],
+    children: ['IC4-19', 'IC4-29', 'IC4-33', 'IC4-21', 'IC4-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-35',
+    id: 'IC5-35',
     name: '',
     intervals: [1, 1, 1, 4, 5],
-    parents: ['HS6-19', 'HS6-20', 'HS6-21', 'HS6-22', 'HS6-23', 'HS6-27', 'HS6-37'],
-    children: ['HS4-20', 'HS4-30', 'HS4-34', 'HS4-21', 'HS4-1'],
+    parents: ['IC6-19', 'IC6-20', 'IC6-21', 'IC6-22', 'IC6-23', 'IC6-27', 'IC6-37'],
+    children: ['IC4-20', 'IC4-30', 'IC4-34', 'IC4-21', 'IC4-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-36',
+    id: 'IC5-36',
     name: '',
     intervals: [2, 1, 1, 4, 4],
-    parents: ['HS6-22', 'HS6-24', 'HS6-28', 'HS6-34', 'HS6-35', 'HS6-36', 'HS6-38'],
-    children: ['HS4-20', 'HS4-35', 'HS4-36', 'HS4-22', 'HS4-2'],
+    parents: ['IC6-22', 'IC6-24', 'IC6-28', 'IC6-34', 'IC6-35', 'IC6-36', 'IC6-38'],
+    children: ['IC4-20', 'IC4-35', 'IC4-36', 'IC4-22', 'IC4-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-37',
+    id: 'IC5-37',
     name: '',
     intervals: [4, 1, 2, 1, 4],
-    parents: ['HS6-22', 'HS6-25', 'HS6-29', 'HS6-39', 'HS6-44', 'HS6-45', 'HS6-46'],
-    children: ['HS4-3', 'HS4-30', 'HS4-35', 'HS4-37', 'HS4-23'],
+    parents: ['IC6-22', 'IC6-25', 'IC6-29', 'IC6-39', 'IC6-44', 'IC6-45', 'IC6-46'],
+    children: ['IC4-3', 'IC4-30', 'IC4-35', 'IC4-37', 'IC4-23'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-38',
+    id: 'IC5-38',
     name: '',
     intervals: [4, 1, 1, 2, 4],
-    parents: ['HS6-22', 'HS6-26', 'HS6-30', 'HS6-40', 'HS6-50', 'HS6-51', 'HS6-52'],
-    children: ['HS4-4', 'HS4-34', 'HS4-36', 'HS4-37', 'HS4-11'],
+    parents: ['IC6-22', 'IC6-26', 'IC6-30', 'IC6-40', 'IC6-50', 'IC6-51', 'IC6-52'],
+    children: ['IC4-4', 'IC4-34', 'IC4-36', 'IC4-37', 'IC4-11'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-39',
+    id: 'IC5-39',
     name: '',
     intervals: [3, 3, 1, 1, 4],
-    parents: ['HS6-23', 'HS6-24', 'HS6-31', 'HS6-41', 'HS6-55', 'HS6-62', 'HS6-63'],
-    children: ['HS4-5', 'HS4-20', 'HS4-38', 'HS4-39', 'HS4-24'],
+    parents: ['IC6-23', 'IC6-24', 'IC6-31', 'IC6-41', 'IC6-55', 'IC6-62', 'IC6-63'],
+    children: ['IC4-5', 'IC4-20', 'IC4-38', 'IC4-39', 'IC4-24'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-40',
+    id: 'IC5-40',
     name: '',
     intervals: [3, 2, 2, 1, 4],
-    parents: ['HS6-23', 'HS6-25', 'HS6-32', 'HS6-42', 'HS6-56', 'HS6-70', 'HS6-71'],
-    children: ['HS4-6', 'HS4-30', 'HS4-38', 'HS4-40', 'HS4-25'],
+    parents: ['IC6-23', 'IC6-25', 'IC6-32', 'IC6-42', 'IC6-56', 'IC6-70', 'IC6-71'],
+    children: ['IC4-6', 'IC4-30', 'IC4-38', 'IC4-40', 'IC4-25'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-41',
+    id: 'IC5-41',
     name: '',
     intervals: [3, 2, 1, 2, 4],
-    parents: ['HS6-23', 'HS6-26', 'HS6-33', 'HS6-43', 'HS6-57', 'HS6-74', 'HS6-75'],
-    children: ['HS4-7', 'HS4-34', 'HS4-39', 'HS4-40', 'HS4-12'],
+    parents: ['IC6-23', 'IC6-26', 'IC6-33', 'IC6-43', 'IC6-57', 'IC6-74', 'IC6-75'],
+    children: ['IC4-7', 'IC4-34', 'IC4-39', 'IC4-40', 'IC4-12'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-42',
+    id: 'IC5-42',
     name: '',
     intervals: [3, 1, 3, 1, 4],
-    parents: ['HS6-24', 'HS6-25', 'HS6-34', 'HS6-44', 'HS6-59', 'HS6-76', 'HS6-77'],
-    children: ['HS4-8', 'HS4-35', 'HS4-38', 'HS4-26'],
+    parents: ['IC6-24', 'IC6-25', 'IC6-34', 'IC6-44', 'IC6-59', 'IC6-76', 'IC6-77'],
+    children: ['IC4-8', 'IC4-35', 'IC4-38', 'IC4-26'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-43',
+    id: 'IC5-43',
     name: '',
     intervals: [3, 1, 2, 2, 4],
-    parents: ['HS6-24', 'HS6-26', 'HS6-35', 'HS6-45', 'HS6-60', 'HS6-77', 'HS6-79'],
-    children: ['HS4-9', 'HS4-36', 'HS4-39', 'HS4-35', 'HS4-13'],
+    parents: ['IC6-24', 'IC6-26', 'IC6-35', 'IC6-45', 'IC6-60', 'IC6-77', 'IC6-79'],
+    children: ['IC4-9', 'IC4-36', 'IC4-39', 'IC4-35', 'IC4-13'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-44',
+    id: 'IC5-44',
     name: '',
     intervals: [3, 1, 1, 3, 4],
-    parents: ['HS6-25', 'HS6-26', 'HS6-36', 'HS6-46', 'HS6-59', 'HS6-62', 'HS6-67'],
-    children: ['HS4-10', 'HS4-37', 'HS4-40', 'HS4-35', 'HS4-5'],
+    parents: ['IC6-25', 'IC6-26', 'IC6-36', 'IC6-46', 'IC6-59', 'IC6-62', 'IC6-67'],
+    children: ['IC4-10', 'IC4-37', 'IC4-40', 'IC4-35', 'IC4-5'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-45',
+    id: 'IC5-45',
     name: '',
     intervals: [2, 4, 1, 1, 4],
-    parents: ['HS6-27', 'HS6-28', 'HS6-31', 'HS6-47', 'HS6-49', 'HS6-51', 'HS6-53'],
-    children: ['HS4-11', 'HS4-20', 'HS4-32', 'HS4-41', 'HS4-27'],
+    parents: ['IC6-27', 'IC6-28', 'IC6-31', 'IC6-47', 'IC6-49', 'IC6-51', 'IC6-53'],
+    children: ['IC4-11', 'IC4-20', 'IC4-32', 'IC4-41', 'IC4-27'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-46',
+    id: 'IC5-46',
     name: '',
     intervals: [2, 3, 2, 1, 4],
-    parents: ['HS6-27', 'HS6-29', 'HS6-32', 'HS6-48', 'HS6-64', 'HS6-73', 'HS6-75'],
-    children: ['HS4-12', 'HS4-30', 'HS4-32', 'HS4-42', 'HS4-28'],
+    parents: ['IC6-27', 'IC6-29', 'IC6-32', 'IC6-48', 'IC6-64', 'IC6-73', 'IC6-75'],
+    children: ['IC4-12', 'IC4-30', 'IC4-32', 'IC4-42', 'IC4-28'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-47',
+    id: 'IC5-47',
     name: '',
     intervals: [2, 3, 1, 2, 4],
-    parents: ['HS6-27', 'HS6-30', 'HS6-33', 'HS6-49', 'HS6-65', 'HS6-78', 'HS6-79'],
-    children: ['HS4-13', 'HS4-34', 'HS4-41', 'HS4-42', 'HS4-14'],
+    parents: ['IC6-27', 'IC6-30', 'IC6-33', 'IC6-49', 'IC6-65', 'IC6-78', 'IC6-79'],
+    children: ['IC4-13', 'IC4-34', 'IC4-41', 'IC4-42', 'IC4-14'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-48',
+    id: 'IC5-48',
     name: '',
     intervals: [2, 2, 3, 1, 4],
-    parents: ['HS6-28', 'HS6-29', 'HS6-34', 'HS6-50', 'HS6-67', 'HS6-77', 'HS6-79'],
-    children: ['HS4-14', 'HS4-35', 'HS4-32', 'HS4-36', 'HS4-29'],
+    parents: ['IC6-28', 'IC6-29', 'IC6-34', 'IC6-50', 'IC6-67', 'IC6-77', 'IC6-79'],
+    children: ['IC4-14', 'IC4-35', 'IC4-32', 'IC4-36', 'IC4-29'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-49',
+    id: 'IC5-49',
     name: '',
     intervals: [2, 2, 2, 2, 4],
-    parents: ['HS6-28', 'HS6-30', 'HS6-35', 'HS6-51', 'HS6-68', 'HS6-79', 'HS6-80'],
-    children: ['HS4-15', 'HS4-36', 'HS4-41'],
+    parents: ['IC6-28', 'IC6-30', 'IC6-35', 'IC6-51', 'IC6-68', 'IC6-79', 'IC6-80'],
+    children: ['IC4-15', 'IC4-36', 'IC4-41'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-50',
+    id: 'IC5-50',
     name: '',
     intervals: [2, 2, 1, 3, 4],
-    parents: ['HS6-29', 'HS6-30', 'HS6-36', 'HS6-52', 'HS6-60', 'HS6-68', 'HS6-70'],
-    children: ['HS4-16', 'HS4-37', 'HS4-42', 'HS4-36', 'HS4-6'],
+    parents: ['IC6-29', 'IC6-30', 'IC6-36', 'IC6-52', 'IC6-60', 'IC6-68', 'IC6-70'],
+    children: ['IC4-16', 'IC4-37', 'IC4-42', 'IC4-36', 'IC4-6'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-51',
+    id: 'IC5-51',
     name: '',
     intervals: [2, 1, 4, 1, 4],
-    parents: ['HS6-31', 'HS6-32', 'HS6-34', 'HS6-37', 'HS6-39', 'HS6-42', 'HS6-48'],
-    children: ['HS4-17', 'HS4-38', 'HS4-32', 'HS4-22', 'HS4-30'],
+    parents: ['IC6-31', 'IC6-32', 'IC6-34', 'IC6-37', 'IC6-39', 'IC6-42', 'IC6-48'],
+    children: ['IC4-17', 'IC4-38', 'IC4-32', 'IC4-22', 'IC4-30'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-52',
+    id: 'IC5-52',
     name: '',
     intervals: [2, 1, 3, 2, 4],
-    parents: ['HS6-31', 'HS6-33', 'HS6-35', 'HS6-53', 'HS6-65', 'HS6-68', 'HS6-72'],
-    children: ['HS4-18', 'HS4-39', 'HS4-41', 'HS4-22', 'HS4-16'],
+    parents: ['IC6-31', 'IC6-33', 'IC6-35', 'IC6-53', 'IC6-65', 'IC6-68', 'IC6-72'],
+    children: ['IC4-18', 'IC4-39', 'IC4-41', 'IC4-22', 'IC4-16'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-53',
+    id: 'IC5-53',
     name: '',
     intervals: [2, 1, 2, 3, 4],
-    parents: ['HS6-32', 'HS6-33', 'HS6-36', 'HS6-54', 'HS6-61', 'HS6-69', 'HS6-74'],
-    children: ['HS4-19', 'HS4-40', 'HS4-42', 'HS4-22', 'HS4-7'],
+    parents: ['IC6-32', 'IC6-33', 'IC6-36', 'IC6-54', 'IC6-61', 'IC6-69', 'IC6-74'],
+    children: ['IC4-19', 'IC4-40', 'IC4-42', 'IC4-22', 'IC4-7'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-54',
+    id: 'IC5-54',
     name: '',
     intervals: [1, 2, 4, 1, 4],
-    parents: ['HS6-37', 'HS6-40', 'HS6-41', 'HS6-42', 'HS6-43', 'HS6-44', 'HS6-49'],
-    children: ['HS4-27', 'HS4-38', 'HS4-17', 'HS4-23', 'HS4-34'],
+    parents: ['IC6-37', 'IC6-40', 'IC6-41', 'IC6-42', 'IC6-43', 'IC6-44', 'IC6-49'],
+    children: ['IC4-27', 'IC4-38', 'IC4-17', 'IC4-23', 'IC4-34'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-55',
+    id: 'IC5-55',
     name: '',
     intervals: [1, 3, 3, 1, 4],
-    parents: ['HS6-38', 'HS6-39', 'HS6-44', 'HS6-50', 'HS6-59', 'HS6-60', 'HS6-62'],
-    children: ['HS4-24', 'HS4-35', 'HS4-17', 'HS4-37', 'HS4-33'],
+    parents: ['IC6-38', 'IC6-39', 'IC6-44', 'IC6-50', 'IC6-59', 'IC6-60', 'IC6-62'],
+    children: ['IC4-24', 'IC4-35', 'IC4-17', 'IC4-37', 'IC4-33'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-56',
+    id: 'IC5-56',
     name: '',
     intervals: [1, 3, 2, 2, 4],
-    parents: ['HS6-38', 'HS6-40', 'HS6-45', 'HS6-51', 'HS6-67', 'HS6-68', 'HS6-70'],
-    children: ['HS4-25', 'HS4-36', 'HS4-27', 'HS4-37', 'HS4-18'],
+    parents: ['IC6-38', 'IC6-40', 'IC6-45', 'IC6-51', 'IC6-67', 'IC6-68', 'IC6-70'],
+    children: ['IC4-25', 'IC4-36', 'IC4-27', 'IC4-37', 'IC4-18'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-57',
+    id: 'IC5-57',
     name: '',
     intervals: [1, 3, 1, 3, 4],
-    parents: ['HS6-39', 'HS6-40', 'HS6-46', 'HS6-52', 'HS6-62', 'HS6-70', 'HS6-76'],
-    children: ['HS4-26', 'HS4-37', 'HS4-38', 'HS4-8'],
+    parents: ['IC6-39', 'IC6-40', 'IC6-46', 'IC6-52', 'IC6-62', 'IC6-70', 'IC6-76'],
+    children: ['IC4-26', 'IC4-37', 'IC4-38', 'IC4-8'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-58',
+    id: 'IC5-58',
     name: '',
     intervals: [1, 2, 3, 2, 4],
-    parents: ['HS6-41', 'HS6-43', 'HS6-45', 'HS6-53', 'HS6-66', 'HS6-69', 'HS6-73'],
-    children: ['HS4-28', 'HS4-39', 'HS4-27', 'HS4-23', 'HS4-19'],
+    parents: ['IC6-41', 'IC6-43', 'IC6-45', 'IC6-53', 'IC6-66', 'IC6-69', 'IC6-73'],
+    children: ['IC4-28', 'IC4-39', 'IC4-27', 'IC4-23', 'IC4-19'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-59',
+    id: 'IC5-59',
     name: '',
     intervals: [1, 2, 2, 3, 4],
-    parents: ['HS6-42', 'HS6-43', 'HS6-46', 'HS6-54', 'HS6-63', 'HS6-71', 'HS6-77'],
-    children: ['HS4-29', 'HS4-40', 'HS4-38', 'HS4-23', 'HS4-9'],
+    parents: ['IC6-42', 'IC6-43', 'IC6-46', 'IC6-54', 'IC6-63', 'IC6-71', 'IC6-77'],
+    children: ['IC4-29', 'IC4-40', 'IC4-38', 'IC4-23', 'IC4-9'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-60',
+    id: 'IC5-60',
     name: '',
     intervals: [1, 1, 3, 3, 4],
-    parents: ['HS6-48', 'HS6-49', 'HS6-52', 'HS6-54', 'HS6-55', 'HS6-56', 'HS6-59'],
-    children: ['HS4-33', 'HS4-42', 'HS4-38', 'HS4-11', 'HS4-10'],
+    parents: ['IC6-48', 'IC6-49', 'IC6-52', 'IC6-54', 'IC6-55', 'IC6-56', 'IC6-59'],
+    children: ['IC4-33', 'IC4-42', 'IC4-38', 'IC4-11', 'IC4-10'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS5-61',
+    id: 'IC5-61',
     name: '',
     intervals: [3, 2, 1, 3, 3],
-    parents: ['HS6-55', 'HS6-57', 'HS6-58', 'HS6-60', 'HS6-72', 'HS6-73'],
-    children: ['HS4-16', 'HS4-33', 'HS4-43', 'HS4-39', 'HS4-12'],
+    parents: ['IC6-55', 'IC6-57', 'IC6-58', 'IC6-60', 'IC6-72', 'IC6-73'],
+    children: ['IC4-16', 'IC4-33', 'IC4-43', 'IC4-39', 'IC4-12'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-62',
+    id: 'IC5-62',
     name: '',
     intervals: [3, 1, 2, 3, 3],
-    parents: ['HS6-55', 'HS6-58', 'HS6-60', 'HS6-61', 'HS6-73', 'HS6-78'],
-    children: ['HS4-19', 'HS4-42', 'HS4-43', 'HS4-24', 'HS4-13'],
+    parents: ['IC6-55', 'IC6-58', 'IC6-60', 'IC6-61', 'IC6-73', 'IC6-78'],
+    children: ['IC4-19', 'IC4-42', 'IC4-43', 'IC4-24', 'IC4-13'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-63',
+    id: 'IC5-63',
     name: '',
     intervals: [2, 3, 1, 3, 3],
-    parents: ['HS6-56', 'HS6-57', 'HS6-62', 'HS6-65', 'HS6-66', 'HS6-74', 'HS6-77'],
-    children: ['HS4-26', 'HS4-33', 'HS4-39', 'HS4-40', 'HS4-14'],
+    parents: ['IC6-56', 'IC6-57', 'IC6-62', 'IC6-65', 'IC6-66', 'IC6-74', 'IC6-77'],
+    children: ['IC4-26', 'IC4-33', 'IC4-39', 'IC4-40', 'IC4-14'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-64',
+    id: 'IC5-64',
     name: '',
     intervals: [2, 2, 2, 3, 3],
-    parents: ['HS6-56', 'HS6-58', 'HS6-63', 'HS6-68', 'HS6-69', 'HS6-75', 'HS6-79'],
-    children: ['HS4-29', 'HS4-42', 'HS4-39', 'HS4-25', 'HS4-15'],
+    parents: ['IC6-56', 'IC6-58', 'IC6-63', 'IC6-68', 'IC6-69', 'IC6-75', 'IC6-79'],
+    children: ['IC4-29', 'IC4-42', 'IC4-39', 'IC4-25', 'IC4-15'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-65',
+    id: 'IC5-65',
     name: '',
     intervals: [3, 1, 3, 2, 3],
-    parents: ['HS6-59', 'HS6-61', 'HS6-63', 'HS6-64', 'HS6-65', 'HS6-70', 'HS6-74'],
-    children: ['HS4-18', 'HS4-40', 'HS4-42', 'HS4-24', 'HS4-26'],
+    parents: ['IC6-59', 'IC6-61', 'IC6-63', 'IC6-64', 'IC6-65', 'IC6-70', 'IC6-74'],
+    children: ['IC4-18', 'IC4-40', 'IC4-42', 'IC4-24', 'IC4-26'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS5-66',
+    id: 'IC5-66',
     name: 'Pentatonic Modes',
     intervals: [2, 2, 3, 2, 3],
-    parents: ['HS6-64', 'HS6-66', 'HS6-67', 'HS6-69', 'HS6-71', 'HS6-75'],
-    children: ['HS4-28', 'HS4-40', 'HS4-25', 'HS4-29'],
+    parents: ['IC6-64', 'IC6-66', 'IC6-67', 'IC6-69', 'IC6-71', 'IC6-75'],
+    children: ['IC4-28', 'IC4-40', 'IC4-25', 'IC4-29'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-1',
+    id: 'IC4-1',
     name: '',
     intervals: [1, 1, 1, 9],
-    parents: ['HS5-1', 'HS5-2', 'HS5-5', 'HS5-6', 'HS5-15', 'HS5-16', 'HS5-35'],
-    children: ['HS3-1', 'HS3-2', 'HS3-3'],
+    parents: ['IC5-1', 'IC5-2', 'IC5-5', 'IC5-6', 'IC5-15', 'IC5-16', 'IC5-35'],
+    children: ['IC3-1', 'IC3-2', 'IC3-3'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS4-2',
+    id: 'IC4-2',
     name: '',
     intervals: [2, 1, 1, 8],
-    parents: ['HS5-1', 'HS5-2', 'HS5-3', 'HS5-7', 'HS5-9', 'HS5-17', 'HS5-25', 'HS5-36'],
-    children: ['HS3-1', 'HS3-4', 'HS3-5', 'HS3-2'],
+    parents: ['IC5-1', 'IC5-2', 'IC5-3', 'IC5-7', 'IC5-9', 'IC5-17', 'IC5-25', 'IC5-36'],
+    children: ['IC3-1', 'IC3-4', 'IC3-5', 'IC3-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS4-3',
+    id: 'IC4-3',
     name: '',
     intervals: [1, 2, 1, 8],
-    parents: ['HS5-1', 'HS5-3', 'HS5-4', 'HS5-8', 'HS5-12', 'HS5-18', 'HS5-31', 'HS5-37'],
-    children: ['HS3-2', 'HS3-4', 'HS3-6', 'HS3-3'],
+    parents: ['IC5-1', 'IC5-3', 'IC5-4', 'IC5-8', 'IC5-12', 'IC5-18', 'IC5-31', 'IC5-37'],
+    children: ['IC3-2', 'IC3-4', 'IC3-6', 'IC3-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-4',
+    id: 'IC4-4',
     name: '',
     intervals: [1, 1, 2, 8],
-    parents: ['HS5-1', 'HS5-4', 'HS5-5', 'HS5-9', 'HS5-14', 'HS5-19', 'HS5-34', 'HS5-38'],
-    children: ['HS3-3', 'HS3-5', 'HS3-6', 'HS3-1'],
+    parents: ['IC5-1', 'IC5-4', 'IC5-5', 'IC5-9', 'IC5-14', 'IC5-19', 'IC5-34', 'IC5-38'],
+    children: ['IC3-3', 'IC3-5', 'IC3-6', 'IC3-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS4-5',
+    id: 'IC4-5',
     name: '',
     intervals: [3, 1, 1, 7],
-    parents: ['HS5-2', 'HS5-3', 'HS5-6', 'HS5-10', 'HS5-19', 'HS5-20', 'HS5-39', 'HS5-44'],
-    children: ['HS3-1', 'HS3-7', 'HS3-8', 'HS3-4'],
+    parents: ['IC5-2', 'IC5-3', 'IC5-6', 'IC5-10', 'IC5-19', 'IC5-20', 'IC5-39', 'IC5-44'],
+    children: ['IC3-1', 'IC3-7', 'IC3-8', 'IC3-4'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS4-6',
+    id: 'IC4-6',
     name: '',
     intervals: [2, 2, 1, 7],
-    parents: ['HS5-2', 'HS5-4', 'HS5-7', 'HS5-11', 'HS5-21', 'HS5-22', 'HS5-40', 'HS5-50'],
-    children: ['HS3-2', 'HS3-7', 'HS3-9', 'HS3-5'],
+    parents: ['IC5-2', 'IC5-4', 'IC5-7', 'IC5-11', 'IC5-21', 'IC5-22', 'IC5-40', 'IC5-50'],
+    children: ['IC3-2', 'IC3-7', 'IC3-9', 'IC3-5'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-7',
+    id: 'IC4-7',
     name: '',
     intervals: [2, 1, 2, 7],
-    parents: ['HS5-2', 'HS5-5', 'HS5-8', 'HS5-12', 'HS5-22', 'HS5-24', 'HS5-41', 'HS5-53'],
-    children: ['HS3-3', 'HS3-8', 'HS3-9', 'HS3-2'],
+    parents: ['IC5-2', 'IC5-5', 'IC5-8', 'IC5-12', 'IC5-22', 'IC5-24', 'IC5-41', 'IC5-53'],
+    children: ['IC3-3', 'IC3-8', 'IC3-9', 'IC3-2'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-8',
+    id: 'IC4-8',
     name: '',
     intervals: [1, 3, 1, 7],
-    parents: ['HS5-3', 'HS5-4', 'HS5-10', 'HS5-13', 'HS5-23', 'HS5-28', 'HS5-42', 'HS5-57'],
-    children: ['HS3-4', 'HS3-7', 'HS3-10', 'HS3-6'],
+    parents: ['IC5-3', 'IC5-4', 'IC5-10', 'IC5-13', 'IC5-23', 'IC5-28', 'IC5-42', 'IC5-57'],
+    children: ['IC3-4', 'IC3-7', 'IC3-10', 'IC3-6'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-9',
+    id: 'IC4-9',
     name: '',
     intervals: [1, 2, 2, 7],
-    parents: ['HS5-3', 'HS5-5', 'HS5-11', 'HS5-14', 'HS5-24', 'HS5-30', 'HS5-43', 'HS5-59'],
-    children: ['HS3-5', 'HS3-8', 'HS3-10', 'HS3-3'],
+    parents: ['IC5-3', 'IC5-5', 'IC5-11', 'IC5-14', 'IC5-24', 'IC5-30', 'IC5-43', 'IC5-59'],
+    children: ['IC3-5', 'IC3-8', 'IC3-10', 'IC3-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-10',
+    id: 'IC4-10',
     name: '',
     intervals: [1, 1, 3, 7],
-    parents: ['HS5-4', 'HS5-5', 'HS5-13', 'HS5-15', 'HS5-25', 'HS5-33', 'HS5-44', 'HS5-60'],
-    children: ['HS3-6', 'HS3-9', 'HS3-10', 'HS3-1'],
+    parents: ['IC5-4', 'IC5-5', 'IC5-13', 'IC5-15', 'IC5-25', 'IC5-33', 'IC5-44', 'IC5-60'],
+    children: ['IC3-6', 'IC3-9', 'IC3-10', 'IC3-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS4-11',
+    id: 'IC4-11',
     name: '',
     intervals: [4, 1, 1, 6],
-    parents: ['HS5-6', 'HS5-7', 'HS5-10', 'HS5-16', 'HS5-26', 'HS5-38', 'HS5-45', 'HS5-60'],
-    children: ['HS3-1', 'HS3-11', 'HS3-12', 'HS3-7'],
+    parents: ['IC5-6', 'IC5-7', 'IC5-10', 'IC5-16', 'IC5-26', 'IC5-38', 'IC5-45', 'IC5-60'],
+    children: ['IC3-1', 'IC3-11', 'IC3-12', 'IC3-7'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS4-12',
+    id: 'IC4-12',
     name: '',
     intervals: [3, 2, 1, 6],
-    parents: ['HS5-6', 'HS5-8', 'HS5-11', 'HS5-17', 'HS5-27', 'HS5-41', 'HS5-46', 'HS5-61'],
-    children: ['HS3-2', 'HS3-11', 'HS3-13', 'HS3-8'],
+    parents: ['IC5-6', 'IC5-8', 'IC5-11', 'IC5-17', 'IC5-27', 'IC5-41', 'IC5-46', 'IC5-61'],
+    children: ['IC3-2', 'IC3-11', 'IC3-13', 'IC3-8'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-13',
+    id: 'IC4-13',
     name: '',
     intervals: [3, 1, 2, 6],
-    parents: ['HS5-6', 'HS5-9', 'HS5-12', 'HS5-18', 'HS5-28', 'HS5-43', 'HS5-47', 'HS5-62'],
-    children: ['HS3-3', 'HS3-12', 'HS3-13', 'HS3-4'],
+    parents: ['IC5-6', 'IC5-9', 'IC5-12', 'IC5-18', 'IC5-28', 'IC5-43', 'IC5-47', 'IC5-62'],
+    children: ['IC3-3', 'IC3-12', 'IC3-13', 'IC3-4'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-14',
+    id: 'IC4-14',
     name: '',
     intervals: [2, 3, 1, 6],
-    parents: ['HS5-7', 'HS5-8', 'HS5-13', 'HS5-20', 'HS5-29', 'HS5-47', 'HS5-48', 'HS5-63'],
-    children: ['HS3-4', 'HS3-11', 'HS3-14', 'HS3-9'],
+    parents: ['IC5-7', 'IC5-8', 'IC5-13', 'IC5-20', 'IC5-29', 'IC5-47', 'IC5-48', 'IC5-63'],
+    children: ['IC3-4', 'IC3-11', 'IC3-14', 'IC3-9'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-15',
+    id: 'IC4-15',
     name: '',
     intervals: [2, 2, 2, 6],
-    parents: ['HS5-7', 'HS5-9', 'HS5-14', 'HS5-21', 'HS5-30', 'HS5-49', 'HS5-64'],
-    children: ['HS3-5', 'HS3-12', 'HS3-14'],
+    parents: ['IC5-7', 'IC5-9', 'IC5-14', 'IC5-21', 'IC5-30', 'IC5-49', 'IC5-64'],
+    children: ['IC3-5', 'IC3-12', 'IC3-14'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-16',
+    id: 'IC4-16',
     name: '',
     intervals: [2, 1, 3, 6],
-    parents: ['HS5-8', 'HS5-9', 'HS5-15', 'HS5-23', 'HS5-31', 'HS5-50', 'HS5-52', 'HS5-61'],
-    children: ['HS3-6', 'HS3-13', 'HS3-14', 'HS3-2'],
+    parents: ['IC5-8', 'IC5-9', 'IC5-15', 'IC5-23', 'IC5-31', 'IC5-50', 'IC5-52', 'IC5-61'],
+    children: ['IC3-6', 'IC3-13', 'IC3-14', 'IC3-2'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-17',
+    id: 'IC4-17',
     name: '',
     intervals: [1, 4, 1, 6],
-    parents: ['HS5-10', 'HS5-11', 'HS5-13', 'HS5-26', 'HS5-32', 'HS5-51', 'HS5-54', 'HS5-55'],
-    children: ['HS3-7', 'HS3-11', 'HS3-15', 'HS3-10'],
+    parents: ['IC5-10', 'IC5-11', 'IC5-13', 'IC5-26', 'IC5-32', 'IC5-51', 'IC5-54', 'IC5-55'],
+    children: ['IC3-7', 'IC3-11', 'IC3-15', 'IC3-10'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-18',
+    id: 'IC4-18',
     name: '',
     intervals: [1, 3, 2, 6],
-    parents: ['HS5-10', 'HS5-12', 'HS5-14', 'HS5-27', 'HS5-33', 'HS5-52', 'HS5-56', 'HS5-65'],
-    children: ['HS3-8', 'HS3-12', 'HS3-15', 'HS3-6'],
+    parents: ['IC5-10', 'IC5-12', 'IC5-14', 'IC5-27', 'IC5-33', 'IC5-52', 'IC5-56', 'IC5-65'],
+    children: ['IC3-8', 'IC3-12', 'IC3-15', 'IC3-6'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-19',
+    id: 'IC4-19',
     name: '',
     intervals: [1, 2, 3, 6],
-    parents: ['HS5-11', 'HS5-12', 'HS5-15', 'HS5-29', 'HS5-34', 'HS5-53', 'HS5-58', 'HS5-62'],
-    children: ['HS3-9', 'HS3-13', 'HS3-15', 'HS3-3'],
+    parents: ['IC5-11', 'IC5-12', 'IC5-15', 'IC5-29', 'IC5-34', 'IC5-53', 'IC5-58', 'IC5-62'],
+    children: ['IC3-9', 'IC3-13', 'IC3-15', 'IC3-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-20',
+    id: 'IC4-20',
     name: '',
     intervals: [1, 1, 4, 6],
-    parents: ['HS5-13', 'HS5-14', 'HS5-15', 'HS5-32', 'HS5-35', 'HS5-36', 'HS5-39', 'HS5-45'],
-    children: ['HS3-10', 'HS3-14', 'HS3-15', 'HS3-1'],
+    parents: ['IC5-13', 'IC5-14', 'IC5-15', 'IC5-32', 'IC5-35', 'IC5-36', 'IC5-39', 'IC5-45'],
+    children: ['IC3-10', 'IC3-14', 'IC3-15', 'IC3-1'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS4-21',
+    id: 'IC4-21',
     name: '',
     intervals: [5, 1, 1, 5],
-    parents: ['HS5-16', 'HS5-17', 'HS5-20', 'HS5-26', 'HS5-32', 'HS5-33', 'HS5-34', 'HS5-35'],
-    children: ['HS3-1', 'HS3-15', 'HS3-16', 'HS3-11'],
+    parents: ['IC5-16', 'IC5-17', 'IC5-20', 'IC5-26', 'IC5-32', 'IC5-33', 'IC5-34', 'IC5-35'],
+    children: ['IC3-1', 'IC3-15', 'IC3-16', 'IC3-11'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS4-22',
+    id: 'IC4-22',
     name: '',
     intervals: [4, 2, 1, 5],
-    parents: ['HS5-16', 'HS5-18', 'HS5-21', 'HS5-27', 'HS5-36', 'HS5-51', 'HS5-52', 'HS5-53'],
-    children: ['HS3-2', 'HS3-15', 'HS3-17', 'HS3-12'],
+    parents: ['IC5-16', 'IC5-18', 'IC5-21', 'IC5-27', 'IC5-36', 'IC5-51', 'IC5-52', 'IC5-53'],
+    children: ['IC3-2', 'IC3-15', 'IC3-17', 'IC3-12'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-23',
+    id: 'IC4-23',
     name: '',
     intervals: [4, 1, 2, 5],
-    parents: ['HS5-16', 'HS5-19', 'HS5-22', 'HS5-28', 'HS5-37', 'HS5-54', 'HS5-58', 'HS5-59'],
-    children: ['HS3-3', 'HS3-16', 'HS3-17', 'HS3-7'],
+    parents: ['IC5-16', 'IC5-19', 'IC5-22', 'IC5-28', 'IC5-37', 'IC5-54', 'IC5-58', 'IC5-59'],
+    children: ['IC3-3', 'IC3-16', 'IC3-17', 'IC3-7'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-24',
+    id: 'IC4-24',
     name: '',
     intervals: [3, 3, 1, 5],
-    parents: ['HS5-17', 'HS5-18', 'HS5-23', 'HS5-29', 'HS5-39', 'HS5-55', 'HS5-62', 'HS5-65'],
-    children: ['HS3-4', 'HS3-15', 'HS3-18', 'HS3-13'],
+    parents: ['IC5-17', 'IC5-18', 'IC5-23', 'IC5-29', 'IC5-39', 'IC5-55', 'IC5-62', 'IC5-65'],
+    children: ['IC3-4', 'IC3-15', 'IC3-18', 'IC3-13'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-25',
+    id: 'IC4-25',
     name: '',
     intervals: [3, 2, 2, 5],
-    parents: ['HS5-17', 'HS5-19', 'HS5-24', 'HS5-30', 'HS5-40', 'HS5-56', 'HS5-64', 'HS5-66'],
-    children: ['HS3-5', 'HS3-16', 'HS3-18', 'HS3-8'],
+    parents: ['IC5-17', 'IC5-19', 'IC5-24', 'IC5-30', 'IC5-40', 'IC5-56', 'IC5-64', 'IC5-66'],
+    children: ['IC3-5', 'IC3-16', 'IC3-18', 'IC3-8'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-26',
+    id: 'IC4-26',
     name: '',
     intervals: [3, 1, 3, 5],
-    parents: ['HS5-18', 'HS5-19', 'HS5-25', 'HS5-31', 'HS5-42', 'HS5-57', 'HS5-63', 'HS5-65'],
-    children: ['HS3-6', 'HS3-17', 'HS3-18', 'HS3-4'],
+    parents: ['IC5-18', 'IC5-19', 'IC5-25', 'IC5-31', 'IC5-42', 'IC5-57', 'IC5-63', 'IC5-65'],
+    children: ['IC3-6', 'IC3-17', 'IC3-18', 'IC3-4'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-27',
+    id: 'IC4-27',
     name: '',
     intervals: [2, 4, 1, 5],
-    parents: ['HS5-20', 'HS5-21', 'HS5-23', 'HS5-32', 'HS5-45', 'HS5-54', 'HS5-56', 'HS5-58'],
-    children: ['HS3-7', 'HS3-15', 'HS3-16', 'HS3-14'],
+    parents: ['IC5-20', 'IC5-21', 'IC5-23', 'IC5-32', 'IC5-45', 'IC5-54', 'IC5-56', 'IC5-58'],
+    children: ['IC3-7', 'IC3-15', 'IC3-16', 'IC3-14'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-28',
+    id: 'IC4-28',
     name: '',
     intervals: [2, 3, 2, 5],
-    parents: ['HS5-20', 'HS5-22', 'HS5-24', 'HS5-33', 'HS5-46', 'HS5-58', 'HS5-66'],
-    children: ['HS3-8', 'HS3-16', 'HS3-9'],
+    parents: ['IC5-20', 'IC5-22', 'IC5-24', 'IC5-33', 'IC5-46', 'IC5-58', 'IC5-66'],
+    children: ['IC3-8', 'IC3-16', 'IC3-9'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-29',
+    id: 'IC4-29',
     name: '',
     intervals: [2, 2, 3, 5],
-    parents: ['HS5-21', 'HS5-22', 'HS5-25', 'HS5-34', 'HS5-48', 'HS5-59', 'HS5-64', 'HS5-66'],
-    children: ['HS3-9', 'HS3-17', 'HS3-16', 'HS3-5'],
+    parents: ['IC5-21', 'IC5-22', 'IC5-25', 'IC5-34', 'IC5-48', 'IC5-59', 'IC5-64', 'IC5-66'],
+    children: ['IC3-9', 'IC3-17', 'IC3-16', 'IC3-5'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-30',
+    id: 'IC4-30',
     name: 'Minor add 9',
     intervals: [2, 1, 4, 5],
-    parents: ['HS5-23', 'HS5-24', 'HS5-25', 'HS5-35', 'HS5-37', 'HS5-40', 'HS5-46', 'HS5-51'],
-    children: ['HS3-10', 'HS3-18', 'HS3-16', 'HS3-2'],
+    parents: ['IC5-23', 'IC5-24', 'IC5-25', 'IC5-35', 'IC5-37', 'IC5-40', 'IC5-46', 'IC5-51'],
+    children: ['IC3-10', 'IC3-18', 'IC3-16', 'IC3-2'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-31',
+    id: 'IC4-31',
     name: '',
     intervals: [1, 5, 1, 5],
-    parents: ['HS5-26', 'HS5-27', 'HS5-29', 'HS5-32'],
-    children: ['HS3-11', 'HS3-15'],
+    parents: ['IC5-26', 'IC5-27', 'IC5-29', 'IC5-32'],
+    children: ['IC3-11', 'IC3-15'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-32',
+    id: 'IC4-32',
     name: 'Major 7 (♭5)',
     intervals: [1, 4, 2, 5],
-    parents: ['HS5-26', 'HS5-28', 'HS5-30', 'HS5-33', 'HS5-45', 'HS5-46', 'HS5-48', 'HS5-51'],
-    children: ['HS3-12', 'HS3-16', 'HS3-11', 'HS3-10'],
+    parents: ['IC5-26', 'IC5-28', 'IC5-30', 'IC5-33', 'IC5-45', 'IC5-46', 'IC5-48', 'IC5-51'],
+    children: ['IC3-12', 'IC3-16', 'IC3-11', 'IC3-10'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-33',
+    id: 'IC4-33',
     name: 'Diminished Major 7',
     intervals: [1, 3, 3, 5],
-    parents: ['HS5-27', 'HS5-28', 'HS5-31', 'HS5-34', 'HS5-55', 'HS5-60', 'HS5-61', 'HS5-63'],
-    children: ['HS3-13', 'HS3-17', 'HS3-11', 'HS3-6'],
+    parents: ['IC5-27', 'IC5-28', 'IC5-31', 'IC5-34', 'IC5-55', 'IC5-60', 'IC5-61', 'IC5-63'],
+    children: ['IC3-13', 'IC3-17', 'IC3-11', 'IC3-6'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-34',
+    id: 'IC4-34',
     name: '',
     intervals: [1, 2, 4, 5],
-    parents: ['HS5-29', 'HS5-30', 'HS5-31', 'HS5-35', 'HS5-38', 'HS5-41', 'HS5-47', 'HS5-54'],
-    children: ['HS3-14', 'HS3-18', 'HS3-11', 'HS3-3'],
+    parents: ['IC5-29', 'IC5-30', 'IC5-31', 'IC5-35', 'IC5-38', 'IC5-41', 'IC5-47', 'IC5-54'],
+    children: ['IC3-14', 'IC3-18', 'IC3-11', 'IC3-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-35',
+    id: 'IC4-35',
     name: 'Augmented Major 7 / Major add ♭13',
     intervals: [3, 1, 4, 4],
-    parents: ['HS5-36', 'HS5-37', 'HS5-42', 'HS5-43', 'HS5-44', 'HS5-48', 'HS5-55'],
-    children: ['HS3-10', 'HS3-19', 'HS3-17', 'HS3-4'],
+    parents: ['IC5-36', 'IC5-37', 'IC5-42', 'IC5-43', 'IC5-44', 'IC5-48', 'IC5-55'],
+    children: ['IC3-10', 'IC3-19', 'IC3-17', 'IC3-4'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-36',
+    id: 'IC4-36',
     name: 'Augmented 7 / Dominant 7 (♯5)',
     intervals: [2, 2, 4, 4],
-    parents: ['HS5-36', 'HS5-38', 'HS5-43', 'HS5-48', 'HS5-49', 'HS5-50', 'HS5-56'],
-    children: ['HS3-14', 'HS3-19', 'HS3-12', 'HS3-5'],
+    parents: ['IC5-36', 'IC5-38', 'IC5-43', 'IC5-48', 'IC5-49', 'IC5-50', 'IC5-56'],
+    children: ['IC3-14', 'IC3-19', 'IC3-12', 'IC3-5'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-37',
+    id: 'IC4-37',
     name: 'Minor Major 7',
     intervals: [4, 1, 3, 4],
-    parents: ['HS5-37', 'HS5-38', 'HS5-44', 'HS5-50', 'HS5-55', 'HS5-56', 'HS5-57'],
-    children: ['HS3-6', 'HS3-18', 'HS3-19', 'HS3-7'],
+    parents: ['IC5-37', 'IC5-38', 'IC5-44', 'IC5-50', 'IC5-55', 'IC5-56', 'IC5-57'],
+    children: ['IC3-6', 'IC3-18', 'IC3-19', 'IC3-7'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-38',
+    id: 'IC4-38',
     name: 'Major 7 / Minor add 6',
     intervals: [3, 4, 1, 4],
-    parents: ['HS5-39', 'HS5-40', 'HS5-42', 'HS5-51', 'HS5-54', 'HS5-57', 'HS5-59', 'HS5-60'],
-    children: ['HS3-7', 'HS3-10', 'HS3-17', 'HS3-18'],
+    parents: ['IC5-39', 'IC5-40', 'IC5-42', 'IC5-51', 'IC5-54', 'IC5-57', 'IC5-59', 'IC5-60'],
+    children: ['IC3-7', 'IC3-10', 'IC3-17', 'IC3-18'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-39',
+    id: 'IC4-39',
     name: 'Dominant 7',
     intervals: [3, 3, 2, 4],
-    parents: ['HS5-39', 'HS5-41', 'HS5-43', 'HS5-52', 'HS5-58', 'HS5-61', 'HS5-63', 'HS5-64'],
-    children: ['HS3-8', 'HS3-14', 'HS3-17', 'HS3-13'],
+    parents: ['IC5-39', 'IC5-41', 'IC5-43', 'IC5-52', 'IC5-58', 'IC5-61', 'IC5-63', 'IC5-64'],
+    children: ['IC3-8', 'IC3-14', 'IC3-17', 'IC3-13'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-40',
+    id: 'IC4-40',
     name: 'Minor 7 / Major 6',
     intervals: [3, 2, 3, 4],
-    parents: ['HS5-40', 'HS5-41', 'HS5-44', 'HS5-53', 'HS5-59', 'HS5-63', 'HS5-65', 'HS5-66'],
-    children: ['HS3-9', 'HS3-18', 'HS3-17', 'HS3-8'],
+    parents: ['IC5-40', 'IC5-41', 'IC5-44', 'IC5-53', 'IC5-59', 'IC5-63', 'IC5-65', 'IC5-66'],
+    children: ['IC3-9', 'IC3-18', 'IC3-17', 'IC3-8'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-41',
+    id: 'IC4-41',
     name: 'Dominant 7 (♭5)',
     intervals: [2, 4, 2, 4],
-    parents: ['HS5-45', 'HS5-47', 'HS5-49', 'HS5-52'],
-    children: ['HS3-12', 'HS3-14'],
+    parents: ['IC5-45', 'IC5-47', 'IC5-49', 'IC5-52'],
+    children: ['IC3-12', 'IC3-14'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-42',
+    id: 'IC4-42',
     name: 'Half-diminished / Minor 7 (♭5)',
     intervals: [2, 3, 3, 4],
-    parents: ['HS5-46', 'HS5-47', 'HS5-50', 'HS5-53', 'HS5-60', 'HS5-62', 'HS5-64', 'HS5-65'],
-    children: ['HS3-13', 'HS3-18', 'HS3-12', 'HS3-9'],
+    parents: ['IC5-46', 'IC5-47', 'IC5-50', 'IC5-53', 'IC5-60', 'IC5-62', 'IC5-64', 'IC5-65'],
+    children: ['IC3-13', 'IC3-18', 'IC3-12', 'IC3-9'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS4-43',
+    id: 'IC4-43',
     name: 'Diminished 7',
     intervals: [3, 3, 3, 3],
-    parents: ['HS5-61', 'HS5-62'],
-    children: ['HS3-13'],
+    parents: ['IC5-61', 'IC5-62'],
+    children: ['IC3-13'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-1',
+    id: 'IC3-1',
     name: '',
     intervals: [1, 1, 10],
-    parents: ['HS4-1', 'HS4-2', 'HS4-4', 'HS4-5', 'HS4-10', 'HS4-11', 'HS4-20', 'HS4-21'],
-    children: ['HS2-1', 'HS2-2'],
+    parents: ['IC4-1', 'IC4-2', 'IC4-4', 'IC4-5', 'IC4-10', 'IC4-11', 'IC4-20', 'IC4-21'],
+    children: ['IC2-1', 'IC2-2'],
     root: 0,
-    contiguousSemitones: true
+    cohemitonic: true
   }, {
-    id: 'HS3-2',
+    id: 'IC3-2',
     name: '',
     intervals: [2, 1, 9],
-    parents: ['HS4-1', 'HS4-2', 'HS4-3', 'HS4-6', 'HS4-7', 'HS4-12', 'HS4-16', 'HS4-22', 'HS4-30'],
-    children: ['HS2-1', 'HS2-3', 'HS2-2'],
+    parents: ['IC4-1', 'IC4-2', 'IC4-3', 'IC4-6', 'IC4-7', 'IC4-12', 'IC4-16', 'IC4-22', 'IC4-30'],
+    children: ['IC2-1', 'IC2-3', 'IC2-2'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-3',
+    id: 'IC3-3',
     name: '',
     intervals: [1, 2, 9],
-    parents: ['HS4-1', 'HS4-3', 'HS4-4', 'HS4-7', 'HS4-9', 'HS4-13', 'HS4-19', 'HS4-23', 'HS4-34'],
-    children: ['HS2-2', 'HS2-3', 'HS2-1'],
+    parents: ['IC4-1', 'IC4-3', 'IC4-4', 'IC4-7', 'IC4-9', 'IC4-13', 'IC4-19', 'IC4-23', 'IC4-34'],
+    children: ['IC2-2', 'IC2-3', 'IC2-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-4',
+    id: 'IC3-4',
     name: '',
     intervals: [3, 1, 8],
-    parents: ['HS4-2', 'HS4-3', 'HS4-5', 'HS4-8', 'HS4-13', 'HS4-14', 'HS4-24', 'HS4-26', 'HS4-35'],
-    children: ['HS2-1', 'HS2-4', 'HS2-3'],
+    parents: ['IC4-2', 'IC4-3', 'IC4-5', 'IC4-8', 'IC4-13', 'IC4-14', 'IC4-24', 'IC4-26', 'IC4-35'],
+    children: ['IC2-1', 'IC2-4', 'IC2-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-5',
+    id: 'IC3-5',
     name: '',
     intervals: [2, 2, 8],
-    parents: ['HS4-2', 'HS4-4', 'HS4-6', 'HS4-9', 'HS4-15', 'HS4-25', 'HS4-29', 'HS4-36'],
-    children: ['HS2-2', 'HS2-4'],
+    parents: ['IC4-2', 'IC4-4', 'IC4-6', 'IC4-9', 'IC4-15', 'IC4-25', 'IC4-29', 'IC4-36'],
+    children: ['IC2-2', 'IC2-4'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-6',
+    id: 'IC3-6',
     name: '',
     intervals: [1, 3, 8],
-    parents: ['HS4-3', 'HS4-4', 'HS4-8', 'HS4-10', 'HS4-16', 'HS4-18', 'HS4-26', 'HS4-33', 'HS4-37'],
-    children: ['HS2-3', 'HS2-4', 'HS2-1'],
+    parents: ['IC4-3', 'IC4-4', 'IC4-8', 'IC4-10', 'IC4-16', 'IC4-18', 'IC4-26', 'IC4-33', 'IC4-37'],
+    children: ['IC2-3', 'IC2-4', 'IC2-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-7',
+    id: 'IC3-7',
     name: '',
     intervals: [4, 1, 7],
-    parents: ['HS4-5', 'HS4-6', 'HS4-8', 'HS4-11', 'HS4-17', 'HS4-23', 'HS4-27', 'HS4-37', 'HS4-38'],
-    children: ['HS2-1', 'HS2-5', 'HS2-4'],
+    parents: ['IC4-5', 'IC4-6', 'IC4-8', 'IC4-11', 'IC4-17', 'IC4-23', 'IC4-27', 'IC4-37', 'IC4-38'],
+    children: ['IC2-1', 'IC2-5', 'IC2-4'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-8',
+    id: 'IC3-8',
     name: '',
     intervals: [3, 2, 7],
-    parents: ['HS4-5', 'HS4-7', 'HS4-9', 'HS4-12', 'HS4-18', 'HS4-25', 'HS4-28', 'HS4-39', 'HS4-40'],
-    children: ['HS2-2', 'HS2-5', 'HS2-3'],
+    parents: ['IC4-5', 'IC4-7', 'IC4-9', 'IC4-12', 'IC4-18', 'IC4-25', 'IC4-28', 'IC4-39', 'IC4-40'],
+    children: ['IC2-2', 'IC2-5', 'IC2-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-9',
+    id: 'IC3-9',
     name: '',
     intervals: [2, 3, 7],
-    parents: ['HS4-6', 'HS4-7', 'HS4-10', 'HS4-14', 'HS4-19', 'HS4-28', 'HS4-29', 'HS4-40', 'HS4-42'],
-    children: ['HS2-3', 'HS2-5', 'HS2-2'],
+    parents: ['IC4-6', 'IC4-7', 'IC4-10', 'IC4-14', 'IC4-19', 'IC4-28', 'IC4-29', 'IC4-40', 'IC4-42'],
+    children: ['IC2-3', 'IC2-5', 'IC2-2'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-10',
+    id: 'IC3-10',
     name: '',
     intervals: [1, 4, 7],
-    parents: ['HS4-8', 'HS4-9', 'HS4-10', 'HS4-17', 'HS4-20', 'HS4-30', 'HS4-32', 'HS4-35', 'HS4-38'],
-    children: ['HS2-4', 'HS2-5', 'HS2-1'],
+    parents: ['IC4-8', 'IC4-9', 'IC4-10', 'IC4-17', 'IC4-20', 'IC4-30', 'IC4-32', 'IC4-35', 'IC4-38'],
+    children: ['IC2-4', 'IC2-5', 'IC2-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-11',
+    id: 'IC3-11',
     name: '',
     intervals: [5, 1, 6],
-    parents: ['HS4-11', 'HS4-12', 'HS4-14', 'HS4-17', 'HS4-21', 'HS4-31', 'HS4-32', 'HS4-33', 'HS4-34'],
-    children: ['HS2-1', 'HS2-6', 'HS2-5'],
+    parents: ['IC4-11', 'IC4-12', 'IC4-14', 'IC4-17', 'IC4-21', 'IC4-31', 'IC4-32', 'IC4-33', 'IC4-34'],
+    children: ['IC2-1', 'IC2-6', 'IC2-5'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-12',
+    id: 'IC3-12',
     name: '',
     intervals: [4, 2, 6],
-    parents: ['HS4-11', 'HS4-13', 'HS4-15', 'HS4-18', 'HS4-22', 'HS4-32', 'HS4-36', 'HS4-41', 'HS4-42'],
-    children: ['HS2-2', 'HS2-6', 'HS2-4'],
+    parents: ['IC4-11', 'IC4-13', 'IC4-15', 'IC4-18', 'IC4-22', 'IC4-32', 'IC4-36', 'IC4-41', 'IC4-42'],
+    children: ['IC2-2', 'IC2-6', 'IC2-4'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-13',
+    id: 'IC3-13',
     name: 'Diminished Triad',
     intervals: [3, 3, 6],
-    parents: ['HS4-12', 'HS4-13', 'HS4-16', 'HS4-19', 'HS4-24', 'HS4-33', 'HS4-39', 'HS4-42', 'HS4-43'],
-    children: ['HS2-3', 'HS2-6'],
+    parents: ['IC4-12', 'IC4-13', 'IC4-16', 'IC4-19', 'IC4-24', 'IC4-33', 'IC4-39', 'IC4-42', 'IC4-43'],
+    children: ['IC2-3', 'IC2-6'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-14',
+    id: 'IC3-14',
     name: '',
     intervals: [2, 4, 6],
-    parents: ['HS4-14', 'HS4-15', 'HS4-16', 'HS4-20', 'HS4-27', 'HS4-34', 'HS4-36', 'HS4-39', 'HS4-41'],
-    children: ['HS2-4', 'HS2-6', 'HS2-2'],
+    parents: ['IC4-14', 'IC4-15', 'IC4-16', 'IC4-20', 'IC4-27', 'IC4-34', 'IC4-36', 'IC4-39', 'IC4-41'],
+    children: ['IC2-4', 'IC2-6', 'IC2-2'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-15',
+    id: 'IC3-15',
     name: '',
     intervals: [1, 5, 6],
-    parents: ['HS4-17', 'HS4-18', 'HS4-19', 'HS4-20', 'HS4-21', 'HS4-22', 'HS4-24', 'HS4-27', 'HS4-31'],
-    children: ['HS2-5', 'HS2-6', 'HS2-1'],
+    parents: ['IC4-17', 'IC4-18', 'IC4-19', 'IC4-20', 'IC4-21', 'IC4-22', 'IC4-24', 'IC4-27', 'IC4-31'],
+    children: ['IC2-5', 'IC2-6', 'IC2-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-16',
+    id: 'IC3-16',
     name: 'Sus 2 / Sus 4 / Quartal',
     intervals: [2, 5, 5],
-    parents: ['HS4-21', 'HS4-23', 'HS4-25', 'HS4-27', 'HS4-28', 'HS4-29', 'HS4-30', 'HS4-32'],
-    children: ['HS2-5', 'HS2-2'],
+    parents: ['IC4-21', 'IC4-23', 'IC4-25', 'IC4-27', 'IC4-28', 'IC4-29', 'IC4-30', 'IC4-32'],
+    children: ['IC2-5', 'IC2-2'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-17',
+    id: 'IC3-17',
     name: 'Major Triad',
     intervals: [4, 3, 5],
-    parents: ['HS4-22', 'HS4-23', 'HS4-26', 'HS4-29', 'HS4-33', 'HS4-35', 'HS4-38', 'HS4-39', 'HS4-40'],
-    children: ['HS2-3', 'HS2-5', 'HS2-4'],
+    parents: ['IC4-22', 'IC4-23', 'IC4-26', 'IC4-29', 'IC4-33', 'IC4-35', 'IC4-38', 'IC4-39', 'IC4-40'],
+    children: ['IC2-3', 'IC2-5', 'IC2-4'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-18',
+    id: 'IC3-18',
     name: 'Minor Triad',
     intervals: [3, 4, 5],
-    parents: ['HS4-24', 'HS4-25', 'HS4-26', 'HS4-30', 'HS4-34', 'HS4-37', 'HS4-38', 'HS4-40', 'HS4-42'],
-    children: ['HS2-4', 'HS2-5', 'HS2-3'],
+    parents: ['IC4-24', 'IC4-25', 'IC4-26', 'IC4-30', 'IC4-34', 'IC4-37', 'IC4-38', 'IC4-40', 'IC4-42'],
+    children: ['IC2-4', 'IC2-5', 'IC2-3'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS3-19',
+    id: 'IC3-19',
     name: 'Augmented Triad',
     intervals: [4, 4, 4],
-    parents: ['HS4-35', 'HS4-36', 'HS4-37'],
-    children: ['HS2-4'],
+    parents: ['IC4-35', 'IC4-36', 'IC4-37'],
+    children: ['IC2-4'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS2-1',
+    id: 'IC2-1',
     name: 'Minor 2ⁿᵈ / Major 7ᵗʰ',
     intervals: [1, 11],
-    parents: ['HS3-1', 'HS3-2', 'HS3-3', 'HS3-4', 'HS3-6', 'HS3-7', 'HS3-10', 'HS3-11', 'HS3-15'],
-    children: ['HS1-1'],
+    parents: ['IC3-1', 'IC3-2', 'IC3-3', 'IC3-4', 'IC3-6', 'IC3-7', 'IC3-10', 'IC3-11', 'IC3-15'],
+    children: ['IC1-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS2-2',
+    id: 'IC2-2',
     name: 'Major 2ⁿᵈ / Minor 7ᵗʰ',
     intervals: [2, 10],
-    parents: ['HS3-1', 'HS3-2', 'HS3-3', 'HS3-5', 'HS3-8', 'HS3-9', 'HS3-12', 'HS3-14', 'HS3-16'],
-    children: ['HS1-1'],
+    parents: ['IC3-1', 'IC3-2', 'IC3-3', 'IC3-5', 'IC3-8', 'IC3-9', 'IC3-12', 'IC3-14', 'IC3-16'],
+    children: ['IC1-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS2-3',
+    id: 'IC2-3',
     name: 'Minor 3ʳᵈ / Major 6ᵗʰ',
     intervals: [3, 9],
-    parents: ['HS3-2', 'HS3-3', 'HS3-4', 'HS3-6', 'HS3-8', 'HS3-9', 'HS3-13', 'HS3-17', 'HS3-18'],
-    children: ['HS1-1'],
+    parents: ['IC3-2', 'IC3-3', 'IC3-4', 'IC3-6', 'IC3-8', 'IC3-9', 'IC3-13', 'IC3-17', 'IC3-18'],
+    children: ['IC1-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS2-4',
+    id: 'IC2-4',
     name: 'Major 3ʳᵈ / Minor 6ᵗʰ',
     intervals: [4, 8],
-    parents: ['HS3-4', 'HS3-5', 'HS3-6', 'HS3-7', 'HS3-10', 'HS3-12', 'HS3-14', 'HS3-17', 'HS3-18', 'HS3-19'],
-    children: ['HS1-1'],
+    parents: ['IC3-4', 'IC3-5', 'IC3-6', 'IC3-7', 'IC3-10', 'IC3-12', 'IC3-14', 'IC3-17', 'IC3-18', 'IC3-19'],
+    children: ['IC1-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS2-5',
+    id: 'IC2-5',
     name: 'Perfect 4ᵗʰ / Perfect 5ᵗʰ',
     intervals: [5, 7],
-    parents: ['HS3-7', 'HS3-8', 'HS3-9', 'HS3-10', 'HS3-11', 'HS3-15', 'HS3-16', 'HS3-17', 'HS3-18'],
-    children: ['HS1-1'],
+    parents: ['IC3-7', 'IC3-8', 'IC3-9', 'IC3-10', 'IC3-11', 'IC3-15', 'IC3-16', 'IC3-17', 'IC3-18'],
+    children: ['IC1-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS2-6',
+    id: 'IC2-6',
     name: 'Tritone',
     intervals: [6, 6],
-    parents: ['HS3-11', 'HS3-12', 'HS3-13', 'HS3-14', 'HS3-15'],
-    children: ['HS1-1'],
+    parents: ['IC3-11', 'IC3-12', 'IC3-13', 'IC3-14', 'IC3-15'],
+    children: ['IC1-1'],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }, {
-    id: 'HS1-1',
+    id: 'IC1-1',
     name: 'Unison / Octave',
     intervals: [12],
-    parents: ['HS2-1', 'HS2-2', 'HS2-3', 'HS2-4', 'HS2-5', 'HS2-6'],
+    parents: ['IC2-1', 'IC2-2', 'IC2-3', 'IC2-4', 'IC2-5', 'IC2-6'],
     children: [],
     root: 0,
-    contiguousSemitones: false
+    cohemitonic: false
   }];

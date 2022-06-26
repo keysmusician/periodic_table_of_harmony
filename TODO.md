@@ -17,7 +17,7 @@ Table of Contents
 * Currently capable of displaying which nodes exist inside other nodes, but it would be nice if it showed WHERE in the parent node did the child node come from, and how many places it fits if more than one
 * MIDI integration (allowing previewing of the sound of each mode and the ability to download the midi for that node)
 * Allow node rotation by mouse wheel and dynamically change mode name, keeping starting interval at the top (or some fixed location)
-* Always displayed row numbers ( which can't be scrolled away)
+* Always displayed row numbers (which can't be scrolled away)
 * Advanced info view option: Center popup window with a rotatable node closeup when selected. Can show modes based on rotation, alternative names, etc.
 * Search bar and advanced filtering options, search zooms in on matched nodes?
 * Zoom "fader" to click and drag zoom level (may help mobile support). Displays current zoom level
@@ -25,17 +25,18 @@ Table of Contents
 * VST integration (for use in a DAW)
 * Invert selection
 * Select row
+* Setting to invert the graph (so unison is on top and chromatic is on the bottom)
 
 ## Bugs
 * Link selection not complete when leaving a custom selection view
 * Focused (clicked or tabbed) menus don't close on mouseout
-* Changing a selection should reset the "selected"/ hide unselected node button
-* Root note highlighting wrong wedge
+* Changing a selection should reset the "selected"/ "hide unselected node" button
+* ~~Root note highlighting wrong wedge~~
 
 ## UI / UX
-* Choosing a root should dynamically update the text in the "Root" button to reflect the selected root
+* ~~Choosing a root should dynamically update the text in the "Root" button to reflect the selected root~~
 * Make buttons stay highlighted when active
-* Piano key styled pie charts. All charts have 12 divisions, and color coded to show the intervals
+* Option to switch to an alternate node style with piano key styled pie charts; All charts would have 12 divisions, and color coded to show the intervals
 * Center-align popup menus
 * Circular/Pie selection menu for choosing root notes
 * Accessability: Tab selection and screen reader support of buttons, menu and info icons
