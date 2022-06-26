@@ -2,7 +2,7 @@
 
 Twelve-tone harmony visualized
 
-![image](https://user-images.githubusercontent.com/74752740/130612698-b5a494ec-97c6-4bc2-a466-445bc9205791.png)
+[![image](https://user-images.githubusercontent.com/74752740/130612698-b5a494ec-97c6-4bc2-a466-445bc9205791.png)](https://keysmusician.github.io/Periodic-Table-of-Harmony/)
 
 Check it out here: https://keysmusician.github.io/Periodic-Table-of-Harmony/
 
