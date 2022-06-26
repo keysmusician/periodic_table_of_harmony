@@ -1,4 +1,6 @@
+/* eslint-disable camelcase */
 'use strict';
+
 // Array of IntervalCycle objects used to create nodes of the PToH.
 // This version contains a flag for cohemitonic nodes.
 export const dataset = [

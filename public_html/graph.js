@@ -1,13 +1,5 @@
-'use strict';
-
 /* eslint-disable camelcase */
-
-/*
-Note: Do not change proper function expressions to arrow function
-expressions if the 'this' keyword is used. 'this' is not bound in arrow
-function expressions. No errors will be thrown, but the graph will not
-display correctly.
-*/
+'use strict';
 
 // GLOBAL PARAMETERS
 
@@ -222,16 +214,15 @@ function set_pitch_class_labels (
       const pitch_class_index = (
         ROOT_PITCH_CLASS_i +
         interval_cycle.intervals
-          .slice(0, pitch_class_label_i) // Sub-list of intervals up to i
+          .slice(0, pitch_class_label_i) // Sub-list of intervals up to index
           .reduce((interval_sum, current_interval) =>
-            (interval_sum + current_interval), 0 // sum of the intervals up to this arc; initial accumulator = 0
+            (interval_sum + current_interval), 0 // Sum of the intervals up to this arc; Initial accumulator = 0
           )) % 12;
 
-      // Sets & positions note label text
+      // Sets & positions pitch class label text
       pitch_class_label.attr('x', arc_center[0])
         .attr('y', arc_center[1] + arc_label_font_height / 2)
-        .text(
-          pitch_class_label_i + pitch_classes[pitch_class_index]);
+        .text(pitch_classes[pitch_class_index]);
     });
 }
 
@@ -413,10 +404,10 @@ function draw_graph (input_dataset) {
                 .append('path')
                 .attr('d', interval_chart_arc);
             })
-            .append('g') // Draws labels on arcs of the interval chart NOTE: Not sure if this should be a separate group from the arc group
+            .append('g') // Draws labels on arcs of the interval chart. NOTE: Not sure if this should be a separate group from the arc group
             .attr('class', 'interval-labels')
             .each((interval_cycle, interval_label_i, interval_labels) => {
-              d3.select(interval_labels[interval_label_i]) // interval label
+              d3.select(interval_labels[interval_label_i]) // An interval label
                 .selectAll('text')
                 .data(unit_pie(interval_cycle.intervals))
                 .join('text')
@@ -428,8 +419,7 @@ function draw_graph (input_dataset) {
 
                   arc.attr('x', arc_center[0])
                     .attr('y', arc_center[1] + arc_label_font_height / 2)
-                    .text('i' + arc_element_i + ': ' +
-                      interval_cycle.intervals[arc_element_i]); // Sets & positions node label text
+                    .text(interval_cycle.intervals[arc_element_i]); // Sets & positions interval label text
 
                   arc.classed(
                     'root-label', interval_cycle.root === arc_element_i); // Sets a class on the text which is labeling the root wedge
@@ -494,7 +484,7 @@ function draw_graph (input_dataset) {
             )
             .attr('dy', (note_chart_outer_radius + io_label_offset));
         }),
-      // Data that remained the same after the dataset changed is handled here
+      // Data that remains the same after the dataset changed is handled here
       update => update.call(
         update => update
           .transition(transition)
