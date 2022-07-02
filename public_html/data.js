@@ -2577,7 +2577,7 @@ export const dataset = [
     intervals: [3, 3, 2, 4],
     parents: ['IC5-39', 'IC5-41', 'IC5-43', 'IC5-52', 'IC5-58', 'IC5-61', 'IC5-63', 'IC5-64'],
     children: ['IC3-8', 'IC3-14', 'IC3-17', 'IC3-13'],
-    root: 0,
+    root: 3,
     cohemitonic: false
   }, {
     id: 'IC4-40',

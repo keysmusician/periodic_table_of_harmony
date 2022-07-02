@@ -27,8 +27,6 @@ const pitch_classes = [
   'G♯ / A♭'
 ];
 
-let ROOT_PITCH_CLASS_i = 0;
-
 // The following parameters determine the size, scale and and center of the diagram:
 
 const diagram_scale_factor = 5;
@@ -108,11 +106,19 @@ const pitch_class_position_arc = d3.arc()
   .innerRadius(note_name_radius)
   .outerRadius(note_name_radius);
 
-// Not drawing related
-
-let g_selection = d3.selectAll('.selected'); // Global selection of user selected nodes & their links (empty on page load)
-
-let hide_inactive_links = false;
+// Non-constant globals (encapsulated to prevent accidental setting)
+const GLOBALS = {
+  HIDE_ALL_LINKS: false, // The state of the "#all-links-btn"
+  HIDE_INACTIVE_LINKS: false, // The state of the "#inactive-links-btn"
+  ROOT_PITCH_CLASS_i: 0, // Root pitch class index
+  SELECTION: d3.selectAll('.selected'), // Global selection of user selected nodes & their links (empty on page load)
+  ERROR_MESSAGES: {
+    MAKE_SELECTION: 'No nodes are selected. Make a selection first. ' +
+      'Click any node to select it.',
+    SELECT_SINGULAR_NODE:
+      'Please select only one node to use the family tree selector.'
+  }
+};
 
 // GLOBAL FUNCTIONS
 
@@ -191,45 +197,22 @@ function get_node_positions (dataset) {
   return node_positions;
 }
 
-// Performance wise, this is about the mid-point in the enter selection's processing time
-function set_pitch_class_labels (
-  pitch_class_labels_element, rotated_unit_pie, interval_cycle) {
+function set_pitch_class_label (pitch_class_label, interval_cumulative_sum) {
+  // `cumulative_interval` is the sum of the intervals in a particular node up to this arc
   // Sets the pitch class labels on a given pitch class label element
 
-  pitch_class_labels_element
-    .selectAll('text')
-    .data(interval_cycle_ => rotated_unit_pie(interval_cycle_.intervals))
-    .join('text')
-    .each((arc_data, pitch_class_label_i, pitch_class_labels) => {
-      const pitch_class_label = d3.select(
-        pitch_class_labels[pitch_class_label_i]);
-      const arc_center = pitch_class_position_arc.centroid(arc_data);
+  const pitch_class_index =
+    (GLOBALS.ROOT_PITCH_CLASS_i + interval_cumulative_sum) % 12;
 
-      // Sets a class on the text element labeling the root wedge
-      pitch_class_label.classed(
-        'root-label',
-        pitch_class_label_i === interval_cycle.root
-      );
-
-      const pitch_class_index = (
-        ROOT_PITCH_CLASS_i +
-        interval_cycle.intervals
-          .slice(0, pitch_class_label_i) // Sub-list of intervals up to index
-          .reduce((interval_sum, current_interval) =>
-            (interval_sum + current_interval), 0 // Sum of the intervals up to this arc; Initial accumulator = 0
-          )) % 12;
-
-      // Sets & positions pitch class label text
-      pitch_class_label.attr('x', arc_center[0])
-        .attr('y', arc_center[1] + arc_label_font_height / 2)
-        .text(pitch_classes[pitch_class_index]);
-    });
+  pitch_class_label.text(pitch_classes[pitch_class_index]);
 }
 
 function update_global_selection () {
-  g_selection = d3.selectAll('.selected'); // Updates the global selection
+  GLOBALS.SELECTION = d3.selectAll('.selected'); // Updates the global selection
 
-  const node_count = g_selection.select('g').size();
+  const node_count = GLOBALS.SELECTION.select('g')
+    .size();
+
   d3.select('#clear-btn')
     .text(node_count);
 }
@@ -246,13 +229,13 @@ function handle_node_mouseover (active) {
 
     links.classed('hover', active);
 
-    if (hide_inactive_links && !node.classed('selected')) { // Hides links if hide inactive links button is active
-      links.classed('hidden', !active);
+    if (GLOBALS.HIDE_INACTIVE_LINKS && !node.classed('selected')) { // Hides links if "hide-inactive-links" button is active
+      links.attr('display', active ? 'auto' : 'none');
     }
 
     const io_label = node.select('.io-label');
 
-    io_label.classed('hidden', !active); // Show io tooltip
+    io_label.attr('display', active ? 'auto' : 'none'); // Show io tooltip
   };
 }
 
@@ -345,6 +328,7 @@ function draw_graph (input_dataset) {
     .duration(transition_duration);
 
   // Array of Link objects for the network diagram which builds dynamically from the dataset upon loading the page:
+  // Link objects are defined as: { source: string'parent node ID', target: string'child node id' }
   const link_data = []; // For drawing the links
 
   input_dataset.forEach((node, index) => { // Find which links should be drawn and construct the link objects by examining each node's children.
@@ -373,117 +357,134 @@ function draw_graph (input_dataset) {
 
   // Creates a group for the node graphic and initializes each node
   node_group.selectAll('.node')
-    .data(input_dataset, d => d.id)
+    .data(input_dataset, interval_cycle => interval_cycle.id)
     .join(
-      // New additions to the dataset are handled here
-      enter => enter.append('g')
-        .attr('class', 'node')
-        .attr('id', d => d.id)
-        .classed('cohemitonic', d => d.cohemitonic)
-        .classed('saturated', d => d.saturated)
-        .attr('transform', d =>
-          'translate(' + node_positions[d.id][0] + ' ' +
-          node_positions[d.id][1] + ') rotate(0)'
-        ) // Sets the [x,y] positions of each node by translation from the origin.
-        .on('click', handle_node_click)
-        .on('mouseover', handle_node_mouseover(true))
-        .on('mouseout', handle_node_mouseover(false))
-        .call(enter => {
-          enter.append('g') // Draws the interval charts at each node
-            .attr('class', 'interval-chart')
-            .each((d, i, element) => {
-              const interval_chart_data = unit_pie(d.intervals);
+      enter => { // New additions to the dataset are handled here
+        const nodes = enter.append('g')
+          .classed('node', true)
+          .classed('cohemitonic', interval_cycle => interval_cycle.cohemitonic)
+          .classed('saturated', interval_cycle => interval_cycle.saturated)
+          .attr('id', interval_cycle => interval_cycle.id)
+          .attr('transform', interval_cycle =>
+            'translate(' + node_positions[interval_cycle.id][0] + ' ' +
+          node_positions[interval_cycle.id][1] + ') rotate(0)'
+          ) // Sets the [x,y] positions of each node by translation from the origin.
+          .on('click', handle_node_click)
+          .on('mouseover', handle_node_mouseover(true))
+          .on('mouseout', handle_node_mouseover(false));
 
-              d3.select(element[i])
-                .append('g')
-                .attr('class', 'interval-arcs')
-                .selectAll('.arc')
-                .data(interval_chart_data)
-                .join('g')
-                .attr('class', 'arc')
-                .append('path')
-                .attr('d', interval_chart_arc);
-            })
-            .append('g') // Draws labels on arcs of the interval chart. NOTE: Not sure if this should be a separate group from the arc group
+        nodes.each((interval_cycle, node_i, nodes) => { // Draws each node, which is a group of small charts
+          const node = d3.select(nodes[node_i]); // A D3 selection of an HTML SVG group element
+          const interval_chart_arc_data = unit_pie(interval_cycle.intervals);
+
+          const interval_chart = node.append('g') // Draws the interval charts at each node
+            .attr('class', 'interval-chart');
+
+          interval_chart.append('g') // Draws the arcs for the interval charts
+            .attr('class', 'interval-arcs')
+            .selectAll('path')
+            .data(interval_chart_arc_data)
+            .join('path')
+            .attr('class', 'arc')
+            .attr('d', interval_chart_arc);
+
+          interval_chart.append('g') // Draws labels on arcs of the interval chart
             .attr('class', 'interval-labels')
-            .each((interval_cycle, interval_label_i, interval_labels) => {
-              d3.select(interval_labels[interval_label_i]) // An interval label
-                .selectAll('text')
-                .data(unit_pie(interval_cycle.intervals))
-                .join('text')
-                .each((arc_data, arc_element_i, arc_element) => {
-                  const arc = d3.select(arc_element[arc_element_i]);
+            .selectAll('text')
+            .data(interval_chart_arc_data)
+            .join('text')
+            .each((arc_datum, arc_element_i, arc_element) => {
+              const arc = d3.select(arc_element[arc_element_i]);
 
-                  const arc_center = interval_label_position_arc
-                    .centroid(arc_data);
+              const arc_center = interval_label_position_arc
+                .centroid(arc_datum);
 
-                  arc.attr('x', arc_center[0])
-                    .attr('y', arc_center[1] + arc_label_font_height / 2)
-                    .text(interval_cycle.intervals[arc_element_i]); // Sets & positions interval label text
+              arc.attr('x', arc_center[0])
+                .attr('y', arc_center[1] + arc_label_font_height / 2)
+                .text(interval_cycle.intervals[arc_element_i]); // Sets & positions interval label text
 
-                  arc.classed(
-                    'root-label', interval_cycle.root === arc_element_i); // Sets a class on the text which is labeling the root wedge
-                });
+              arc.classed(
+                'root-label', interval_cycle.root === arc_element_i); // Sets a class on the text which is labeling the root wedge
             });
 
-          // Labels arcs with pitch class names
-          enter.append('g')
-            .attr('class', 'pitch-class-chart')
-            .each(function (interval_cycle) {
-              const pitch_class_chart = d3.select(this);
+          const rotation_offset = Tau * (
+            (1 / interval_cycle.intervals.length) / 2 +
+            (interval_cycle.root / interval_cycle.intervals.length)
+          );
 
-              const rotation_offset =
-                Tau * (1 / interval_cycle.intervals.length) / 2;
-              const rotated_unit_pie = d3.pie()
-                .value(1)
-                .startAngle(node_rotation - rotation_offset)
-                .endAngle(Tau + node_rotation - rotation_offset);
+          const rotated_unit_pie = d3.pie()
+            .value(1)
+            .startAngle(node_rotation - rotation_offset)
+            .endAngle(Tau + node_rotation - rotation_offset);
 
-              // Draw the arcs in which the pitch class labels will reside
-              pitch_class_chart.append('g')
-                .attr('class', 'pitch-class-arcs')
-                .selectAll('.arc')
-                .data(interval_cycle =>
-                  rotated_unit_pie(interval_cycle.intervals))
-                .join('g')
-                .attr('class', 'arc')
-                .classed('root',
-                  (_arc_data, arc_i) => (arc_i === interval_cycle.root))
-                .append('path')
-                .attr('d', pitch_class_chart_arc);
+          const pitch_class_chart_arc_data =
+            rotated_unit_pie(interval_cycle.intervals);
 
-              const pitch_class_label_element = pitch_class_chart
-                .append('g')
-                .attr('class', 'pitch-class-labels');
+          const pitch_class_chart = node.append('g')
+            .attr('class', 'pitch-class-chart');
 
-              set_pitch_class_labels(
-                pitch_class_label_element, rotated_unit_pie, interval_cycle);
+          // Draws the arcs in which the pitch class labels will reside
+          pitch_class_chart.append('g')
+            .attr('class', 'pitch-class-arcs')
+            .selectAll('.arc')
+            .data(pitch_class_chart_arc_data)
+            .join('g')
+            .attr('class', 'arc')
+            .classed('root', (_, arc_i) => (arc_i === interval_cycle.root))
+            .append('path')
+            .attr('d', pitch_class_chart_arc);
+
+          const pitch_class_labels_element = pitch_class_chart
+            .append('g')
+            .attr('class', 'pitch-class-labels');
+
+          let interval_cumulative_sum = 0;
+
+          pitch_class_labels_element
+            .selectAll('text')
+            .data(pitch_class_chart_arc_data)
+            .join('text')
+            .each((arc_datum, pitch_class_label_i, pitch_class_labels) => {
+              const pitch_class_label = d3.select(
+                pitch_class_labels[pitch_class_label_i]);
+              const arc_center = pitch_class_position_arc.centroid(arc_datum);
+
+              // Sets a class on the text element labeling the root wedge
+              pitch_class_label.classed(
+                'root-label', pitch_class_label_i === interval_cycle.root);
+
+              // Sets & positions pitch class label text
+              pitch_class_label.attr('x', arc_center[0])
+                .attr('y', arc_center[1] + arc_label_font_height / 2)
+                .call(set_pitch_class_label, interval_cumulative_sum);
+
+              interval_cumulative_sum +=
+                interval_cycle.intervals[pitch_class_label_i];
             });
+        });
 
-          // Draws circles to fill the centers of the nodes.
-          enter.append('circle')
-            .attr('class', 'node-center')
-            .attr('r', interval_chart_inner_radius);
+        // Draws circles to fill the centers of the nodes. Unused, might delete.
+        // nodes.append('circle')
+        //   .attr('class', 'node-center')
+        //   .attr('r', interval_chart_inner_radius);
 
-          // Draws the node title label
-          enter.append('g')
-            .attr('class', 'node-label')
-            .append('text')
-            .text(d => d.name)
-            .attr('y', -note_chart_outer_radius - node_label_offset);
+        // Draws the node title label
+        nodes.append('text')
+          .attr('class', 'node-label')
+          .text(d => d.name)
+          .attr('y', -note_chart_outer_radius - node_label_offset);
 
-          // Draws the I/O labels (the number of parent and child links)
-          enter.append('g')
-            .attr('class', 'io-label')
-            .classed('hidden', true)
-            .append('text')
-            .attr('text-anchor', 'middle')
-            .text(d =>
-              'Parents: ' + d.parents.length + ' Children: ' +
+        // Draws the I/O labels (the number of parent and child links)
+        nodes.append('text')
+          .attr('display', 'none')
+          .attr('class', 'io-label')
+          .attr('text-anchor', 'middle')
+          .text(d =>
+            'Parents: ' + d.parents.length + ' Children: ' +
               d.children.length
-            )
-            .attr('dy', (note_chart_outer_radius + io_label_offset));
-        }),
+          )
+          .attr('dy', (note_chart_outer_radius + io_label_offset));
+      },
       // Data that remains the same after the dataset changed is handled here
       update => update.call(
         update => update
@@ -497,26 +498,26 @@ function draw_graph (input_dataset) {
 
   // Draws links
   link_group.selectAll('line')
-    .data(link_data, d => d.source + ' ' + d.target)
+    .data(link_data, link => link.source + ' ' + link.target)
     .join(
       enter => enter.append('line')
-        .each(function (d) {
+        .each(function (link) {
           // Look up a given node ID and returns the node's [x,y] coordinates from node_positions.
-          const link_source_position = node_positions[d.source];
-          const link_target_position = node_positions[d.target];
+          const link_source_position = node_positions[link.source];
+          const link_target_position = node_positions[link.target];
 
           d3.select(this)
-            .classed('hidden', hide_inactive_links)
-            .classed(d.source, true)
-            .classed(d.target, true)
+            .classed(link.source, true)
+            .classed(link.target, true)
+            .attr('display', GLOBALS.HIDE_INACTIVE_LINKS ? 'none' : 'auto')
             .attr('x1', link_source_position[0])
             .attr('y1', link_source_position[1])
             .attr('x2', link_target_position[0])
             .attr('y2', link_target_position[1]);
 
           if (
-            d3.select('#' + d.source).classed('selected') ||
-            d3.select('#' + d.target).classed('selected')
+            d3.select('#' + link.source).classed('selected') ||
+            d3.select('#' + link.target).classed('selected')
           ) { // If entering links are connected to a selected node
             d3.select(this).classed('selected', true);
           }
@@ -568,7 +569,7 @@ function toggle_unselected () {
   } else { // when toggling on
     button.attr('active', 1);
 
-    if (g_selection.size()) { // only draw if there's something in the global selection
+    if (GLOBALS.SELECTION.size()) { // only draw if there's something in the global selection
       const selected_dataset = dataset.filter(node => { // new dataset built from user-selected nodes // PERFORMANCE NOTE: Might be more efficient to build from the global selection
         // if the node exists, see if it's selected
         if (!d3.select('#' + node.id).empty()) {
@@ -579,7 +580,9 @@ function toggle_unselected () {
       });
 
       draw_graph(selected_dataset);
-    } else { alert('No nodes are selected -- Make a selection first'); }
+    } else {
+      alert(GLOBALS.ERROR_MESSAGES.MAKE_SELECTION);
+    }
   }
 
   update_global_selection();
@@ -589,72 +592,50 @@ d3.select('#unselected-btn')
   .on('click', toggle_unselected);
 
 // Highlights link-btn if one of the link buttons has been toggled
-function set_link_btn_state () {
-  if (
-    d3.select('#all-links-btn').classed('active') ||
-    d3.select('#inactive-links-btn').classed('active')
-  ) {
-    d3.select('#link-btn').classed('active', true);
-  } else {
-    d3.select('#link-btn').classed('active', false);
-  }
-}
+function update_link_btn_state () {
+  const sub_button_is_active = GLOBALS.HIDE_ALL_LINKS ||
+    GLOBALS.HIDE_INACTIVE_LINKS;
 
-// Toggles displaying inactive links
-function toggle_inactive_links () {
-  const button = d3.select(this);
-  // Get the links
-  const links = d3.selectAll('line')
-    .filter(function () {
-      return !this.classList.contains('selected');
-    });
-
-  if (button.classed('active')) {
-    button.classed('active', false);
-
-    links.classed('hidden', false);
-  } else {
-    button.classed('active', true);
-
-    links.classed('hidden', true);
-  }
-
-  hide_inactive_links = !hide_inactive_links;
+  d3.select('#link-btn')
+    .classed('active', sub_button_is_active);
 }
 
 d3.select('#inactive-links-btn')
-  .on('click', function () {
-    toggle_inactive_links.call(this);
-    set_link_btn_state.call(this);
+  .on('click', function toggle_inactive_links () { // Toggles displaying inactive links
+    GLOBALS.HIDE_INACTIVE_LINKS = !GLOBALS.HIDE_INACTIVE_LINKS;
+
+    d3.select(this)
+      .classed('active', GLOBALS.HIDE_INACTIVE_LINKS);
+
+    const unselected_lines = d3.selectAll('line')
+      .filter(function () {
+        return !this.classList.contains('selected');
+      });
+
+    unselected_lines.attr(
+      'display', GLOBALS.HIDE_INACTIVE_LINKS ? 'none' : 'auto');
+
+    update_link_btn_state();
   });
 
-// Toggles displaying all links
-function toggle_all_links () {
-  const button = d3.select(this);
-  // Get the links
-  const links = d3.select('.links');
-
-  if (button.classed('active')) {
-    button.classed('active', false);
-
-    links.classed('hidden', false);
-  } else {
-    button.classed('active', true);
-
-    links.classed('hidden', true);
-  }
-}
-
 d3.select('#all-links-btn')
-  .on('click', function () {
-    toggle_all_links.call(this);
-    set_link_btn_state.call(this);
+  .on('click', function toggle_all_links () { // Toggles displaying all links
+    GLOBALS.HIDE_ALL_LINKS = !GLOBALS.HIDE_ALL_LINKS;
+
+    const links = d3.select('.links');
+
+    d3.select(this)
+      .classed('active', GLOBALS.HIDE_ALL_LINKS);
+
+    links.attr('display', GLOBALS.HIDE_ALL_LINKS ? 'none' : 'auto');
+
+    update_link_btn_state();
   });
 
 // Selects family of selected nodes by parameter number
 function select_family (generation_num) {
-  if (g_selection.size() === 0) {
-    alert('No nodes are selected -- Make a selection first');
+  if (GLOBALS.SELECTION.size() === 0) {
+    alert(GLOBALS.ERROR_MESSAGES.MAKE_SELECTION);
   } else {
     function selection_chain (generation) {
       generation.forEach(family_member => {
@@ -662,7 +643,7 @@ function select_family (generation_num) {
           .classed('selected', true);
         d3.selectAll('.' + family_member) // Links
           .classed('selected', true)
-          .classed('hidden', false);
+          .attr('display', 'auto');
       });
     }
 
@@ -739,7 +720,7 @@ function select_family_tree () {
 
     select_descendants(dataset, node);
   } else {
-    alert('Please select only one node to use the family tree selector');
+    alert(GLOBALS.ERROR_MESSAGES.SELECT_SINGULAR_NODE);
   }
 
   update_global_selection();
@@ -749,40 +730,35 @@ d3.select('#tree-btn')
   .on('click', select_family_tree);
 
 function clear_selection () {
-  d3.selectAll('.selected').classed('selected', false);
+  d3.selectAll('.selected')
+    .classed('selected', false);
 
   update_global_selection();
 
-  if (hide_inactive_links) {
+  if (GLOBALS.HIDE_INACTIVE_LINKS) {
     d3.selectAll('line')
-      .classed('hidden', true);
+      .attr('display', 'none');
   }
 }
 
 d3.select('#clear-btn')
   .on('click', clear_selection);
 
-function change_root (root_btn_value) {
-  ROOT_PITCH_CLASS_i = root_btn_value;
-
-  d3.selectAll('.pitch-class-labels')
-    .each(function (interval_cycle) {
-      const pitch_class_label_element = d3.select(this);
-
-      const rotation_offset = Tau * (1 / interval_cycle.intervals.length) / 2;
-      const rotated_unit_pie = d3.pie()
-        .value(1)
-        .startAngle(node_rotation - rotation_offset)
-        .endAngle(Tau + node_rotation - rotation_offset);
-
-      set_pitch_class_labels(
-        pitch_class_label_element, rotated_unit_pie, interval_cycle);
-    });
-}
-
 d3.selectAll('.note-btn')
-  .on('click', function (_event) {
-    change_root(Number(this.getAttribute('value')));
+  .on('click', function change_root (_event) {
+    GLOBALS.ROOT_PITCH_CLASS_i = Number(this.getAttribute('value'));
+
+    d3.selectAll('.pitch-class-labels')
+      .each(function (interval_cycle) {
+        let interval_cumulative_sum = 0;
+        d3.select(this)
+          .selectAll('text')
+          .each(function (_, pitch_class_label_i) {
+            set_pitch_class_label(d3.select(this), interval_cumulative_sum);
+            interval_cumulative_sum +=
+            interval_cycle.intervals[pitch_class_label_i];
+          });
+      });
 
     d3.select('#root-btn')
       .text(this.innerHTML);
