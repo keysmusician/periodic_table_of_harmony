@@ -397,6 +397,12 @@ function draw_graph (input_dataset) {
 
         nodes.each(function (interval_cycle) { // Draws each node, which is a group of small charts
           const node = d3.select(this); // A D3 selection of the HTML SVG group element described above
+
+          // Rotate the interval cycle so the root comes first
+          interval_cycle.intervals = interval_cycle.intervals
+            .slice(interval_cycle.root)
+            .concat(interval_cycle.intervals.slice(0, interval_cycle.root));
+
           const interval_chart_arc_data = unit_pie(interval_cycle.intervals);
 
           const interval_chart = node.append('g') // Draws the interval charts at each node
@@ -430,8 +436,8 @@ function draw_graph (input_dataset) {
             });
 
           const rotation_offset = Tau * (
-            (1 / interval_cycle.intervals.length) / 2 +
-            (interval_cycle.root / interval_cycle.intervals.length)
+            (1 / interval_cycle.intervals.length) / 2
+            // + (interval_cycle.root / interval_cycle.intervals.length)
           );
 
           const rotated_unit_pie = d3.pie()
@@ -452,7 +458,7 @@ function draw_graph (input_dataset) {
             .data(pitch_class_chart_arc_data)
             .join('g')
             .classed('arc', true)
-            .classed('root', (_, arc_i) => (arc_i === interval_cycle.root))
+            .classed('root', (_, arc_i) => (arc_i === 0)) // The bottom wedge (first one drawn) will always be the root
             .append('path')
             .attr('d', pitch_class_chart_arc);
 

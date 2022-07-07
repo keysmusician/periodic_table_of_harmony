@@ -64,6 +64,7 @@ Table of Contents
 
 ## Performance / Optimization
 * Graph HTML structure is a bit inconsistent in grouping of elements
+* I *could* preprocess the dataset by 1) rotating any interval lists such that the root is first and 2) grouping it into sub-arrays by row, both of which would probably save some computing later on, but currently it's fast enough as is
 * Parent selection is inefficient
 * File organization: separate styles from scripts?
 * ~~Family tree selection is slow~~
