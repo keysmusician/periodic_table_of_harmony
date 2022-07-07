@@ -1,5 +1,6 @@
-/* eslint-disable camelcase */
 'use strict';
+
+/* eslint-disable camelcase */
 
 document.addEventListener('DOMContentLoaded', (event) => {
   // Get the modal
