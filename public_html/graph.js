@@ -678,47 +678,57 @@ d3.select('#family-btn') // Selects all parents and children of selected nodes
 
 // Selects all parents, parent's parents... & children, children's children... of a given node.
 function select_family_tree () {
-  // Searches the dataset by element.id to find and select parent nodes
-  function select_lineage (nodelist, node) {
-    if (node.parents.length > 0) {
-      node.parents.forEach(
-        parent_id => {
-          d3.select('#' + parent_id).classed('selected', true); // Select nodes
-          d3.selectAll('.' + parent_id).classed('selected', true); // Select links
+  /**
+   * Selects either descendants or ancestors of an interval cycle.
+   *
+   * interval_cycle: An interval cycle object (see data.js)
+   *
+   * generation: Either 'parents' or 'children'. Determines which lineage to
+   * select.
+   */
+  function select_lineage (interval_cycle, generation) {
+    let interval_cycles = [interval_cycle];
 
-          const parent_node = nodelist.find(node => node.id === parent_id);
+    while (interval_cycles.length) {
+      const generation_IDs = new Set();
 
-          select_lineage(nodelist, parent_node);
+      // Add parent/child IDs to a set (different interval cycles could share a parent/child; the set removes duplicates)
+      interval_cycles.forEach(interval_cycle => {
+        interval_cycle[generation].forEach(generation_ID =>
+          generation_IDs.add(generation_ID));
+
+        d3.select('#' + interval_cycle.id)
+          .classed('selected', true); // Select nodes
+
+        d3.selectAll('.' + interval_cycle.id)
+          .classed('selected', true); // Select links
+      });
+
+      // Get the interval cycle attached to each parent/child ID (if it exists in the currently drawn dataset)
+      const next_interval_cycles = [];
+
+      generation_IDs.forEach(interval_cycle_ID => {
+        const parent_node_selection = d3.select('#' + interval_cycle_ID);
+
+        if (!parent_node_selection.empty()) {
+          next_interval_cycles.push(parent_node_selection.datum());
         }
-      );
-    }
-    return true;
-  }
-  // Searches the dataset by element.id to find and select child nodes
-  function select_descendants (nodelist, node) {
-    if (node.children.length > 0) {
-      node.children.forEach(
-        child_id => {
-          d3.select('#' + child_id).classed('selected', true); // Select nodes
-          d3.selectAll('.' + child_id).classed('selected', true); // Select links
+      });
 
-          const child_node = nodelist.find(node => node.id === child_id);
-
-          select_descendants(nodelist, child_node);
-        }
-      );
+      interval_cycles = next_interval_cycles;
     }
+
     return true;
   }
 
   const selection = d3.selectAll('.nodes').selectAll('.selected');
 
   if (selection.size() === 1) {
-    const node = selection.datum();
+    const interval_cycle = selection.datum();
 
-    select_lineage(dataset, node);
+    select_lineage(interval_cycle, 'parents'); // NOTE: The use of string literals here is not ideal, but it allows reuse of code.
 
-    select_descendants(dataset, node);
+    select_lineage(interval_cycle, 'children');
   } else {
     alert(GLOBALS.ERROR_MESSAGES.SELECT_SINGULAR_NODE);
   }
