@@ -31,6 +31,7 @@ Table of Contents
 * Link selection not complete when leaving a custom selection view
 * Focused (clicked or tabbed) menus don't close on mouseout
 * Changing a selection should reset the "selected"/ "hide unselected node" button
+* Combining cohemitonic and custom selections is a bit finicky. |Selection > Cohemitonic > Selection|does nothing in all cases. |Selection which includes cohemitonic nodes > cohemitonic| should remove the cohemitonic nodes from the selection, not draw the entire harmonious dataset.
 * ~~Root note highlighting wrong wedge~~
 
 ## UI / UX

@@ -620,6 +620,7 @@ function toggle_unselected () {
   update_global_selection();
 }
 
+// Toggles displaying selected/unselected nodes
 d3.select('#unselected-btn')
   .on('click', toggle_unselected);
 
