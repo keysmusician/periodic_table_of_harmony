@@ -319,7 +319,7 @@ const zoom = d3.zoom()
 // Navigation listener (for pan and zoom events)
 d3.select('#canvas')
   .append('rect')
-  .attr('class', 'navigation-listener')
+  .classed('navigation-listener', true)
   .attr('x', -diagram_width / 2)
   .attr('y', -diagram_height * 2)
   .attr('width', diagram_width * 4) // Temporary work-around to get the zoom listener to reach the height and width of the page at any size widow
@@ -329,13 +329,13 @@ d3.select('#canvas')
 
 const svg = d3.select('#canvas')
   .append('g')
-  .attr('class', 'graph');
+  .classed('graph', true);
 
 const link_group = svg.append('g')
-  .attr('class', 'links');
+  .classed('links', true);
 
 const node_group = svg.append('g')
-  .attr('class', 'nodes');
+  .classed('nodes', true);
 
 // GRAPH DRAWING
 
@@ -400,18 +400,18 @@ function draw_graph (input_dataset) {
           const interval_chart_arc_data = unit_pie(interval_cycle.intervals);
 
           const interval_chart = node.append('g') // Draws the interval charts at each node
-            .attr('class', 'interval-chart');
+            .classed('interval-chart', true);
 
           interval_chart.append('g') // Draws the arcs for the interval charts
-            .attr('class', 'interval-arcs')
+            .classed('interval-arcs', true)
             .selectAll('path')
             .data(interval_chart_arc_data)
             .join('path')
-            .attr('class', 'arc')
+            .classed('arc', true)
             .attr('d', interval_chart_arc);
 
           interval_chart.append('g') // Draws labels on arcs of the interval chart
-            .attr('class', 'interval-labels')
+            .classed('interval-labels', true)
             .selectAll('text')
             .data(interval_chart_arc_data)
             .join('text')
@@ -443,22 +443,22 @@ function draw_graph (input_dataset) {
             rotated_unit_pie(interval_cycle.intervals);
 
           const pitch_class_chart = node.append('g')
-            .attr('class', 'pitch-class-chart');
+            .classed('pitch-class-chart', true);
 
           // Draws the arcs in which the pitch class labels will reside
           pitch_class_chart.append('g')
-            .attr('class', 'pitch-class-arcs')
+            .classed('pitch-class-arcs', true)
             .selectAll('.arc')
             .data(pitch_class_chart_arc_data)
             .join('g')
-            .attr('class', 'arc')
+            .classed('arc', true)
             .classed('root', (_, arc_i) => (arc_i === interval_cycle.root))
             .append('path')
             .attr('d', pitch_class_chart_arc);
 
           const pitch_class_labels_element = pitch_class_chart
             .append('g')
-            .attr('class', 'pitch-class-labels');
+            .classed('pitch-class-labels', true);
 
           let interval_cumulative_sum = 0;
 
@@ -487,19 +487,19 @@ function draw_graph (input_dataset) {
 
         // Draws circles to fill the centers of the nodes. Unused, might delete.
         // nodes.append('circle')
-        //   .attr('class', 'node-center')
+        //   .classed('node-center', true)
         //   .attr('r', interval_chart_inner_radius);
 
         // Draws the node title label
         nodes.append('text')
-          .attr('class', 'node-label')
+          .classed('node-label', true)
           .text(d => d.name)
           .attr('y', -note_chart_outer_radius - node_label_offset);
 
         // Draws the I/O labels (the number of parent and child links)
         nodes.append('text')
+          .classed('io-label', true)
           .attr('display', 'none')
-          .attr('class', 'io-label')
           .attr('text-anchor', 'middle')
           .text(d =>
             'Parents: ' + d.parents.length + ' Children: ' +
