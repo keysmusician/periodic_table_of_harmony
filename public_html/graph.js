@@ -117,6 +117,11 @@ const GLOBALS = {
       'Click any node to select it.',
     SELECT_SINGULAR_NODE:
       'Please select only one node to use the family tree selector.'
+  },
+  GENERATION: {
+    PARENTS: 0,
+    CHILDREN: 1,
+    IMMEDIATE_FAMILY: 2
   }
 };
 
@@ -633,33 +638,37 @@ d3.select('#all-links-btn')
   });
 
 // Selects family of selected nodes by parameter number
-function select_family (generation_num) {
+function select_family (generation) {
   if (GLOBALS.SELECTION.size() === 0) {
     alert(GLOBALS.ERROR_MESSAGES.MAKE_SELECTION);
   } else {
     function selection_chain (generation) {
-      generation.forEach(family_member => {
-        d3.select('#' + family_member) // Node
+      generation.forEach(family_member_ID => {
+        d3.select('#' + family_member_ID) // Node
           .classed('selected', true);
-        d3.selectAll('.' + family_member) // Links
+
+        d3.selectAll('.' + family_member_ID) // Links
           .classed('selected', true)
           .attr('display', 'auto');
       });
     }
 
-    const selection_data = d3.selectAll('.nodes')
-      .selectAll('.selected')
-      .data(); // data from just the selected nodes (not the links)
+    const selection_interval_cycles = d3.selectAll('.nodes')
+      .selectAll('.selected') // Links can be selected, so this has to come after selecting the nodes class so only selected nodes are included
+      .data(); // Interval cycles from just the selected nodes
 
-    selection_data.forEach(node => {
-      switch (generation_num) {
-        case 0: { selection_chain(node.parents); break; }
-        case 1: { selection_chain(node.children); break; }
-        case 2: {
-          selection_chain(node.parents);
-          selection_chain(node.children);
+    selection_interval_cycles.forEach(interval_cycle => {
+      switch (generation) {
+        case GLOBALS.GENERATION.PARENTS:
+          selection_chain(interval_cycle.parents);
           break;
-        }
+        case GLOBALS.GENERATION.CHILDREN:
+          selection_chain(interval_cycle.children);
+          break;
+        case GLOBALS.GENERATION.IMMEDIATE_FAMILY:
+          selection_chain(interval_cycle.parents);
+          selection_chain(interval_cycle.children);
+          break;
       }
     });
 
@@ -668,13 +677,13 @@ function select_family (generation_num) {
 }
 
 d3.select('#parents-btn') // Selects all parents of selected nodes
-  .on('click', event => select_family(0));
+  .on('click', event => select_family(GLOBALS.GENERATION.PARENTS));
 
 d3.select('#children-btn') // Selects all children of selected nodes
-  .on('click', event => select_family(1));
+  .on('click', event => select_family(GLOBALS.GENERATION.CHILDREN));
 
 d3.select('#family-btn') // Selects all parents and children of selected nodes
-  .on('click', event => select_family(2));
+  .on('click', event => select_family(GLOBALS.GENERATION.IMMEDIATE_FAMILY));
 
 // Selects all parents, parent's parents... & children, children's children... of a given node.
 function select_family_tree () {
