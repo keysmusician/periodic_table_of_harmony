@@ -17,7 +17,7 @@ Table of Contents
 * Currently capable of displaying which nodes exist inside other nodes, but it would be nice if it showed WHERE in the parent node did the child node come from, and how many places it fits if more than one
 * MIDI integration (allowing previewing of the sound of each mode and the ability to download the midi for that node)
 * Allow node rotation by mouse wheel and dynamically change mode name, keeping starting interval at the top (or some fixed location)
-* Always displayed row numbers (which can't be scrolled away)
+* Row numbers (which can't be scrolled away)
 * Advanced info view option: Center popup window with a rotatable node closeup when selected. Can show modes based on rotation, alternative names, etc.
 * Search bar and advanced filtering options, search zooms in on matched nodes?
 * Zoom "fader" to click and drag zoom level (may help mobile support). Displays current zoom level
@@ -45,11 +45,11 @@ Table of Contents
 * Transitions and animations: ripple when clicking nodes, node rotation transition, animated filtering transitions, zoom transition, exit selection transition before removing ✅
 * Mobile support
 * Huge horizontal scroll bar in modal on small screens
-* Show/Hide Note Letters button
+* "Show/Hide Note Letters" button
 * Show Selected/Displayed/Total counts for the whole chart
 * Show number of selected / displayed / total number per row (e.g. Row 7: 1/3/80 or 1 selected / 3 displayed / 80 total)
 * Incorporate some indication of symmetry in symmetrical scales
-* Chose whether half steps are displayed relative to the root or relative to the nearest note (which is the current behavior)
+* Chose whether half steps are displayed relative to the root (cumulative) or relative to the adjacent note (which is the current behavior)
 * Hide the pitch layer/ring of a node when no root is selected, and make it possible to not select a root
 
 ## Business
@@ -63,9 +63,9 @@ Table of Contents
 * Public feature request page where users can up-vote/scale of 1 to 10 how much they want a feature and how long they can wait for it, and submit their own requests, report bugs
 
 ## Performance / Optimization
-* Parent selection is inefficient
-* Family tree selection is slow
-* Full graph is slow to pan
-* File organization: separate styles from scripts
 * Graph HTML structure is a bit inconsistent in grouping of elements
-* Most D3 .each() calls could probably be simplified to enter selection functions or .call() methods
+* Parent selection is inefficient
+* File organization: separate styles from scripts?
+* ~~Family tree selection is slow~~
+* ~~Full graph is slow to pan~~ Not sure there's anything that can be done about this...
+* ~~Most D3 .each() calls could probably be simplified to enter selection functions or .call() methods~~

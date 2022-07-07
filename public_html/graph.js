@@ -1,5 +1,6 @@
-/* eslint-disable camelcase */
 'use strict';
+
+/* eslint-disable camelcase */
 
 // GLOBAL PARAMETERS
 
@@ -92,7 +93,7 @@ const interval_chart_arc = d3.arc()
   .innerRadius(interval_chart_inner_radius)
   .outerRadius(interval_chart_outer_radius);
 
-// Note name
+// Note name arcs
 const pitch_class_chart_arc = d3.arc()
   .innerRadius(note_chart_inner_radius)
   .outerRadius(note_chart_outer_radius);
@@ -106,7 +107,7 @@ const pitch_class_position_arc = d3.arc()
   .innerRadius(note_name_radius)
   .outerRadius(note_name_radius);
 
-// Non-constant globals (encapsulated to prevent accidental setting)
+// Non-constant globals (encapsulated to prevent accidental setting through name collisions) and error messages
 const GLOBALS = {
   HIDE_ALL_LINKS: false, // The state of the "#all-links-btn"
   HIDE_INACTIVE_LINKS: false, // The state of the "#inactive-links-btn"
@@ -118,7 +119,7 @@ const GLOBALS = {
     SELECT_SINGULAR_NODE:
       'Please select only one node to use the family tree selector.'
   },
-  GENERATION: {
+  GENERATIONS: {
     PARENTS: 0,
     CHILDREN: 1,
     IMMEDIATE_FAMILY: 2
@@ -127,10 +128,21 @@ const GLOBALS = {
 
 // GLOBAL FUNCTIONS
 
-// Returns a 2D array of node positions of the form: node_positions[ node_index ][ x_or_y_value_index ] where x_or_y_value_index 0=x, 1=y.
-
-function get_node_positions (dataset) {
-  // Unordered histogram of the IntervalCycle cardinalities in the dataset (how many times each cardinality appears);
+/**
+ * Returns a mapping of node positions of the form:
+ * {
+ *    IntervalCycle ID: {
+ *      x: x position,
+ *      y: y position
+ *    }
+ * }
+ *
+ * @param { Array } dataset A list of IntervalCycle objects (see data.js)
+ *
+ * @param { bool } invert_vertically The vertical orientation of the graph
+ * */
+function get_node_positions (dataset, invert_vertically = false) {
+  // Unordered histogram of the IntervalCycle cardinalities in the dataset (how many times each cardinality appears)
   const row_and_column_counts = {};
 
   for (const interval_cycle of dataset) {
@@ -141,7 +153,7 @@ function get_node_positions (dataset) {
   // A sorted list of each cardinality:
   const sorted_row_cardinalities = Object.keys(row_and_column_counts).sort(
     function compareNumbers (a, b) {
-      return b - a; // Determines the vertical order of the rows; Reverse a and b to flip the diagram.
+      return invert_vertically ? a - b : b - a; // Determines the vertical order of the rows; Reverse a and b to invert the diagram.
     }
   );
 
@@ -196,7 +208,7 @@ function get_node_positions (dataset) {
 
     const y = row_positions[row_index];
 
-    node_positions[interval_cycle.id] = [x, y];
+    node_positions[interval_cycle.id] = { x: x, y: y };
   });
 
   return node_positions;
@@ -248,7 +260,7 @@ function handle_node_mouseover (active) {
 function handle_node_click (d, i) {
   const node = d3.select(this);
 
-  const node_id = this.id; // variable used because `this` needs to be invoked outside of the following block
+  const node_id = this.id; // Variable used because `this` needs to be invoked outside of the following block
 
   node.classed('selected', !node.classed('selected')); // Toggle the 'selected' class
 
@@ -304,7 +316,7 @@ const zoom = d3.zoom()
   )
   .on('zoom', handle_zoom);
 
-// listenerRect
+// Navigation listener (for pan and zoom events)
 d3.select('#canvas')
   .append('rect')
   .attr('class', 'navigation-listener')
@@ -327,6 +339,11 @@ const node_group = svg.append('g')
 
 // GRAPH DRAWING
 
+/**
+ * Draws the graph.
+ *
+ * @param { Array } input_dataset A list of IntervalCycle objects (see data.js)
+ */
 function draw_graph (input_dataset) {
   // Transitions are not reusable and must be created each time the graph is drawn
   const transition = svg.transition()
@@ -349,10 +366,10 @@ function draw_graph (input_dataset) {
 
         if (input_dataset[node_i].intervals.length === (length - 1)) { // If we're "in the row" below the examined node
           if (input_dataset[node_i].id === child) { // If the child node exists that the link target can connect to,
-            link_data.push({ source: node.id, target: child }); // then create the link object and push to 'link_data'
+            link_data.push({ source: node.id, target: child }); // create the link object and push to 'link_data'.
           }
         } else if (input_dataset[node_i].intervals.length < (length - 1)) {
-          break; // break loop once passed the row below the current node
+          break; // Break the loop once passed the row below the current node
         }
       }
     });
@@ -371,15 +388,15 @@ function draw_graph (input_dataset) {
           .classed('saturated', interval_cycle => interval_cycle.saturated)
           .attr('id', interval_cycle => interval_cycle.id)
           .attr('transform', interval_cycle =>
-            'translate(' + node_positions[interval_cycle.id][0] + ' ' +
-          node_positions[interval_cycle.id][1] + ') rotate(0)'
+            'translate(' + node_positions[interval_cycle.id].x + ' ' +
+          node_positions[interval_cycle.id].y + ') rotate(0)'
           ) // Sets the [x,y] positions of each node by translation from the origin.
           .on('click', handle_node_click)
           .on('mouseover', handle_node_mouseover(true))
           .on('mouseout', handle_node_mouseover(false));
 
-        nodes.each((interval_cycle, node_i, nodes) => { // Draws each node, which is a group of small charts
-          const node = d3.select(nodes[node_i]); // A D3 selection of an HTML SVG group element
+        nodes.each(function (interval_cycle) { // Draws each node, which is a group of small charts
+          const node = d3.select(this); // A D3 selection of the HTML SVG group element described above
           const interval_chart_arc_data = unit_pie(interval_cycle.intervals);
 
           const interval_chart = node.append('g') // Draws the interval charts at each node
@@ -495,8 +512,8 @@ function draw_graph (input_dataset) {
         update => update
           .transition(transition)
           .attr('transform', interval_cycle =>
-            'translate(' + node_positions[interval_cycle.id][0] + ' ' +
-            node_positions[interval_cycle.id][1] + ') rotate(0)'
+            'translate(' + node_positions[interval_cycle.id].x + ' ' +
+            node_positions[interval_cycle.id].y + ') rotate(0)'
           )
       )
     );
@@ -507,7 +524,7 @@ function draw_graph (input_dataset) {
     .join(
       enter => enter.append('line')
         .each(function (link) {
-          // Look up a given node ID and returns the node's [x,y] coordinates from node_positions.
+          // Look up a given node ID and returns the node's (x, y) coordinates from node_positions.
           const link_source_position = node_positions[link.source];
           const link_target_position = node_positions[link.target];
 
@@ -515,10 +532,10 @@ function draw_graph (input_dataset) {
             .classed(link.source, true)
             .classed(link.target, true)
             .attr('display', GLOBALS.HIDE_INACTIVE_LINKS ? 'none' : 'auto')
-            .attr('x1', link_source_position[0])
-            .attr('y1', link_source_position[1])
-            .attr('x2', link_target_position[0])
-            .attr('y2', link_target_position[1]);
+            .attr('x1', link_source_position.x)
+            .attr('y1', link_source_position.y)
+            .attr('x2', link_target_position.x)
+            .attr('y2', link_target_position.y);
 
           if (
             d3.select('#' + link.source).classed('selected') ||
@@ -530,10 +547,10 @@ function draw_graph (input_dataset) {
       ,
       update => update.call(
         update => update.transition(transition)
-          .attr('x1', d => node_positions[d.source][0])
-          .attr('y1', d => node_positions[d.source][1])
-          .attr('x2', d => node_positions[d.target][0])
-          .attr('y2', d => node_positions[d.target][1])
+          .attr('x1', d => node_positions[d.source].x)
+          .attr('y1', d => node_positions[d.source].y)
+          .attr('x2', d => node_positions[d.target].x)
+          .attr('y2', d => node_positions[d.target].y)
       ) // Sets the endpoints of the links' lines, and adds their sources and targets as classes.
     );
 }
@@ -541,7 +558,9 @@ draw_graph(dataset);
 
 // Buttons
 
-// Toggles displaying cohemitonic nodes
+/**
+ * Toggles displaying cohemitonic nodes.
+ * */
 function toggle_cohemitonic () {
   const button = d3.select(this);
   if (button.attr('active') === '1') {
@@ -559,11 +578,13 @@ function toggle_cohemitonic () {
 d3.select('#cohemitonic-btn')
   .on('click', toggle_cohemitonic);
 
-// Toggles displaying unselected nodes
+/**
+ * Toggles displaying unselected nodes.
+ * */
 function toggle_unselected () {
   const button = d3.select(this);
 
-  if (button.attr('active') === '1') { // when toggling off, return to previous graph display
+  if (button.attr('active') === '1') { // When toggling off, return to previous graph display.
     button.attr('active', 0);
 
     if (d3.select('#cohemitonic-btn').attr('active') === '1') {
@@ -571,12 +592,12 @@ function toggle_unselected () {
     } else {
       draw_graph(dataset);
     }
-  } else { // when toggling on
+  } else { // When toggling on...
     button.attr('active', 1);
 
-    if (GLOBALS.SELECTION.size()) { // only draw if there's something in the global selection
-      const selected_dataset = dataset.filter(node => { // new dataset built from user-selected nodes // PERFORMANCE NOTE: Might be more efficient to build from the global selection
-        // if the node exists, see if it's selected
+    if (GLOBALS.SELECTION.size()) { // Only draw if there's something in the global selection
+      const selected_dataset = dataset.filter(node => { // New dataset built from user-selected nodes // PERFORMANCE NOTE: Might be more efficient to build from the global selection
+        // If the node exists, see if it's selected.
         if (!d3.select('#' + node.id).empty()) {
           return d3.select('#' + node.id).classed('selected');
         } else {
@@ -637,7 +658,11 @@ d3.select('#all-links-btn')
     update_link_btn_state();
   });
 
-// Selects family of selected nodes by parameter number
+/**
+ * Selects family of selected nodes by generation.
+ *
+ * generation: One of the constants in `GLOBALS.GENERATIONS`
+ */
 function select_family (generation) {
   if (GLOBALS.SELECTION.size() === 0) {
     alert(GLOBALS.ERROR_MESSAGES.MAKE_SELECTION);
@@ -654,18 +679,18 @@ function select_family (generation) {
     }
 
     const selection_interval_cycles = d3.selectAll('.nodes')
-      .selectAll('.selected') // Links can be selected, so this has to come after selecting the nodes class so only selected nodes are included
+      .selectAll('.selected') // Links can be selected, so this has to come after selecting the nodes class so only selected nodes are included.
       .data(); // Interval cycles from just the selected nodes
 
     selection_interval_cycles.forEach(interval_cycle => {
       switch (generation) {
-        case GLOBALS.GENERATION.PARENTS:
+        case GLOBALS.GENERATIONS.PARENTS:
           selection_chain(interval_cycle.parents);
           break;
-        case GLOBALS.GENERATION.CHILDREN:
+        case GLOBALS.GENERATIONS.CHILDREN:
           selection_chain(interval_cycle.children);
           break;
-        case GLOBALS.GENERATION.IMMEDIATE_FAMILY:
+        case GLOBALS.GENERATIONS.IMMEDIATE_FAMILY:
           selection_chain(interval_cycle.parents);
           selection_chain(interval_cycle.children);
           break;
@@ -677,15 +702,18 @@ function select_family (generation) {
 }
 
 d3.select('#parents-btn') // Selects all parents of selected nodes
-  .on('click', event => select_family(GLOBALS.GENERATION.PARENTS));
+  .on('click', event => select_family(GLOBALS.GENERATIONS.PARENTS));
 
 d3.select('#children-btn') // Selects all children of selected nodes
-  .on('click', event => select_family(GLOBALS.GENERATION.CHILDREN));
+  .on('click', event => select_family(GLOBALS.GENERATIONS.CHILDREN));
 
 d3.select('#family-btn') // Selects all parents and children of selected nodes
-  .on('click', event => select_family(GLOBALS.GENERATION.IMMEDIATE_FAMILY));
+  .on('click', event => select_family(GLOBALS.GENERATIONS.IMMEDIATE_FAMILY));
 
-// Selects all parents, parent's parents... & children, children's children... of a given node.
+/**
+ * Selects all parents, grandparents, etc. and children, grandchildren, etc. of
+ * the selected node.
+ */
 function select_family_tree () {
   /**
    * Selects either descendants or ancestors of an interval cycle.
