@@ -97,6 +97,6 @@ Here are some links I have used or that may be useful for continuing this projec
 ### Author
 I'm a software engineer specializing in machine learning and interested in DSP/audio programming. I'm also a jazz pianist and music producer.
 
-[LinkedIn](https://www.linkedin.com/in/justin-masayda-630164130/)
+[LinkedIn](https://www.linkedin.com/in/justin-masayda)
 
 [Twitter](https://twitter.com/JustinMasayda)
