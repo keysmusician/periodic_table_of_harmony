@@ -27,11 +27,11 @@ Table of Contents
    * [Links](#links)
 
 ## About The Periodic Table of Harmony
-The Periodic Table of Harmony as a concept is a method of organizing harmony in 2 dimensions where each row contains a set of scale types of equal cardinality (number of intervals). A scale type is defined as a cycle (circular sequence) of intervals. Vertically on the table, each scale type is connected to the row above and/or below it via on or more lines indicating a parent/child relationship. A child scale type consists of all the intervals of a parent, but with any two adjacent intervals from the parent merged (their values summed). Conversely, a parent scale type is formed by inserting an interval, splitting two adjacent intervals since the total number of half steps is held constant.
+The Periodic Table of Harmony as a concept is a method of organizing harmony in 2 dimensions where each row contains a set of scale types of equal cardinality (number of intervals). A scale type is defined as a cycle (circular sequence) of intervals. Vertically on the table, each scale type is connected to the row above and/or below it via on or more lines (links) indicating a parent/child relationship. The angle and length of the links are not significant. A child scale type consists of all the intervals of a parent, but with any two adjacent intervals from the parent merged (their values summed). Conversely, a parent scale type is formed by inserting an interval, splitting two adjacent intervals since the total number of half steps is held constant.
 
 Due to their periodic nature, each scale type is visually represented as a ring. Each rotation of a ring corresponds to a mode of a scale or inversion of a chord (depending upon your perspective).
 
-*Note: Though I've updated some if it, nomenclature in this project may be inconsistent; I sometimes use the term scale, scale type, harmony set (how I usually describe the data in the dataset), ring (visual representation), or a node (graph terminology) interchangeably.*
+*Note: Though I've updated some if it, some nomenclature in this project may still be inconsistent; I may use the term scale, scale type, harmony set, ring, or node interchangeably. I have attempted to deconflate the terms and use each one appropriately.*
 
 ## About the Website
 The website features an interactive periodic table of harmony. The buttons centered above the bottom of the page provide selection and filtering options to help navigate the graph. The transparent nodes represent cohemitonic scale types (those which contain contiguous half steps).
