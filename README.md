@@ -77,7 +77,7 @@ It is expected that these selections will be made after selecting a single refer
 The root menu is used to select the displayed note names in each node. A root note must be paired with a "starting" interval, which is an arbitrary decision. Once a reference interval is chosen, the rest of the notes can be found. 
 
 ## Technicalities
-The dataset is the complete set of all circular permutations of compositions of 12, which represents all harmony possible in 12-TET. The graph is an undirected unweighted network diagram of the dataset. The graph is drawn using the [D3 Javascript library](https://github.com/d3/d3). Each graph node is drawn using D3's pie chart tools. There's a to-do list and other files on the development branch.
+The dataset is the complete set of all circular permutations of compositions of 12, which corresponds to all harmony possible in 12-TET. The graph is an undirected unweighted network diagram of the dataset. The graph is drawn using the [D3 Javascript library](https://github.com/d3/d3). Each graph node is drawn using D3's pie chart tools. There's a to-do list and other files on the development branch.
 
 ### Files
 The data used to build the graph lives in `data.js`. All the magic happens in `graph.js`. The other files are fairly self-explanatory.
