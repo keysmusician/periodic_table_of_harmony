@@ -11,11 +11,12 @@ Table of Contents
    * [Performance / Optimization](#performance--optimization)
 
 ## Content & Features
+* Make the length of links meaningful and intuitive?
 * Select two modes and view the difference between them
 * Display last selected node "unwrapped" onto a keyboard layout
 * Allow defining a root and displaying scale degrees
 * Currently capable of displaying which nodes exist inside other nodes, but it would be nice if it showed WHERE in the parent node did the child node come from, and how many places it fits if more than one
-* MIDI integration (allowing previewing of the sound of each mode and the ability to download the midi for that node)
+* MIDI integration (allowing previewing of the sound of each mode and the ability to download the midi for that node, showing what chord you are playing)
 * Allow node rotation by mouse wheel and dynamically change mode name, keeping starting interval at the top (or some fixed location)
 * Row numbers (which can't be scrolled away)
 * Advanced info view option: Center popup window with a rotatable node closeup when selected. Can show modes based on rotation, alternative names, etc.
@@ -28,6 +29,7 @@ Table of Contents
 * Setting to invert the graph (so unison is on top and chromatic is on the bottom)
 
 ## Bugs
+* Database: "root" attribute is not set consistently on all nodes, so pitches are not being labeled in such a way that shows the progression of the pitch relationship between nodes. Interval relationships are correct. Consider removing the "root" attribute from the dataset and use it only within the context of drawing the graph. This way, the dataset represents scale types, and the graph can dynamically display modes / chord qualities. Example of the problem: A parent of [A, A#] is [A, B, C], which is intervalically correct, but the spelling is inconsistent because the initial interval changed. It should be spelled [A, A#, G] for pitch consistency (to clearly show the addition of a new pitch). I think I would still want users to be able to rotate a node and chose which initial interval the node uses for spelling.
 * Link selection not complete when leaving a custom selection view
 * Focused (clicked or tabbed) menus don't close on mouseout
 * Changing a selection should reset the "selected"/ "hide unselected node" button
