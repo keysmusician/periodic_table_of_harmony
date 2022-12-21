@@ -6,10 +6,13 @@
 
 /* global d3, alert */
 
-// Array of interval_cycle objects used to create nodes with donut/pie charts.
+// Array of rows (nested arrays) of IntervalCycle objects used to create nodes with donut/pie charts.
 import { dataset } from './data.js';
 
-const harmonious_dataset = dataset.filter(node => !node.cohemitonic);
+// The dataset without cohemitonic nodes
+const harmonious_dataset = dataset.map(
+  row => row.filter(node => !node.cohemitonic) // Remove cohemitonic nodes
+).filter(row => row.length !== 0); // Remove empty rows
 
 const Tau = 2 * Math.PI;
 
@@ -54,7 +57,7 @@ const transition_duration = 750; // Time in milliseconds it takes for node & lin
 
 const interval_chart_outer_radius = 50;
 
-const interval_chart_inner_radius = 12;
+const interval_chart_inner_radius = 0;
 
 const note_chart_inner_radius = interval_chart_outer_radius;
 
@@ -137,78 +140,28 @@ const GLOBALS = {
  *    }
  * }
  *
- * @param { Array } dataset A list of IntervalCycle objects (see data.js)
+ * @param { Array } dataset A list of rows of IntervalCycle objects (see data.js). Will throw if there are any empty rows.
  *
  * @param { bool } invert_vertically The vertical orientation of the graph
  * */
 function get_node_positions (dataset, invert_vertically = false) {
-  // Unordered histogram of the IntervalCycle cardinalities in the dataset (how many times each cardinality appears)
-  const row_and_column_counts = {};
-
-  for (const interval_cycle of dataset) {
-    row_and_column_counts[interval_cycle.intervals.length] =
-      (row_and_column_counts[interval_cycle.intervals.length] || 0) + 1;
-  }
-
-  // A sorted list of each cardinality:
-  const sorted_row_cardinalities = Object.keys(row_and_column_counts).sort(
-    function compareNumbers (a, b) {
-      return invert_vertically ? a - b : b - a; // Determines the vertical order of the rows; Reverse a and b to invert the diagram.
-    }
-  );
-
-  // Returns an array of evenly spaced positions; Used to calculate row and column positions for nodes.
-  function compute_divisions (divisions_count, length_to_divide, offset) {
-    divisions_count += 1; // 1 is added for proper spacing---the first "division" is the edge of the diagram, so an additional division must always be added.
-
-    const div_width = length_to_divide / (divisions_count);
-
-    const div_positions = [];
-
-    const div_1_offset = offset;
-
-    let division = 0;
-
-    while (division < divisions_count) {
-      div_positions.push(division * div_width - div_1_offset);
-      ++division;
-    }
-
-    div_positions.shift(); // Removing row 0 because it is always the edge of the graph, and no nodes will be drawn there.
-
-    return div_positions;
-  }
-
-  const row_positions = compute_divisions(
-    sorted_row_cardinalities.length, diagram_height, -diagram_y_origin);
-
-  /*
-  An ordered array of the number nodes in each row.
-  The index corresponds to each row with 0 = the top row.
-  Counts how many times a certain row cardinality (determined by
-  interval_cycle.intervals.length) appears in the dataset (via
-  row_cardinalities, which did some of the work already).
-  */
-  const sorted_columns_per_row = sorted_row_cardinalities.map(
-    cardinality => row_and_column_counts[cardinality]
-  );
-
-  const column_positions = sorted_columns_per_row.map(
-    n => compute_divisions(n, diagram_width, -diagram_x_origin)
-  );
-
   const node_positions = {};
 
-  dataset.forEach(interval_cycle => {
-    const row_index = sorted_row_cardinalities.findIndex(row_cardinality =>
-      Number(row_cardinality) === interval_cycle.intervals.length);
+  dataset.forEach((row, row_index) => {
+    const row_position = (row_index + 1) * // 1 is added for proper spacing; The first "division" is the edge of the diagram, so an additional division must always be added.
+      (diagram_height / (dataset.length + 1)) +
+      diagram_y_origin;
 
-    const x = column_positions[row_index][0]; // Places the node at the first available column in the proper row, then .shift() deletes the used position.
-    column_positions[row_index].shift();
+    row.forEach((interval_cycle, column_index) => {
+      const column_position = (column_index + 1) *
+        (diagram_width / (row.length + 1)) +
+        diagram_x_origin;
 
-    const y = row_positions[row_index];
-
-    node_positions[interval_cycle.id] = { x: x, y: y };
+      node_positions[interval_cycle.id] = {
+        x: column_position,
+        y: invert_vertically ? -row_position : row_position
+      };
+    });
   });
 
   return node_positions;
@@ -256,7 +209,7 @@ function handle_node_mouseover (active) {
   };
 }
 
-// Sets a class to a selected node and its links to signal that the node has been selected
+// Sets a class to a selected node and its links to signal that the node has been selected.
 function handle_node_click (d, i) {
   const node = d3.select(this);
 
@@ -286,6 +239,18 @@ function handle_node_click (d, i) {
   }
 
   update_global_selection();
+}
+
+/**
+ * Rotates a node when one of its pitch class chart arcs are clicked such that
+ * the clicked arc becomes the new root.
+ */
+function handle_pitch_class_chart_arc_click (event, datum) {
+  const angle = (((datum.startAngle + datum.endAngle) / 2) - Tau / 2) * 360 / Tau;
+
+  d3.select(this.parentNode).transition()
+    .attr('transform', 'translate(0, 0) rotate(' + angle + ')')
+    .duration(1000);
 }
 
 function handle_zoom ({ transform }) {
@@ -322,7 +287,7 @@ d3.select('#canvas')
   .classed('navigation-listener', true)
   .attr('x', -diagram_width / 2)
   .attr('y', -diagram_height * 2)
-  .attr('width', diagram_width * 4) // Temporary work-around to get the zoom listener to reach the height and width of the page at any size widow
+  .attr('width', diagram_width * 4) // Temporary work-around to get the zoom listener to reach the height and width of the page at any size widow.
   .attr('height', diagram_height * 4)
   .style('opacity', 0.0)
   .call(zoom);
@@ -345,70 +310,58 @@ const node_group = svg.append('g')
  * @param { Array } input_dataset A list of IntervalCycle objects (see data.js)
  */
 function draw_graph (input_dataset) {
-  // Transitions are not reusable and must be created each time the graph is drawn
+  // Transitions are not reusable and must be created each time the graph is drawn.
   const transition = svg.transition()
     .duration(transition_duration);
+
+  const node_positions = get_node_positions(input_dataset);
 
   // Array of Link objects for the network diagram which builds dynamically from the dataset upon loading the page:
   // Link objects are defined as: { source: string'parent node ID', target: string'child node id' }
   const link_data = []; // For drawing the links
 
-  input_dataset.forEach((node, index) => { // Find which links should be drawn and construct the link objects by examining each node's children.
-    const length = node.intervals.length;
-
-    node.children.forEach(child => {
-      for (
-        let node_i = index, end = input_dataset.length;
-        node_i < end;
-        node_i += 1
-      ) { // Check to see if the "loose" end (target) of the links will find a node to connect to, and adds them to link data if so. The dataset will be sorted, so it does not have to be searched from the beginning. The search is started from the evaluated node's index.
-        // PERFORMANCE: Loop should actually start looking for children from the first node in the next row and stop at the end of that row. That will eliminate the need for the following control flow:
-
-        if (input_dataset[node_i].intervals.length === (length - 1)) { // If we're "in the row" below the examined node
-          if (input_dataset[node_i].id === child) { // If the child node exists that the link target can connect to,
-            link_data.push({ source: node.id, target: child }); // create the link object and push to 'link_data'.
-          }
-        } else if (input_dataset[node_i].intervals.length < (length - 1)) {
-          break; // Break the loop once passed the row below the current node
+  input_dataset.forEach(row => {
+    row.forEach(interval_cycle => {
+      interval_cycle.children.forEach(child_id => {
+        if (node_positions[child_id]) {
+          link_data.push({ source: interval_cycle.id, target: child_id });
         }
-      }
+      });
     });
   });
 
-  const node_positions = get_node_positions(input_dataset);
-
-  // Creates a group for the node graphic and initializes each node
+  // Creates an SVG group for the node graphic and initializes each node.
   node_group.selectAll('.node')
-    .data(input_dataset, interval_cycle => interval_cycle.id)
+    .data(input_dataset.flat(), interval_cycle => interval_cycle.id)
     .join(
-      enter => { // New additions to the dataset are handled here
+      enter => { // New additions to the dataset are handled here.
         const nodes = enter.append('g')
           .classed('node', true)
           .classed('cohemitonic', interval_cycle => interval_cycle.cohemitonic)
           .classed('saturated', interval_cycle => interval_cycle.saturated)
           .attr('id', interval_cycle => interval_cycle.id)
-          .attr('transform', interval_cycle =>
+          .attr('transform', interval_cycle => // Sets the [x,y] positions of each node by translation from the origin.
             'translate(' + node_positions[interval_cycle.id].x + ' ' +
           node_positions[interval_cycle.id].y + ') rotate(0)'
-          ) // Sets the [x,y] positions of each node by translation from the origin.
+          )
           .on('click', handle_node_click)
           .on('mouseover', handle_node_mouseover(true))
           .on('mouseout', handle_node_mouseover(false));
 
-        nodes.each(function (interval_cycle) { // Draws each node, which is a group of small charts
-          const node = d3.select(this); // A D3 selection of the HTML SVG group element described above
+        nodes.each(function (interval_cycle) { // Draws each node, which is a group of small charts.
+          const node = d3.select(this); // A D3 selection of the HTML SVG group element described above.
 
-          // Rotate the interval cycle so the root comes first
+          // Rotates the interval cycle so the root comes first.
           interval_cycle.intervals = interval_cycle.intervals
             .slice(interval_cycle.root)
             .concat(interval_cycle.intervals.slice(0, interval_cycle.root));
 
           const interval_chart_arc_data = unit_pie(interval_cycle.intervals);
 
-          const interval_chart = node.append('g') // Draws the interval charts at each node
+          const interval_chart = node.append('g') // Draws the interval charts at each node.
             .classed('interval-chart', true);
 
-          interval_chart.append('g') // Draws the arcs for the interval charts
+          interval_chart.append('g') // Draws the arcs for the interval charts.
             .classed('interval-arcs', true)
             .selectAll('path')
             .data(interval_chart_arc_data)
@@ -416,7 +369,7 @@ function draw_graph (input_dataset) {
             .classed('arc', true)
             .attr('d', interval_chart_arc);
 
-          interval_chart.append('g') // Draws labels on arcs of the interval chart
+          interval_chart.append('g') // Draws labels on arcs of the interval chart.
             .classed('interval-labels', true)
             .selectAll('text')
             .data(interval_chart_arc_data)
@@ -429,10 +382,10 @@ function draw_graph (input_dataset) {
 
               arc.attr('x', arc_center[0])
                 .attr('y', arc_center[1] + arc_label_font_height / 2)
-                .text(interval_cycle.intervals[arc_element_i]); // Sets & positions interval label text
+                .text(interval_cycle.intervals[arc_element_i]); // Sets & positions interval label text.
 
               arc.classed(
-                'root-label', interval_cycle.root === arc_element_i); // Sets a class on the text which is labeling the root wedge
+                'root-label', interval_cycle.root === arc_element_i); // Sets a class on the text which is labeling the root arc.
             });
 
           const rotation_offset = Tau * (
@@ -451,14 +404,15 @@ function draw_graph (input_dataset) {
           const pitch_class_chart = node.append('g')
             .classed('pitch-class-chart', true);
 
-          // Draws the arcs in which the pitch class labels will reside
+          // Draws the arcs in which the pitch class labels will reside.
           pitch_class_chart.append('g')
             .classed('pitch-class-arcs', true)
             .selectAll('.arc')
             .data(pitch_class_chart_arc_data)
             .join('g')
             .classed('arc', true)
-            .classed('root', (_, arc_i) => (arc_i === 0)) // The bottom wedge (first one drawn) will always be the root
+            .classed('root', (_, arc_i) => (arc_i === 0)) // The bottom arc (first one drawn) will always be the root.
+            .on('click', handle_pitch_class_chart_arc_click)
             .append('path')
             .attr('d', pitch_class_chart_arc);
 
@@ -477,11 +431,11 @@ function draw_graph (input_dataset) {
                 pitch_class_labels[pitch_class_label_i]);
               const arc_center = pitch_class_position_arc.centroid(arc_datum);
 
-              // Sets a class on the text element labeling the root wedge
+              // Sets a class on the text element labeling the root arc.
               pitch_class_label.classed(
                 'root-label', pitch_class_label_i === interval_cycle.root);
 
-              // Sets & positions pitch class label text
+              // Sets & positions pitch class label text.
               pitch_class_label.attr('x', arc_center[0])
                 .attr('y', arc_center[1] + arc_label_font_height / 2)
                 .call(set_pitch_class_label, interval_cumulative_sum);
@@ -496,13 +450,13 @@ function draw_graph (input_dataset) {
         //   .classed('node-center', true)
         //   .attr('r', interval_chart_inner_radius);
 
-        // Draws the node title label
+        // Draws the node title label.
         nodes.append('text')
           .classed('node-label', true)
           .text(d => d.name)
           .attr('y', -note_chart_outer_radius - node_label_offset);
 
-        // Draws the I/O labels (the number of parent and child links)
+        // Draws the I/O labels (the number of parent and child links).
         nodes.append('text')
           .classed('io-label', true)
           .attr('display', 'none')
@@ -513,7 +467,7 @@ function draw_graph (input_dataset) {
           )
           .attr('dy', (note_chart_outer_radius + io_label_offset));
       },
-      // Data that remains the same after the dataset changed is handled here
+      // Data that remains the same after the dataset changed is handled here.
       update => update.call(
         update => update
           .transition(transition)
@@ -524,13 +478,13 @@ function draw_graph (input_dataset) {
       )
     );
 
-  // Draws links
+  // Draws links.
   link_group.selectAll('line')
     .data(link_data, link => link.source + ' ' + link.target)
     .join(
       enter => enter.append('line')
         .each(function (link) {
-          // Look up a given node ID and returns the node's (x, y) coordinates from node_positions.
+          // Looks up a given node ID and returns the node's (x, y) coordinates from node_positions.
           const link_source_position = node_positions[link.source];
           const link_target_position = node_positions[link.target];
 
@@ -546,7 +500,7 @@ function draw_graph (input_dataset) {
           if (
             d3.select('#' + link.source).classed('selected') ||
             d3.select('#' + link.target).classed('selected')
-          ) { // If entering links are connected to a selected node
+          ) { // If entering links are connected to a selected node, show them as selected.
             d3.select(this).classed('selected', true);
           }
         })
@@ -601,15 +555,17 @@ function toggle_unselected () {
   } else { // When toggling on...
     button.attr('active', 1);
 
-    if (GLOBALS.SELECTION.size()) { // Only draw if there's something in the global selection
-      const selected_dataset = dataset.filter(node => { // New dataset built from user-selected nodes // PERFORMANCE NOTE: Might be more efficient to build from the global selection
-        // If the node exists, see if it's selected.
-        if (!d3.select('#' + node.id).empty()) {
-          return d3.select('#' + node.id).classed('selected');
-        } else {
-          return false;
-        }
-      });
+    if (GLOBALS.SELECTION.size()) { // Only draw if there's something in the global selection.
+      const selected_dataset = dataset.map(row =>
+        row.filter(node => { // New dataset built from user-selected nodes. // PERFORMANCE NOTE: Might be more efficient to build from the global selection.
+          // If the node exists, see if it's selected.
+          if (!d3.select('#' + node.id).empty()) {
+            return d3.select('#' + node.id).classed('selected');
+          } else {
+            return false;
+          }
+        })
+      ).filter(row => row.length !== 0);
 
       draw_graph(selected_dataset);
     } else {
@@ -620,11 +576,11 @@ function toggle_unselected () {
   update_global_selection();
 }
 
-// Toggles displaying selected/unselected nodes
+// Toggles displaying selected/unselected nodes.
 d3.select('#unselected-btn')
   .on('click', toggle_unselected);
 
-// Highlights link-btn if one of the link buttons has been toggled
+// Highlights link-btn if one of the link buttons has been toggled.
 function update_link_btn_state () {
   const sub_button_is_active = GLOBALS.HIDE_ALL_LINKS ||
     GLOBALS.HIDE_INACTIVE_LINKS;
@@ -708,13 +664,13 @@ function select_family (generation) {
   }
 }
 
-d3.select('#parents-btn') // Selects all parents of selected nodes
+d3.select('#parents-btn') // Selects all parents of selected nodes.
   .on('click', event => select_family(GLOBALS.GENERATIONS.PARENTS));
 
-d3.select('#children-btn') // Selects all children of selected nodes
+d3.select('#children-btn') // Selects all children of selected nodes.
   .on('click', event => select_family(GLOBALS.GENERATIONS.CHILDREN));
 
-d3.select('#family-btn') // Selects all parents and children of selected nodes
+d3.select('#family-btn') // Selects all parents and children of selected nodes.
   .on('click', event => select_family(GLOBALS.GENERATIONS.IMMEDIATE_FAMILY));
 
 /**
