@@ -207,16 +207,9 @@ a.page-link:hover + .button-title
     width: 100%;
 }
 
-
-
 /* Show the dropup menu on hover */
 .button:hover .dropup,
 .page-link:focus ~ .dropup{
-    display: block;
-    width: 100%;
-}
-
-.buttons > li {
     display: block;
 }
 
