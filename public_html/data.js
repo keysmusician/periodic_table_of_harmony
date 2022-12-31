@@ -1097,7 +1097,7 @@ export const dataset = [
       intervals: [2, 1, 2, 1, 2, 2, 2],
       parents: ['IC8-34', 'IC8-35', 'IC8-37', 'IC8-39', 'IC8-42'],
       children: ['IC6-45', 'IC6-75', 'IC6-79', 'IC6-68', 'IC6-69', 'IC6-29', 'IC6-33'],
-      root: 0,
+      root: 2,
       cohemitonic: false,
       saturated: true
     }, {
@@ -1106,7 +1106,7 @@ export const dataset = [
       intervals: [2, 1, 2, 2, 1, 2, 2],
       parents: ['IC8-35', 'IC8-37', 'IC8-38', 'IC8-40'],
       children: ['IC6-43', 'IC6-71', 'IC6-75', 'IC6-42', 'IC6-69', 'IC6-32'],
-      root: 0,
+      root: 2,
       cohemitonic: false,
       saturated: true
     }

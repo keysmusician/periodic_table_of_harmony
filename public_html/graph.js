@@ -135,8 +135,8 @@ const GLOBALS = {
  * Returns a mapping of node positions of the form:
  * {
  *    IntervalCycle ID: {
- *      x: x position,
- *      y: y position
+ *      x: (number) horizontal position,
+ *      y: (number) vertical position
  *    }
  * }
  *
@@ -211,9 +211,9 @@ function handle_node_mouseover (active) {
 
 // Sets a class to a selected node and its links to signal that the node has been selected.
 function handle_node_click (d, i) {
-  const node = d3.select(this);
+  const node = d3.select(this.parentNode);
 
-  const node_id = this.id; // Variable used because `this` needs to be invoked outside of the following block
+  const node_id = this.parentNode.id; // Variable used because `this` needs to be invoked outside of the following block
 
   node.classed('selected', !node.classed('selected')); // Toggle the 'selected' class
 
@@ -246,11 +246,48 @@ function handle_node_click (d, i) {
  * the clicked arc becomes the new root.
  */
 function handle_pitch_class_chart_arc_click (event, datum) {
-  const angle = (((datum.startAngle + datum.endAngle) / 2) - Tau / 2) * 360 / Tau;
+  // const angle = (((datum.startAngle + datum.endAngle) / 2) - Tau / 2) *
+  //   360 / Tau; // Convert radians to degrees
 
-  d3.select(this.parentNode).transition()
-    .attr('transform', 'translate(0, 0) rotate(' + angle + ')')
-    .duration(1000);
+  // d3.select(this.parentNode).transition()
+  //   .attr('transform', 'translate(0, 0) rotate(' + angle + ')')
+  //   .duration(600);
+
+  const root_arc_index = datum.index;
+
+  const arc = d3.select(this);
+
+  if (arc.classed('root')) { return; }
+
+  arc.classed('root', true);
+
+  const pitch_class_arcs = d3.select(this.parentNode);
+
+  d3.select(
+    this.parentNode.childNodes[pitch_class_arcs.attr('root-arc-index')]
+  ).classed('root', false);
+
+  pitch_class_arcs.attr('root-arc-index', root_arc_index);
+
+  // Redraw pitch class labels
+  let interval_cumulative_sum = 0;
+
+  d3.select(this.parentNode.parentNode)
+    .select('.pitch-class-labels')
+    .selectAll('text')
+    .each((arc_datum, pitch_class_label_i, pitch_class_labels) => {
+      const pitch_class_label = d3.select(
+        pitch_class_labels[
+          (pitch_class_label_i + root_arc_index) % pitch_class_labels.length]
+      );
+
+      pitch_class_label.classed(
+        'root-label', pitch_class_label_i === root_arc_index);
+
+      set_pitch_class_label(pitch_class_label, interval_cumulative_sum);
+
+      interval_cumulative_sum += pitch_class_label.datum().data;
+    });
 }
 
 function handle_zoom ({ transform }) {
@@ -344,7 +381,6 @@ function draw_graph (input_dataset) {
             'translate(' + node_positions[interval_cycle.id].x + ' ' +
           node_positions[interval_cycle.id].y + ') rotate(0)'
           )
-          .on('click', handle_node_click)
           .on('mouseover', handle_node_mouseover(true))
           .on('mouseout', handle_node_mouseover(false));
 
@@ -359,7 +395,8 @@ function draw_graph (input_dataset) {
           const interval_chart_arc_data = unit_pie(interval_cycle.intervals);
 
           const interval_chart = node.append('g') // Draws the interval charts at each node.
-            .classed('interval-chart', true);
+            .classed('interval-chart', true)
+            .on('click', handle_node_click);
 
           interval_chart.append('g') // Draws the arcs for the interval charts.
             .classed('interval-arcs', true)
@@ -405,13 +442,15 @@ function draw_graph (input_dataset) {
             .classed('pitch-class-chart', true);
 
           // Draws the arcs in which the pitch class labels will reside.
+          const default_root_arc_index = 0;
           pitch_class_chart.append('g')
             .classed('pitch-class-arcs', true)
+            .attr('root-arc-index', default_root_arc_index)
             .selectAll('.arc')
             .data(pitch_class_chart_arc_data)
             .join('g')
             .classed('arc', true)
-            .classed('root', (_, arc_i) => (arc_i === 0)) // The bottom arc (first one drawn) will always be the root.
+            .classed('root', (_, arc_i) => (arc_i === default_root_arc_index)) // The bottom arc (first one drawn) will be the default root.
             .on('click', handle_pitch_class_chart_arc_click)
             .append('path')
             .attr('d', pitch_class_chart_arc);
@@ -760,13 +799,27 @@ d3.selectAll('.note-btn')
 
     d3.selectAll('.pitch-class-labels')
       .each(function (interval_cycle) {
+        const root_arc_index = Number(d3.select(this.parentNode)
+          .select('.pitch-class-arcs')
+          .attr('root-arc-index'));
+
         let interval_cumulative_sum = 0;
-        d3.select(this)
+        d3.select(this.parentNode)
+          .select('.pitch-class-labels')
           .selectAll('text')
-          .each(function (_, pitch_class_label_i) {
-            set_pitch_class_label(d3.select(this), interval_cumulative_sum);
-            interval_cumulative_sum +=
-            interval_cycle.intervals[pitch_class_label_i];
+          .each((arc_datum, pitch_class_label_i, pitch_class_labels) => {
+            const pitch_class_label = d3.select(
+              pitch_class_labels[
+                (pitch_class_label_i + root_arc_index) %
+                pitch_class_labels.length
+              ]);
+
+            pitch_class_label.classed(
+              'root-label', pitch_class_label_i === root_arc_index);
+
+            set_pitch_class_label(pitch_class_label, interval_cumulative_sum);
+
+            interval_cumulative_sum += pitch_class_label.datum().data;
           });
       });
 
