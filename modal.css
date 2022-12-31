@@ -40,7 +40,7 @@
 .close a{
     text-decoration: none;
 }
-    
+
 .close:hover,
 .close:focus {
     color: black;
@@ -48,8 +48,7 @@
     cursor: pointer;
 }
 
-/* Customize website's scrollbar like Mac OS
-Not supports in Firefox and IE */
+/* Custom scrollbar in the style of Mac OS; Not supported in Firefox and IE */
 
 /* total width */
 div::-webkit-scrollbar {

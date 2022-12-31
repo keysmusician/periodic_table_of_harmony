@@ -99,6 +99,7 @@ footer {
     padding: 0;
     margin: 0;
 }
+
 .buttons li {
     display: inline-block;
     margin: 0 2vw;
@@ -191,7 +192,7 @@ h1, h2 {
     width: auto;
 }
 
-/*Displays button labels on hover*/
+/* Displays button labels on hover */
 a.page-link:hover + .button-title
 {
     display: block;
@@ -202,22 +203,34 @@ a.page-link:hover + .button-title
     display: none;
     left: 0;
     position: fixed;
-    transition: 1000ms;    
+    transition: 1000ms;
     width: 100%;
 }
 
-.dropup-content {
+/* Show the dropup menu on hover */
+.button:hover .dropup,
+.page-link:focus ~ .dropup{
+    display: block;
+}
+
+.dropup {
     backdrop-filter: blur(2px);
     border: 1px solid rgb(0, 255, 186);
     border-radius: 5px;
     bottom: 40px;
     display: none;
     margin: auto auto;
-    overflow: hidden;
     position: absolute;
     width: auto;
     z-index: 1;
-    }
+    scrollbar-color: #ffffff #00000000;
+}
+
+.dropup-content {
+    max-height: 65vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
 /* Links inside the dropup */
 .dropup-content a {
@@ -231,12 +244,6 @@ a.page-link:hover + .button-title
 /* Change color of dropup links on hover */
 .dropup-content a:hover {
     background-color: rgb(0, 255, 186);
-}
-
-/* Show the dropup menu on hover */
-.button:hover .dropup-content,
-.page-link:focus ~ .dropup-content{
-    display: block;
 }
 
 /*
