@@ -2,9 +2,9 @@
 
 Twelve-tone harmony visualized
 
-[![image](https://user-images.githubusercontent.com/74752740/130612698-b5a494ec-97c6-4bc2-a466-445bc9205791.png)](https://keysmusician.github.io/Periodic-Table-of-Harmony/)
+[![image](https://user-images.githubusercontent.com/74752740/130612698-b5a494ec-97c6-4bc2-a466-445bc9205791.png)](https://keysmusician.github.io/periodic_table_of_harmony/)
 
-Check it out here: https://keysmusician.github.io/Periodic-Table-of-Harmony/
+Check it out here: https://keysmusician.github.io/periodic_table_of_harmony/
 
 Table of Contents
 =================
@@ -86,7 +86,7 @@ The data used to build the graph lives in `data.js`. All the magic happens in `g
 Since I started this project I have changed the way I think about some musical concepts that I used in this project. I used to refer to the data type abstracting each scale type as a "harmony set" (among other things), but I have since arrived at a more nuanced and rigorous definition of things like chords, scales, modes, etc. What I formerly referred to as "harmony sets" I now call "interval cycles" or "scale types." I also don't describe the Periodic Table of Harmony (PToH) as a visualization of all *chords,* since chords requires a root, a voicing, and an expression in time. While the PToH can certainly be used as effectively an index of all scales and chords in 12-TET, the PToH is more accurately thought of as representing all possible scale types, not chords or chord qualities. I also had made references to "voices" in some documentation on the project. Voices are also features of chords, not scales or scale types, so I've removed those references. 
 
 ## Links
-The project is hosted on GitHub Pages here: https://keysmusician.github.io/Periodic-Table-of-Harmony/
+The project is hosted on GitHub Pages here: https://keysmusician.github.io/periodic_table_of_harmony/
 
 Here are some links I have used or that may be useful for continuing this project:
 * https://www.data-to-viz.com/graph/network.html

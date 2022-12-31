@@ -11,6 +11,7 @@ Table of Contents
    * [Performance / Optimization](#performance--optimization)
 
 ## Content & Features
+* Quick filter the saturated scales
 * Make the length of links meaningful and intuitive?
 * Select two modes and view the difference between them
 * Display last selected node "unwrapped" onto a keyboard layout
