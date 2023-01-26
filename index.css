@@ -95,13 +95,17 @@ header .lower {
     border-radius: 5px;
     border: 1px solid rgb(0, 255, 186);
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
     font-size: 21px;
     font-weight: 500;
+    max-height: 30px;
+    max-width: 100px;
     line-height: 30px;
     margin: 0px 10px;
     pointer-events: all;
     text-decoration: none;
-    transition: all 0.8s ease .2s;
     width: 100px;
 }
 
@@ -117,31 +121,41 @@ header .lower {
 }
 
 .button:hover {
+    max-height: 9999px; /* Larger than any button height should ever get. Needs an explicit value to animate. */
+    max-width: 9999px;
     min-width: 100px;
-    width: fit-content;
-    height: fit-content;
+    transition: all 6000ms ease 10ms;
+    width: auto;
+}
+
+.button:hover .dropup {
+    animation-delay: 200ms;
+    animation-fill-mode: forwards;
+    animation-name: delay-overflow;
+}
+
+@keyframes delay-overflow {
+    100% { overflow-y: auto; }
 }
 
 .button:hover .button-description {
-    visibility: visible;
+    display: block;
+    opacity: 100%;
 }
 
 .button:hover .button-title {
     background: rgb(0, 255, 186);
 }
 
-.button:hover .dropup {
-    display: block;
-}
-
 .button-description {
-    /* transition: 1000ms; */
     left: -100%;
+    display: none;
     margin: 0px auto;
     position: absolute;
     right: -100%;
+    transition: 200ms;
     bottom: -45px;
-    visibility: hidden;
+    opacity: 0%;
     white-space: nowrap;
     width: fit-content;
 }
@@ -149,14 +163,13 @@ header .lower {
 .dropup {
     border-radius: 5px 5px 0px 0px;
     bottom: 40px;
-    display: none;
     margin: auto auto;
     width: 100%;
     z-index: 1;
     scrollbar-color: #ffffff #00000000;
     max-height: 65vh;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .dropup a {
