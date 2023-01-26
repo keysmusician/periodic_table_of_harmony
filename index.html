@@ -7,6 +7,9 @@
         <title>Periodic Table of Harmony</title>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+        <!-- GitHub icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Styles -->
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="modal.css">
         <link rel="stylesheet" href="graph.css">
@@ -16,45 +19,29 @@
 
     <body>
         <header>
-            <div id="title">
-                <h1>Periodic Table of Harmony</h1>
+            <div class="upper">
+                <div id="title">
+                    <h1>Periodic Table of Harmony</h1>
+                </div>
             </div>
 
-            <div id="menu-button">
-                <a href="#">
-                    <svg class="ham hamRotate ham1" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
-                        <path
-                            class="line top"
-                            d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
-                        <path
-                            class="line middle"
-                            d="m 30,50 h 40" />
-                        <path
-                            class="line bottom"
-                            d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
-                    </svg>
-                </a>
+            <div class="lower">
+                <div id="info">
+                    <a href="#">
+                        <svg class="info" viewBox="0 0 330 330">
+                                <g>
+                                <path id="svg_1" d="m165,0c-90.981,0 -165,74.02 -165,165.001c0,90.981 74.019,164.999 165,164.999s165,-74.018 165,-164.999c0,-90.981 -74.019,-165.001 -165,-165.001zm0,300c-74.44,0 -135,-60.56 -135,-134.999c0,-74.439 60.56,-135.001 135,-135.001s135,60.562 135,135.001c0,74.439 -60.561,134.999 -135,134.999z"/>
+                                <path id="svg_2" d="m164.998,70c-11.026,0 -19.996,8.976 -19.996,20.009c0,11.023 8.97,19.991 19.996,19.991c11.026,0 19.996,-8.968 19.996,-19.991c0,-11.033 -8.97,-20.009 -19.996,-20.009z"/>
+                                <path id="svg_3" d="m165,140c-8.284,0 -15,6.716 -15,15l0,90c0,8.284 6.716,15 15,15c8.284,0 15,-6.716 15,-15l0,-90c0,-8.284 -6.716,-15 -15,-15z"/>
+                                </g>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </header>
 
-        <div id='sidebar' class="hidden">
-            <h1>Menu coming Soon</h1>
-        </div>
-
         <main>
             <div id="diagram"></div>
-
-            <div id="info">
-                <a href="#">
-                    <svg class="info" viewBox="0 0 330 330">
-                         <g>
-                          <path id="svg_1" d="m165,0c-90.981,0 -165,74.02 -165,165.001c0,90.981 74.019,164.999 165,164.999s165,-74.018 165,-164.999c0,-90.981 -74.019,-165.001 -165,-165.001zm0,300c-74.44,0 -135,-60.56 -135,-134.999c0,-74.439 60.56,-135.001 135,-135.001s135,60.562 135,135.001c0,74.439 -60.561,134.999 -135,134.999z"/>
-                          <path id="svg_2" d="m164.998,70c-11.026,0 -19.996,8.976 -19.996,20.009c0,11.023 8.97,19.991 19.996,19.991c11.026,0 19.996,-8.968 19.996,-19.991c0,-11.033 -8.97,-20.009 -19.996,-20.009z"/>
-                          <path id="svg_3" d="m165,140c-8.284,0 -15,6.716 -15,15l0,90c0,8.284 6.716,15 15,15c8.284,0 15,-6.716 15,-15l0,-90c0,-8.284 -6.716,-15 -15,-15z"/>
-                         </g>
-                    </svg>
-                </a>
-            </div>
 
             <div id="info-modal" class="modal">
                 <div class="modal-content">
@@ -66,7 +53,11 @@
 
                     <h1>Welcome to The Periodic Table of Harmony!</h1>
 
-                    <h2>An interactive network diagram of all possible types of scales in 12-TET.</h2>
+                    <h2>An interactive network diagram of all possible types of scales in 12-TET</h2>
+
+                    <h2>By Justin Masayda</h2>
+
+                    <p>Click and drag to navigate the graph. Zoom with the mousewheel or touch pad zoom gesture.</p>
 
                     <p>Each of the 351 nodes on this graph represent a type of musical scale defined by a unique cycle of intervals. Each slice of a node shows the size of an interval in half steps (or semitones). Rotations of a node correspond with modes of the node's scale type. The chart is organized vertically by cardinality (the number of intervals in a scale type), and horizontally by the "balance" of intervals in that row; Nodes on the left have large disparities between interval sizes which equalize towards the right of the graph.</p>
 
@@ -91,115 +82,94 @@
                     </p>
                 </div>
             </div>
+
+            <ul class="buttons">
+                <li class="button">
+                    <div class="dropup">
+                        <a id="cohemitonic-btn" href="#">Cohemitonic</a>
+
+                        <a id="unselected-btn" href="#">Selected</a>
+                    </div>
+
+                    <a class="button-title" href="#">&#128065;</a>
+
+                    <p class="button-description">Show / hide nodes</p>
+                </li>
+
+                <li id="link-btn"  class="button">
+                    <div class="dropup">
+                        <a id="all-links-btn" href="#">All</a>
+
+                        <a id="inactive-links-btn" href="#">Inactive</a>
+                    </div>
+
+                    <a class="button-title" href="#">&#128279;</a>
+
+                    <p class="button-description">Show / hide links</p>
+                </li>
+
+                <li class="button">
+                    <a id="clear-btn" class="button-title" href="#">0</a>
+                    <p class="button-description">Clear selection</p>
+                </li>
+
+                <li class="button">
+                    <div class="dropup">
+                        <a id="tree-btn" href="#">Family Tree</a>
+
+                        <a id="family-btn" href="#">Immediate Family</a>
+
+                        <a id="parents-btn" href="#">Parents</a>
+
+                        <a id="children-btn" href="#">Children</a>
+                    </div>
+
+                    <a class="button-title" href="#">&#5585;</a>
+
+                    <p class="button-description">Select connected</p>
+                </li>
+
+                <li class="button">
+                    <div class="dropup">
+                        <a class="note-btn" href="#" value=0>A</a>
+
+                        <a class="note-btn" href="#" value=1 >A♯ / B♭</a>
+
+                        <a class="note-btn" href="#" value=2>B</a>
+
+                        <a class="note-btn" href="#" value=3>C</a>
+
+                        <a class="note-btn" href="#" value=4>C♯ / D♭</a>
+
+                        <a class="note-btn" href="#" value=5>D</a>
+
+                        <a class="note-btn" href="#" value=6>D♯ / E♭</a>
+
+                        <a class="note-btn" href="#" value=7>E</a>
+
+                        <a class="note-btn" href="#" value=8>F</a>
+
+                        <a class="note-btn" href="#" value=9>F♯ / G♭</a>
+
+                        <a class="note-btn" href="#" value=10>G</a>
+
+                        <a class="note-btn" href="#" value=11>G♯ / A♭</a>
+                    </div>
+
+                    <a id="root-btn" class="button-title" href="#">
+                        Root
+                    </a>
+
+                    <p class="button-description">Root</p>
+                </li>
+            </ul>
+
         </main>
 
         <footer>
-                <div class="buttons-wrapper" aria-label="Graph display options">
-                    <ul class="buttons">
-                        <!--
-                        <li class="button">
-                            <a href="#" class="page-link" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        -->
-                        <li class="button">
-                            <a class="page-link" href="#">&#128065;</a>
-
-                            <p class="button-title">Show / hide nodes</p>
-
-                            <div class="dropup">
-                                <div class="dropup-content">
-
-                                    <a id="cohemitonic-btn" href="#">Cohemitonic</a>
-
-                                    <a id="unselected-btn" href="#">Selected</a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li id="link-btn"  class="button">
-                            <a class="page-link" href="#">&#128279;</a>
-
-                            <p class="button-title">Show / hide links</p>
-
-                            <div class="dropup">
-                                <div class="dropup-content">
-                                    <a id="all-links-btn" href="#">All</a>
-
-                                    <a id="inactive-links-btn" href="#">Inactive</a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="button">
-                            <a id="clear-btn" class="page-link" href="#">0</a>
-                            <p class="button-title">Clear selection</p>
-                        </li>
-
-                        <li class="button">
-                            <a class="page-link" href="#">&#5585;</a>
-
-                            <p class="button-title">Select connected</p>
-
-                            <div class="dropup">
-                                <div class="dropup-content">
-
-                                    <a id="tree-btn" href="#">Family Tree</a>
-
-                                    <a id="family-btn" href="#">Immediate Family</a>
-
-                                    <a id="parents-btn" href="#">Parents</a>
-
-                                    <a id="children-btn" href="#">Children</a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="button">
-                            <a id="root-btn" class="page-link" href="#">
-                                Root
-                            </a>
-
-                            <p class="button-title">Root</p>
-
-                            <div class="dropup">
-                                <div class="dropup-content">
-                                    <a class="note-btn" href="#" value=0>A</a>
-
-                                    <a class="note-btn" href="#" value=1 >A♯ / B♭</a>
-
-                                    <a class="note-btn" href="#" value=2>B</a>
-
-                                    <a class="note-btn" href="#" value=3>C</a>
-
-                                    <a class="note-btn" href="#" value=4>C♯ / D♭</a>
-
-                                    <a class="note-btn" href="#" value=5>D</a>
-
-                                    <a class="note-btn" href="#" value=6>D♯ / E♭</a>
-
-                                    <a class="note-btn" href="#" value=7>E</a>
-
-                                    <a class="note-btn" href="#" value=8>F</a>
-
-                                    <a class="note-btn" href="#" value=9>F♯ / G♭</a>
-
-                                    <a class="note-btn" href="#" value=10>G</a>
-
-                                    <a class="note-btn" href="#" value=11>G♯ / A♭</a>
-                                </div>
-                            </div>
-                            </li>
-                            <!--
-                                <li class="button">
-                                    <a href="#" class="page-link" aria-label="Next">
-                                        <span aria-hidden="true">»</span>
-                                    </a>
-                        </li>
-                        -->
-                    </ul>
-                </div>
+            <a id="github-icon" href="https://github.com/keysmusician/periodic_table_of_harmony">
+				<i class="fa fa-github" style="font-size:36px"></i>
+			</a>
         </footer>
 
         <script type="module" src="data.js"></script>
