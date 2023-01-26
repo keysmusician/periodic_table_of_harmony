@@ -1,5 +1,6 @@
 /* The Modal (background) */
 .modal {
+    align-items: center;
     color: black;
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -17,19 +18,27 @@
 .modal-content {
     background-color: #ededed;
     border: 1px solid #888;
-    margin: 10% auto; /* 15% from the top and centered */
+    margin: 10% auto;
     max-height: 50%;
+    min-height: 80px;
     overflow: auto;
     padding: 20px;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 50%;
 }
 
-.modal-content p{
+.modal-content p {
     text-align: left;
-    font-size: 20px;
 }
 
-/* The Close Button */
+.modal-content h1 {
+    font-size: 25px;
+}
+
+.modal-content h2 {
+    font-size: 18px;
+}
+
+/* The "close" Button */
 .close {
     color: #aaa;
     float: right;
