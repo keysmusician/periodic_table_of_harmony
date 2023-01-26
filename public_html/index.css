@@ -11,6 +11,7 @@ body {
 
 body {
     height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 ::-moz-selection,
@@ -18,20 +19,69 @@ body {
   background: #ffffff;
 }
 
+h1 {
+    font-size: 3vmin;
+}
+
+h2 {
+    font-size: 2.2vmin;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
 header {
-    background-color: rgb(206, 206, 206);
-    background-color: rgba(206, 206, 206, 0.42);
-    backdrop-filter: blur(1px);
-    height: 8vh;
+    box-sizing: border-box;
+    height: 16vh;
     position: fixed;
-    top: 0;
+    top: 0px;
     width: 100%;
 }
 
+header .upper{
+    background-color: rgba(206, 206, 206, 0.42);
+    backdrop-filter: blur(1px);
+    height: 50%;
+    width: 100%;
+}
+
+header .lower {
+    height: 50%;
+    width: 100%;
+    padding: 20px;
+}
+
+#title {
+    color: black;
+    display: inline;
+    float: none;
+    padding: 1.5vh;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transform: translate(-50%, 0%);
+}
+
+#info {
+    height: 34px;
+    width: 34px;
+}
+
+#info:hover {
+    fill: rgb(0, 255, 186);
+    cursor: pointer;
+}
+
+.info path {
+    fill: inherit;
+    width: auto;
+}
+
+/*
 #menu-button {
     position: absolute;
 }
-
 .ham {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -79,64 +129,88 @@ header {
     position: absolute;
     top: 8vh;
     width: 30%;
-}
-
-footer {
-    bottom: 10%;
-    margin: 0;
-    padding: 0;
-    pointer-events: none;
-    position: fixed;
-    text-align: center;
-    width: 100%;
-}
+} */
 
 .buttons {
-    font-family: 'Poppins', sans-serif;
-    border-radius: 10px 10px 0 0;
-    display: inline-flex;
+    align-items: flex-end;
+    bottom: 55px;
+    display: flex;
+    justify-content: space-between;
+    left: 0px;
+    right: 0px;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    margin: 0px auto;
+    max-width: 800px;
+    padding: 0px;
+    pointer-events: none;
+    position: absolute;
 }
 
-.buttons li {
-    display: inline-block;
-    margin: 0 2vw;
-    padding: 0;
-    pointer-events: all;
-    position: relative;
-    transition: all 0.2s ease 0s;
-}
-
-.buttons li a.page-link {
-    color: #ffffff;
+.button {
     backdrop-filter: blur(2px);
+    border-radius: 5px;
+    border: 1px solid rgb(0, 255, 186);
+    color: #ffffff;
     font-size: 21px;
     font-weight: 500;
     line-height: 30px;
+    margin: 0px 10px;
+    pointer-events: all;
+    text-decoration: none;
+    transition: all 0.8s ease .2s;
+    width: 100px;
+}
+
+.button > * {
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+
+
+.button:hover {
+    min-width: 100px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.button:hover .button-description {
+    visibility: visible;
+}
+
+.button:hover .button-title {
+    background: rgb(0, 255, 186);
+}
+
+.button:hover .dropup{
+    display: block;
+}
+
+/*
+.buttons li {
+    margin: auto;
+    padding: 0;
+    pointer-events: all;
+    transition: all 0.2s ease 0s;
+}
+
+.buttons li a.button-title {
     height: 33px;
     width: 5vw;
     max-width: 75px;
     padding: 0;
     margin: 0;
-    border: 1px solid rgb(0, 255, 186);
-    border-radius: 5px;
     display: inline-block;
-    text-decoration: none;
-    transition: all 0.2s ease 0s;
 }
 
-.buttons li.active a.page-link,
-.buttons li a.page-link:hover,
-.buttons li.active a.page-link:hover {
+.dropup:hover {
     color: #fff;
-    background: rgb(0, 255, 186);
     line-height: 38px;
     height: 41px;
     margin: -5px 0 -3px;
     border: 1px solid rgb(0, 255, 186);
     transition: all 0.3s ease 0s;
+    width: 100%;
 }
 
 @media only screen and (max-width: 480px){
@@ -146,107 +220,80 @@ footer {
     }
     .buttons li{ display: inline-block; }
 }
+*/
 
-
-
-h1 {
-    font-size: 3vmin;
-}
-
-h2 {
-    font-size: 2.2vmin;
-}
-
-h1, h2 {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-}
-
-#title {
-    color: black;
-    display: inline;
-    float: none;
-    padding: 1.5vh;
+.button-description {
+    /* transition: 1000ms; */
+    left: -100%;
+    margin: 0px auto;
     position: absolute;
-    text-align: center;
-    top: 0;
-    transform: translate(-50%, 0%);
-}
-
-#info {
-    margin: 1.5vh;
-    right: 0%;
-    height: 5vh;
-    position: absolute;
-    top: 8vh;
-    width: 5vh;
-}
-
-#info:hover {
-    fill: rgb(0, 255, 186);
-    cursor: pointer;
-}
-
-.info path {
-    fill: inherit;
-    width: auto;
-}
-
-/* Displays button labels on hover */
-a.page-link:hover + .button-title
-{
-    display: block;
-}
-
-.button-title {
-    bottom: 2%;
-    display: none;
-    left: 0;
-    position: fixed;
-    transition: 1000ms;
-    width: 100%;
+    right: -100%;
+    bottom: -45px;
+    visibility: hidden;
+    white-space: nowrap;
+    width: fit-content;
 }
 
 /* Show the dropup menu on hover */
-.button:hover .dropup,
-.page-link:focus ~ .dropup{
+/* .button:hover .dropup,
+.button-title:focus ~ .dropup{
     display: block;
-}
+} */
 
 .dropup {
-    backdrop-filter: blur(2px);
-    border: 1px solid rgb(0, 255, 186);
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
     bottom: 40px;
     display: none;
     margin: auto auto;
-    position: absolute;
-    width: auto;
+    width: 100%;
     z-index: 1;
     scrollbar-color: #ffffff #00000000;
-}
-
-.dropup-content {
     max-height: 65vh;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
+/*
+.dropup-content {
+    max-height: 65vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+} */
+
 /* Links inside the dropup */
-.dropup-content a {
-    color: #ffffff;
-    padding: 12px;
-    text-align: center;
+.button a {
+    color: inherit;
     text-decoration: none;
+}
+
+.dropup a {
+    padding: 10px;
     display: block;
 }
 
 /* Change color of dropup links on hover */
-.dropup-content a:hover {
+.dropup a:hover {
     background-color: rgb(0, 255, 186);
 }
 
-/*
-.noClick {
+footer {
+    bottom: 0px;
+    box-sizing: border-box;
+    position: absolute;
+    padding: 20px;
     pointer-events: none;
-}*/
+}
+
+#github-icon i{
+    float: left;
+    height: 100%;
+    pointer-events: all;
+}
+
+#github-icon:visited, #github-icon:link{
+    color: black;
+}
+
+#github-icon:hover {
+    color: rgb(0, 255, 186);;
+}
